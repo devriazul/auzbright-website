@@ -152,6 +152,35 @@
     if (document.readyState === 'complete') warm(); else window.addEventListener('load', warm);
   }
 
+  /* ---------- Deferred thumbnails ----------
+     Images marked data-lazy-src wait until the hero image has loaded, then load as they
+     come within 300px of the screen. Native lazy loading starts much earlier on slow
+     connections, which delayed the hero image on phones. */
+  var deferImgs = $$('img[data-lazy-src]');
+  function loadDeferred(img) {
+    if (!img.hasAttribute('data-lazy-src')) return;
+    img.src = img.getAttribute('data-lazy-src');
+    img.removeAttribute('data-lazy-src');
+  }
+  var deferStarted = false;
+  function startDeferred() {
+    if (deferStarted) return;
+    deferStarted = true;
+    if (!('IntersectionObserver' in window)) { deferImgs.forEach(loadDeferred); return; }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) { io.unobserve(en.target); loadDeferred(en.target); } });
+    }, { rootMargin: '300px 0px' });
+    deferImgs.forEach(function (i) { io.observe(i); });
+  }
+  if (deferImgs.length) {
+    var heroImg = $('.slide img[fetchpriority="high"]');
+    if (heroImg && !heroImg.complete) {
+      heroImg.addEventListener('load', startDeferred, { once: true });
+      heroImg.addEventListener('error', startDeferred, { once: true });
+      setTimeout(startDeferred, 4000); // safety net
+    } else startDeferred();
+  }
+
   /* ---------- Service selector ---------- */
   var svcNames = { hw: 'Residential Heat Pump', ac: 'Air Conditioner', bat: 'Solar & Battery', ev: 'EV Charger', wf: 'Water Filter', led: 'LED Lighting' };
   var svcOrder = ['hw', 'ac', 'wf', 'bat', 'ev', 'led'];
@@ -328,6 +357,89 @@
     topbar.style.maxHeight = '0px';
     setTimeout(function () { topbar.hidden = true; if (logo) logo.focus({ preventScroll: true }); }, 320);
   });
+
+  /* ---------- Scroll reveal ----------
+     Blocks below the fold fade up as they enter the screen; cards in a grid stagger.
+     Content already on screen at load is left alone (no flash), nothing is hidden
+     without JS, and "reduce motion" turns it off. Classes are removed once the
+     animation ends so each element's own hover transitions come back. */
+  (function () {
+    if (reduceMotion || !('IntersectionObserver' in window)) return;
+    var GRID = '.g-2,.g-3,.g-4,.g-sav,.g-split,.g-half,.ev-grid,.g-foot';
+    var groups = [];
+    function kids(el) { return Array.prototype.slice.call(el.children); }
+    function sameTagList(el) {
+      var c = kids(el);
+      return c.length >= 4 && c.every(function (x) { return x.tagName === c[0].tagName; });
+    }
+    function addBlock(el) {
+      if (el.matches('script,style')) return;
+      if (el.matches(GRID)) {
+        // grid cells reveal as one staggered group; a column holding a list
+        // of like items (e.g. the FAQ questions) staggers those items instead
+        var cells = [];
+        kids(el).forEach(function (c) { if (sameTagList(c)) groups.push(kids(c)); else cells.push(c); });
+        if (cells.length) groups.push(cells);
+      } else if (el.children.length === 1 && el.firstElementChild.matches(GRID)) {
+        groups.push(kids(el.firstElementChild));
+      } else {
+        groups.push([el]);
+      }
+    }
+    $$('main > section, footer').forEach(function (root) {
+      var wrap = root.querySelector(':scope > .wrap');
+      if (!wrap) { addBlock(root); return; }
+      if (wrap.matches(GRID)) addBlock(wrap); else kids(wrap).forEach(addBlock);
+      kids(root).forEach(function (c) { if (c !== wrap) addBlock(c); }); // e.g. the partner marquee
+    });
+
+    var fold = window.innerHeight * 0.92;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        var el = en.target;
+        io.unobserve(el);
+        el.classList.add('in');
+        var delay = parseFloat(el.style.transitionDelay) || 0;
+        setTimeout(function () {
+          el.classList.remove('reveal', 'in');
+          el.style.transitionDelay = '';
+        }, delay * 1000 + 900);
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+
+    groups.forEach(function (g) {
+      g.forEach(function (el, i) {
+        if (el.getBoundingClientRect().top < fold) return; // already visible: leave it
+        el.classList.add('reveal');
+        if (el.matches('.photo') || el.querySelector(':scope > img')) el.classList.add('reveal-img');
+        if (i) el.style.transitionDelay = Math.min(i * 0.08, 0.48) + 's';
+        io.observe(el);
+      });
+    });
+    // Anything jumped past (anchor links, fast scrolling) appears at once, so
+    // scrolling back up never shows blank space.
+    var passTicking = false;
+    window.addEventListener('scroll', function () {
+      if (passTicking) return;
+      passTicking = true;
+      requestAnimationFrame(function () {
+        passTicking = false;
+        $$('.reveal:not(.in)').forEach(function (el) {
+          if (el.getBoundingClientRect().bottom < 0) {
+            io.unobserve(el);
+            el.style.transition = 'none';
+            el.classList.remove('reveal');
+            el.style.transitionDelay = '';
+            requestAnimationFrame(function () { el.style.transition = ''; });
+          }
+        });
+      });
+    }, { passive: true });
+    window.addEventListener('beforeprint', function () {
+      $$('.reveal').forEach(function (el) { el.classList.add('in'); });
+    });
+  })();
 
   /* ---------- Footer year ---------- */
   $$('footer span').forEach(function (s) { if (/^© \d{4} Auzbright/.test(s.textContent)) s.textContent = s.textContent.replace(/\d{4}/, String(new Date().getFullYear())); });

@@ -24,7 +24,7 @@ The homepage has two jobs: explain Auzbright's upgrades and the government incen
 | --- | --- | --- | --- |
 | 0 | Utility bar | `#topbar` | Slim navy bar: "Incentives" message linking to `#check`, plus service area, hours, phone and a dismiss button |
 | 1 | Header and navigation | `#site-nav` | Sticky glass bar, pinned on every section, with desktop dropdowns and a mobile menu |
-| 2 | Hero slider | | Three slides that advance every 7 seconds. Height adapts to the screen, so the buttons stay above the fold from 1280×720 up and on phones |
+| 2 | Hero slider | | Three slides that advance every 7 seconds. Height adapts to the screen, so the buttons stay above the fold from 1280×720 up. On phones (≤620px) the image comes first (220px tall), followed by the text, and the controls sit on one row; the sticky "Get a Free Quote" bar keeps a call to action on screen |
 | 3 | Partners | `#partners` | Scrolling strip of brand names |
 | 4 | Services | `#services` | Selectable upgrade cards |
 | 5 | Incentives | | How eligibility works |
@@ -88,6 +88,8 @@ All content sits inside `.ab`, which is a named size container (`page`). Layouts
 
 Display headings scale with `clamp()` and `cqi` units.
 
+Phone spacing (≤620px): sections use 64px top and bottom padding with 20px side gutters. Section headers keep a 20px gap between heading and intro. Below 380px, the trust stats stack in one column, and the four incentive factors stack at all phone widths.
+
 Main brand colours:
 
 | Colour | Hex |
@@ -107,12 +109,14 @@ The `data-onchange` and `data-oninput` attributes in `index.html` are not read b
 | --- | --- |
 | Navigation | Each top-level label is a link: About to `/about/`, Victoria to `/victoria/victorian-energy-upgrades/`, NSW to `/nsw/energy-savings-scheme-ess/` and Product and Services to `#services`. Dropdowns open on mouse hover or from the chevron button (keyboard and touch), and close on mouse leave, outside click or Escape |
 | Utility bar | Scrolls away with the page (only the nav is sticky). The ✕ (`data-onclick="dismissTopbar"`) collapses the bar and stores the time in `localStorage` (`auzbright-topbar-dismissed`). A small inline script after the bar keeps it hidden on later visits for 14 days, without a flash. Focus moves to the logo after dismissing. The message shortens below 620px, where the area and phone number collapse to icons; hours hide below 1100px |
-| Sticky nav | `<header class="site-nav">` is `position: sticky`. At the top of the page it's solid navy, matching the hero. After 8px of scroll, the script adds `.scrolled`, which fades it to translucent navy with `backdrop-filter` blur (solid navy where blur isn't supported), shrinks the bar (88→68px, or 68→60px on phones), scales the logo and adds a hairline border and shadow. The bar slides in on load, links get an animated underline, the dropdown arrow rotates and menus fade in. `scroll-padding-top` keeps anchor targets clear of the bar. Animations are off under `prefers-reduced-motion` |
+| Sticky nav | `<header class="site-nav">` is `position: sticky`. At the top of the page it's solid navy, matching the hero. After 8px of scroll, the script adds `.scrolled`, which fades it to translucent navy with `backdrop-filter` blur (solid navy where blur isn't supported), shrinks the bar (88→68px, or 68→60px on phones), scales the logo and adds a hairline border and shadow. On load, the bar's contents fade down into place (the dark bar itself stays put, so no gap shows), links get an animated underline, the dropdown arrow rotates and menus fade in. `scroll-padding-top` keeps anchor targets clear of the bar. Animations are off under `prefers-reduced-motion` |
 | Hero slider | Rotates every 7 seconds and pauses while the pointer is over it or focus is inside it. Stops after manual navigation, and has a pause button. Slides are stacked in one grid cell (hidden slides use `visibility: hidden`), so the page below doesn't move when slides change. Slides 2 and 3 load their images from `data-src`/`data-srcset` after the page loads, or when shown. Only slides shown by navigation get the fade-in (`.enter`), not the first one |
 | Service cards | Multiple selection, with Residential Heat Pump selected by default |
 | Reviews | Horizontal scrolling with expandable text |
 | Savings explainer | The cards are ARIA tabs (`.sav-tab`) that switch the detail panel (`.sav-panel`). Arrow keys, Home and End move between cards. In the stacked layout (≤1100px), the cards sit above the panel, and the page scrolls to the details after a click |
 | FAQs | Opening one answer closes the others |
+| Scroll reveal | As blocks enter the screen, they fade up 28px; photos also scale from 97%. Section headings reveal as one block. Cards in a grid stagger by 80ms (capped at 480ms): product cards, incentive steps, savings panel and cards, events, stats, FAQ questions and footer columns. `main.js` picks targets from each section's `.wrap` children and grids, so new sections are covered automatically. Content already on screen at load isn't hidden. Anything scrolled past (for example after an anchor jump) appears instantly. The `.reveal`/`.in` classes are removed after the animation, so each element's own hover transitions return. Nothing is hidden without JavaScript, and "reduce motion" turns it off |
+| Hero entrance | On first load, the slide 1 label, headline, text and buttons rise in sequence (80ms apart), and the image settles from a 6% zoom. The image has no fade, so the largest content paint isn't delayed. Later slide changes use the `.enter` fade |
 | Partner strip | CSS animation with a pause button |
 | Footer | Sets the copyright year automatically |
 
@@ -184,6 +188,7 @@ To add a logo, put the file in `assets/images/partners/` and replace the brand's
 ### Accessibility
 
 - Skip link to `<main id="main">`, visible focus states and labelled form fields
+- Every link and button is at least 24×24px (WCAG 2.5.8). Small text links (`.link-row`, `.social-row`, `.legal-row`, `.call-link`, footer lists) get a 32px-high tap area; form radios sit inside full-width labels
 - Native buttons and links with ARIA state (`aria-expanded`, `aria-pressed`, `aria-invalid`)
 - Escape closes dropdowns and returns focus to the button that opened them
 - Focus moves to the new step in the form
@@ -193,7 +198,8 @@ To add a logo, put the file in `assets/images/partners/` and replace the brand's
 
 - Title, description, canonical URL, Open Graph and Twitter card tags
 - `LocalBusiness` JSON-LD in the `<head>`
-- Hero image is preloaded with a matching `imagesrcset`, and images below the fold are lazy-loaded
+- Hero image is preloaded with a matching `imagesrcset`, and images below the fold are lazy-loaded with `fetchpriority="low"`
+- Service card thumbnails use `data-lazy-src`: `main.js` starts loading them only after the hero image has loaded, as they come within 300px of the screen. Native lazy loading starts far earlier on slow connections and was delaying the hero image on phones by about 0.4s
 - Hero photos come in 480, 800 and 1200px versions (`hero-*-480.webp` and so on; for the family photo, `hero-family.webp` is the 1024px version) with `srcset` and `sizes`, so phones download smaller files
 - `fonts.gstatic.com` is preconnected, so Inter loads sooner
 - Hero image heights use `clamp()` with `svh`, and the hero headline is capped at 76px
@@ -202,7 +208,7 @@ Measured in headless Chrome:
 
 | Screen | Largest content paint | Data at load | Hero buttons |
 | --- | --- | --- | --- |
-| Phone 390×844, slow 4G, 4× CPU | 2.8s → 1.8s | 800 → 655 KB | Below → above fold |
+| Phone 390×844, slow 4G, 4× CPU | 2.8s → 1.8s | 800 → 664 KB | Image first; sticky call-to-action bar always visible |
 | Laptop 1366×768 | 460 → 290ms | 934 → 606 KB | Below → above fold |
 | Desktop 1440×900 | 404 → 296ms | 934 → 606 KB | Below → above fold |
 
@@ -251,7 +257,7 @@ These pages are linked from the homepage and still need to be created, or the li
 
 ## Testing
 
-The project has no automated tests or CI. Check changes manually at 1440, 768 and 390 pixels wide, with no horizontal scrolling at any width, and test the full form flow by keyboard.
+The project has no automated tests or CI. Check changes manually at 1440, 768, 390 and 320 pixels wide, with no horizontal scrolling at any width, and test the full form flow by keyboard.
 
 ## Maintaining this README
 
