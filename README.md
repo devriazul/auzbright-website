@@ -24,7 +24,7 @@ The homepage has two jobs: explain Auzbright's upgrades and the government incen
 | --- | --- | --- | --- |
 | 0 | Utility bar | `#topbar` | Slim navy bar: "Incentives" message linking to `#check`, plus service area, hours, phone and a dismiss button |
 | 1 | Header and navigation | `#site-nav` | Sticky glass bar, pinned on every section, with desktop dropdowns and a mobile menu |
-| 2 | Hero slider | | Three slides that advance every 7 seconds. Height adapts to the screen, so the buttons stay above the fold from 1280×720 up. On phones (≤620px) the image comes first (220px tall), followed by the text, and the controls sit on one row. The floating Chat and Call buttons stay on screen |
+| 2 | Hero slider | | Seven slides that advance every 7 seconds: a general introduction, then one per product category in the Product and Services menu order (heat pumps, air conditioning, solar & battery, EV chargers, LED lighting, water filters), each with its own eligibility or quote button and a link to its product card. Height adapts to the screen, so the buttons stay above the fold from 1280×720 up. On phones (≤620px) the image comes first (220px tall), followed by the text, and the controls sit on one row. The floating Chat and Call buttons stay on screen |
 | 3 | Partners | `#partners` | Scrolling strip of brand names |
 | 4 | Services | `#services` | Selectable upgrade cards |
 | 5 | Incentives | | How eligibility works |
@@ -48,9 +48,33 @@ The homepage has two jobs: explain Auzbright's upgrades and the government incen
 │   ├── js/main.js        All interactions
 │   └── images/           Logo (PNG) and 12 photos (WebP)
 │       └── partners/     Partner brand logos (SVG and PNG)
+├── about/index.html      About page
+├── contact/index.html    Contact Us page
+├── scripts/sync-pages.py Copies the shared header, footer and floating buttons into other pages
 ├── README.md             Project and technical documentation
 └── README-LAUNCH.txt     Launch checklist for the business
 ```
+
+## Pages
+
+| Page | File | Notes |
+| --- | --- | --- |
+| Homepage | `index.html` | Source of the shared parts |
+| About | `about/index.html` | Hero with the Sydney Home Show photo, key numbers (5,258 projects counts up), who we are with vision/mission/values cards, four-step process, why choose us, Victoria and NSW cards, careers and the eligibility call to action. Content is adapted from auzbright.com.au/about/ |
+| Contact Us | `contact/index.html` | Hero, four contact cards (call, email, office, chat), enquiry form, office details and quick links |
+
+There is no build step, so the topbar, navigation, footer and floating buttons are copied into each page between `<!-- shared:NAME -->` and `<!-- /shared:NAME -->` comments. Edit them in `index.html` only, then run `python3 scripts/sync-pages.py`. The script copies them into each page listed in its `PAGES` setting and adjusts the links for the folder depth. Asset paths become `../assets/`, homepage sections become `../#check` and so on, and the page's own nav link gets `aria-current="page"`. Running it again when nothing has changed does nothing.
+
+Links between pages in this repo are relative (`contact/`, `./`, `../`), so they work both at the domain root and on the GitHub Pages preview. Links to pages that only exist on the WordPress site, such as `/about/`, stay root-relative.
+
+### Contact form
+
+`contact/index.html` has its own form (`#contact-form`), configured at the top of `assets/js/main.js`:
+
+- `CONTACT_ENDPOINT`: your form handler URL. The form POSTs JSON: `name`, `email`, `phone`, `postcode`, `enquiryType`, `upgrade`, `message`, `consent`, `source: "Contact page"`. Success is shown only when the server answers with an OK status; otherwise the visitor sees an error with the phone number and email address, and their input is kept.
+- While `CONTACT_ENDPOINT` is empty, sending opens the visitor's email app with a message to `CONTACT_EMAIL` (admin@auzbright.com.au), with the details filled in, and the page says so.
+
+The form checks fields in the page: name, an email or phone number (or both), enquiry type, a message of at least 10 characters and the privacy consent. Email, Australian phone and 4-digit postcode formats are also checked. Errors are linked to their fields for screen readers, and focus moves to the first problem. A hidden "website" field catches simple spam bots.
 
 ## Run locally
 
@@ -111,7 +135,7 @@ The `data-onchange` and `data-oninput` attributes in `index.html` are not read b
 | Navigation | Each top-level label is a link: About to `/about/`, Victoria to `/victoria/victorian-energy-upgrades/`, NSW to `/nsw/energy-savings-scheme-ess/` and Product and Services to `#services`. Dropdowns open on mouse hover or from the chevron button (keyboard and touch), and close on mouse leave, outside click or Escape |
 | Utility bar | Scrolls away with the page (only the nav is sticky). The ✕ (`data-onclick="dismissTopbar"`) collapses the bar and stores the time in `localStorage` (`auzbright-topbar-dismissed`). A small inline script after the bar keeps it hidden on later visits for 14 days, without a flash. Focus moves to the logo after dismissing. The message shortens below 620px, where the area and phone number collapse to icons; hours hide below 1100px |
 | Sticky nav | `<header class="site-nav">` is `position: sticky`. At the top of the page it's solid navy, matching the hero. After 8px of scroll, the script adds `.scrolled`, which fades it to translucent navy with `backdrop-filter` blur (solid navy where blur isn't supported), shrinks the bar (88→68px, or 68→60px on phones), scales the logo and adds a hairline border and shadow. On load, the bar's contents fade down into place (the dark bar itself stays put, so no gap shows), links get an animated underline, the dropdown arrow rotates and menus fade in. `scroll-padding-top` keeps anchor targets clear of the bar. Animations are off under `prefers-reduced-motion` |
-| Hero slider | Rotates every 7 seconds and pauses while the pointer is over it or focus is inside it. Stops after manual navigation, and has a pause button. Slides are stacked in one grid cell (hidden slides use `visibility: hidden`), so the page below doesn't move when slides change. Slides 2 and 3 load their images from `data-src`/`data-srcset` after the page loads, or when shown. Only slides shown by navigation get the fade-in (`.enter`), not the first one |
+| Hero slider | Rotates every 7 seconds and pauses while the pointer is over it or focus is inside it. Stops after manual navigation, and has a pause button. Slides are stacked in one grid cell (hidden slides use `visibility: hidden`), so the page below doesn't move when slides change. Slides 2–7 load their images from `data-src`/`data-srcset` after the page loads, or when shown. On phones, the seven dots are replaced by the "01 / 07" counter. Only slides shown by navigation get the fade-in (`.enter`), not the first one |
 | Service cards | Multiple selection, with Residential Heat Pump selected by default |
 | Reviews | Horizontal scrolling with expandable text |
 | Savings explainer | The cards are ARIA tabs (`.sav-tab`) that switch the detail panel (`.sav-panel`). Arrow keys, Home and End move between cards. In the stacked layout (≤1100px), the cards sit above the panel, and the page scrolls to the details after a click |
@@ -228,7 +252,7 @@ Measured in headless Chrome:
 | Laptop 1366×768 | 460 → 290ms | 934 → 606 KB | Below → above fold |
 | Desktop 1440×900 | 404 → 296ms | 934 → 606 KB | Below → above fold |
 
-If you replace a hero photo, regenerate all its sizes and keep the `srcset` widths accurate.
+If you replace a hero photo, regenerate all its sizes and keep the `srcset` widths accurate. The category slides use `hero-aircon-*`, `hero-ev-*`, `hero-led-475` and `hero-water-*`, made from images on auzbright.com.au. The LED and air con photos are only available at about 475–600px, so they may look soft on large high-density screens.
 
 The canonical URL, `og:url` and `og:image` point to the production domain. Update them if the production URL or hero image changes.
 
@@ -247,6 +271,9 @@ There is no build. Upload `index.html` and the `assets/` folder together, keepin
 [README-LAUNCH.txt](README-LAUNCH.txt) has the full checklist. These are the main open items:
 
 - [ ] Set `FORM_ENDPOINT` so enquiries reach the CRM
+- [ ] Set `CONTACT_ENDPOINT` for the Contact Us page form (until then it opens an email instead)
+- [ ] Decide whether `contact/` and `about/` replace the WordPress `/contact/` and `/about/` pages when this site goes live
+- [ ] Confirm the About page numbers ("5,258 projects completed" and "80% saving on lighting costs", both from the current About page) and add real team members if you want a team section
 - [ ] Connect live chat: create a Tawk.to account and set `CHAT.tawkPropertyId` and `CHAT.tawkWidgetId` in `assets/js/main.js` (until then, Chat opens the contact panel)
 - [ ] Replace the `[TO CONFIRM]` ABN in the footer
 - [ ] Replace placeholder hero images and stock-style photos with genuine Auzbright photos

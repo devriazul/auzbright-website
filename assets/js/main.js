@@ -10,6 +10,11 @@
      While it is empty, enquiries are NOT sent anywhere. */
   var FORM_ENDPOINT = '';
 
+  /* Contact page form (contact/index.html). Set to your form handler URL (JSON POST).
+     While it is empty, sending opens the visitor's email app with the message filled in. */
+  var CONTACT_ENDPOINT = '';
+  var CONTACT_EMAIL = 'admin@auzbright.com.au';
+
   /* ---------- Live chat ----------
      To connect Tawk.to live chat, paste the two IDs from your Tawk.to dashboard
      (Administration → Chat Widget → Direct Chat Link: https://tawk.to/chat/<propertyId>/<widgetId>).
@@ -516,13 +521,119 @@
           if (t === undefined) { requestAnimationFrame(step); return; }
           if (start === null) start = t;
           var p = Math.min(1, (t - start) / dur);
-          el.textContent = String(Math.round(to * (1 - Math.pow(1 - p, 3))));
+          el.textContent = Math.round(to * (1 - Math.pow(1 - p, 3))).toLocaleString('en-AU');
           if (p < 1) requestAnimationFrame(step);
         })();
       }, 250);
     }, { threshold: 0.6 });
     io.observe(el);
   });
+
+  /* ---------- Contact page form ----------
+     Validates in the page, then either POSTs JSON to CONTACT_ENDPOINT (success is only
+     shown when the server answers OK) or, with no endpoint, opens an email to
+     CONTACT_EMAIL with the details filled in and says so. */
+  var cform = $('#contact-form');
+  if (cform) {
+    var cstatus = $('#ct-status');
+    var cbtn = $('.ct-submit', cform);
+    var fld = function (id) { return document.getElementById(id); };
+    var setErr = function (input, errId, bad) {
+      var err = fld(errId);
+      if (err) err.hidden = !bad;
+      if (input) {
+        input.setAttribute('aria-invalid', bad ? 'true' : 'false');
+        var desc = (input.getAttribute('aria-describedby') || '').split(' ').filter(function (x) { return x && x !== errId; });
+        if (bad) desc.push(errId);
+        if (desc.length) input.setAttribute('aria-describedby', desc.join(' ')); else input.removeAttribute('aria-describedby');
+      }
+      return bad;
+    };
+    var showStatus = function (kind, html) {
+      cstatus.className = 'ct-status ' + kind;
+      cstatus.innerHTML = html;
+      cstatus.hidden = false;
+    };
+    var esc = function (t) { return String(t).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
+    var validate = function () {
+      var name = fld('ct-name'), email = fld('ct-email'), phone = fld('ct-phone'), pc = fld('ct-postcode'),
+          type = fld('ct-type'), msg = fld('ct-message'), consent = fld('ct-consent');
+      var ev = email.value.trim(), pv = phone.value.replace(/[\s()+-]/g, '');
+      var bad = [];
+      if (setErr(name, 'ct-name-err', name.value.trim().length < 2)) bad.push(name);
+      if (setErr(email, 'ct-email-err', ev !== '' && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(ev))) bad.push(email);
+      if (setErr(phone, 'ct-phone-err', pv !== '' && !/^(61|0)?[2-478]\d{8}$/.test(pv))) bad.push(phone);
+      var none = ev === '' && pv === '';
+      setErr(null, 'ct-contact-err', none);
+      if (none) { email.setAttribute('aria-invalid', 'true'); bad.push(email); }
+      if (setErr(pc, 'ct-postcode-err', pc.value.trim() !== '' && !/^\d{4}$/.test(pc.value.trim()))) bad.push(pc);
+      if (setErr(type, 'ct-type-err', !type.value)) bad.push(type);
+      if (setErr(msg, 'ct-message-err', msg.value.trim().length < 10)) bad.push(msg);
+      if (setErr(consent, 'ct-consent-err', !consent.checked)) bad.push(consent);
+      return bad;
+    };
+    // Clear a field's error as soon as it's fixed
+    $$('input, select, textarea', cform).forEach(function (el) {
+      el.addEventListener(el.type === 'checkbox' || el.tagName === 'SELECT' ? 'change' : 'input', function () {
+        if (el.getAttribute('aria-invalid') === 'true') validate();
+      });
+    });
+    fld('ct-postcode').addEventListener('input', function (e) { e.target.value = e.target.value.replace(/\D/g, '').slice(0, 4); });
+
+    cform.addEventListener('submit', function (e) {
+      e.preventDefault();
+      cstatus.hidden = true;
+      var bad = validate();
+      if (bad.length) {
+        bad[0].focus();
+        showStatus('bad', 'Please check the highlighted fields.');
+        return;
+      }
+      var data = {
+        name: fld('ct-name').value.trim(),
+        email: fld('ct-email').value.trim(),
+        phone: fld('ct-phone').value.trim(),
+        postcode: fld('ct-postcode').value.trim(),
+        enquiryType: fld('ct-type').value,
+        upgrade: fld('ct-upgrade').value,
+        message: fld('ct-message').value.trim(),
+        consent: true,
+        source: 'Contact page'
+      };
+      var first = esc(data.name.split(' ')[0]);
+      if (fld('ct-website').value) { showStatus('ok', 'Thanks, ' + first + '. Your message has been sent.'); cform.reset(); return; } // likely a bot
+
+      if (!CONTACT_ENDPOINT) {
+        var lines = [
+          'Name: ' + data.name,
+          data.email ? 'Email: ' + data.email : '',
+          data.phone ? 'Phone: ' + data.phone : '',
+          data.postcode ? 'Postcode: ' + data.postcode : '',
+          'Enquiry: ' + data.enquiryType,
+          data.upgrade ? 'Upgrade: ' + data.upgrade : '',
+          '',
+          data.message
+        ].filter(function (l, i) { return l !== '' || i === 6; });
+        var href = 'mailto:' + CONTACT_EMAIL + '?subject=' + encodeURIComponent('Website enquiry: ' + data.enquiryType) + '&body=' + encodeURIComponent(lines.join('\n'));
+        window.location.href = href;
+        showStatus('info', 'Your email app should now open with your message ready to send to <a href="mailto:' + CONTACT_EMAIL + '">' + CONTACT_EMAIL + '</a>. If nothing opens, email us directly or call <a href="tel:0386095195">03 8609 5195</a>.');
+        return;
+      }
+
+      cbtn.setAttribute('aria-busy', 'true');
+      cbtn.disabled = true;
+      fetch(CONTACT_ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) })
+        .then(function (res) {
+          if (!res.ok) throw new Error('HTTP ' + res.status);
+          showStatus('ok', 'Thanks, ' + first + '. Your message has been sent and our team will be in touch.');
+          cform.reset();
+        })
+        .catch(function () {
+          showStatus('bad', 'Sorry, your message couldn’t be sent. Please call <a href="tel:0386095195">03 8609 5195</a> or email <a href="mailto:' + CONTACT_EMAIL + '">' + CONTACT_EMAIL + '</a>.');
+        })
+        .then(function () { cbtn.removeAttribute('aria-busy'); cbtn.disabled = false; });
+    });
+  }
 
   /* ---------- Footer year ---------- */
   $$('footer span').forEach(function (s) { if (/^© \d{4} Auzbright/.test(s.textContent)) s.textContent = s.textContent.replace(/\d{4}/, String(new Date().getFullYear())); });

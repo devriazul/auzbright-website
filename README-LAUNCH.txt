@@ -40,6 +40,24 @@ MUST DO BEFORE GOING LIVE
    assets/js/main.js. For another provider (Intercom, HubSpot, Crisp), ask your developer to swap
    the loader.
 
+1c. CONTACT US PAGE. A new Contact Us page is in contact/index.html. Its form needs a form
+   handler too: set CONTACT_ENDPOINT in assets/js/main.js. Until then, "Send message" opens the
+   visitor's email app addressed to admin@auzbright.com.au. Your WordPress site already has a
+   /contact/ page, so decide which one to keep when going live.
+
+1d. ABOUT PAGE. A new About page is in about/index.html, adapted from auzbright.com.au/about/.
+   - Left out on purpose: the "Meet the team" names and photos (Kate Stivenson, "Edward Doson,
+     Tester" and others look like the theme's demo team) and a placeholder paragraph under
+     "Why Choose Us". Send real team names, roles and photos to add a team section.
+   - "10+ Years Experience" was replaced by "2017, Established in Victoria" because it conflicts
+     with the 2017 founding date. "97.41% positive feedback" was replaced by the 116 Google
+     reviews already shown on the homepage.
+   - Kept from the current page, please confirm: "5,258 projects completed" and "80% saving on
+     lighting costs". "VEET (Victorian Energy Efficiency Scheme)" was updated to the program's
+     current name, Victorian Energy Upgrades (VEU), and "all over Australia" to Victoria and NSW
+     to match the rest of the site.
+   - The WordPress site already has an /about/ page, so decide which one to keep when going live.
+
 2. REPLACE PLACEHOLDER IMAGES
    - The hero photos (hero-family, hero-heat-pump-installer, hero-solar-home) were
      AI-generated to show the art direction. Replace them with genuine Auzbright customer or
