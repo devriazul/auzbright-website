@@ -10,6 +10,20 @@
      While it is empty, enquiries are NOT sent anywhere. */
   var FORM_ENDPOINT = '';
 
+  /* ---------- Sticky glass nav: compact state once the page scrolls ---------- */
+  var siteNav = $('#site-nav');
+  if (siteNav) {
+    var navTicking = false;
+    var updateNav = function () {
+      navTicking = false;
+      siteNav.classList.toggle('scrolled', window.scrollY > 8);
+    };
+    window.addEventListener('scroll', function () {
+      if (!navTicking) { navTicking = true; requestAnimationFrame(updateNav); }
+    }, { passive: true });
+    updateNav();
+  }
+
   /* ---------- Desktop dropdowns ---------- */
   var ddButtons = $$('[data-onclick^="dd."]');
   function closeDropdowns(except) {
@@ -28,6 +42,27 @@
       closeDropdowns(b);
       b.setAttribute('aria-expanded', open ? 'false' : 'true');
       if (m) m.hidden = open;
+    });
+  });
+  /* Dropdowns whose label is a link open on mouse hover; the caret button covers keyboard and touch */
+  var hoverTimer = null;
+  $$('.dd-hover').forEach(function (wrap) {
+    var b = $('[data-onclick^="dd."]', wrap);
+    var m = b && document.getElementById(b.getAttribute('aria-controls'));
+    if (!m) return;
+    wrap.addEventListener('pointerenter', function (e) {
+      if (e.pointerType !== 'mouse') return;
+      clearTimeout(hoverTimer);
+      closeDropdowns(b);
+      b.setAttribute('aria-expanded', 'true');
+      m.hidden = false;
+    });
+    wrap.addEventListener('pointerleave', function (e) {
+      if (e.pointerType !== 'mouse') return;
+      hoverTimer = setTimeout(function () {
+        b.setAttribute('aria-expanded', 'false');
+        m.hidden = true;
+      }, 150);
     });
   });
   document.addEventListener('click', function (e) { if (!e.target.closest('.dd-wrap')) closeDropdowns(); });
@@ -65,9 +100,23 @@
   var countEl = $('#slide-count');
   var pauseBtn = $('[data-onclick="togglePause"]');
   var current = 0, paused = reduceMotion, timer = null;
+  // Slides 2+ ship without a real src so they don't compete with the first image.
+  function loadSlideImg(s) {
+    var img = s && s.querySelector('img[data-src]');
+    if (!img) return;
+    if (img.getAttribute('data-srcset')) img.srcset = img.getAttribute('data-srcset');
+    img.src = img.getAttribute('data-src');
+    img.removeAttribute('data-src');
+    img.removeAttribute('data-srcset');
+  }
   function show(i) {
     current = (i + slides.length) % slides.length;
+    loadSlideImg(slides[current]);
     slides.forEach(function (s, n) { s.hidden = n !== current; });
+    var cur = slides[current];
+    cur.classList.remove('enter');
+    void cur.offsetWidth; // restart the entrance animation
+    cur.classList.add('enter');
     dots.forEach(function (d, n) { d.classList.toggle('on', n === current); d.setAttribute('aria-current', n === current ? 'true' : 'false'); });
     if (countEl) countEl.textContent = '0' + (current + 1) + ' / 0' + slides.length;
   }
@@ -89,7 +138,18 @@
     if (nextBtn) nextBtn.addEventListener('click', function () { show(current + 1); setPaused(true); });
     if (pauseBtn) pauseBtn.addEventListener('click', function () { setPaused(!paused); });
     setPaused(paused);
-    timer = setInterval(function () { if (!paused && !document.hidden) show(current + 1); }, 7000);
+    // Hold rotation while the pointer is over the hero or focus is inside it.
+    var sliderEl = slides[0].closest('.slider'), hoverHold = false, focusHold = false;
+    if (sliderEl) {
+      sliderEl.addEventListener('pointerenter', function (e) { if (e.pointerType === 'mouse') hoverHold = true; });
+      sliderEl.addEventListener('pointerleave', function (e) { if (e.pointerType === 'mouse') hoverHold = false; });
+      sliderEl.addEventListener('focusin', function () { focusHold = true; });
+      sliderEl.addEventListener('focusout', function (e) { if (!sliderEl.contains(e.relatedTarget)) focusHold = false; });
+    }
+    timer = setInterval(function () { if (!paused && !hoverHold && !focusHold && !document.hidden) show(current + 1); }, 7000);
+    // Fetch the other slides' images once the page has finished loading.
+    var warm = function () { (window.requestIdleCallback || function (f) { setTimeout(f, 1200); })(function () { slides.forEach(loadSlideImg); }); };
+    if (document.readyState === 'complete') warm(); else window.addEventListener('load', warm);
   }
 
   /* ---------- Service selector ---------- */
@@ -173,6 +233,37 @@
     setPcError(false); goStep(1);
   });
 
+  /* ---------- Savings explainer: selectable cards (tabs) ---------- */
+  var savTabs = $$('.sav-tab[role="tab"]');
+  function selectSav(tab, focus) {
+    savTabs.forEach(function (t) {
+      var on = t === tab;
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+      t.tabIndex = on ? 0 : -1;
+      var panel = document.getElementById(t.getAttribute('aria-controls'));
+      if (panel) panel.hidden = !on;
+    });
+    if (focus) tab.focus();
+  }
+  savTabs.forEach(function (t, i) {
+    t.addEventListener('click', function () {
+      selectSav(t);
+      // In the stacked layout the details sit below the cards; bring them into view.
+      var panel = document.getElementById(t.getAttribute('aria-controls'));
+      if (panel && panel.getBoundingClientRect().top > window.innerHeight * 0.75) {
+        panel.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+      }
+    });
+    t.addEventListener('keydown', function (e) {
+      var n = savTabs.length, j = null;
+      if (e.key === 'ArrowDown' || e.key === 'ArrowRight') j = (i + 1) % n;
+      else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') j = (i - 1 + n) % n;
+      else if (e.key === 'Home') j = 0;
+      else if (e.key === 'End') j = n - 1;
+      if (j !== null) { e.preventDefault(); selectSav(savTabs[j], true); }
+    });
+  });
+
   /* ---------- Google reviews ---------- */
   $$('[data-onclick="r.toggle"]').forEach(function (b) {
     b.addEventListener('click', function () {
@@ -223,6 +314,20 @@
   }
   if (parBtn) parBtn.addEventListener('click', function () { setParPaused(!mq.classList.contains('paused')); });
   setParPaused(reduceMotion);
+
+  /* ---------- Top bar: dismiss and remember for 14 days ---------- */
+  var topbar = $('#topbar');
+  on('dismissTopbar', function () {
+    if (!topbar) return;
+    try { localStorage.setItem('auzbright-topbar-dismissed', String(Date.now())); } catch (e) {}
+    var logo = $('#site-nav a');
+    if (reduceMotion) { topbar.hidden = true; if (logo) logo.focus(); return; }
+    topbar.style.maxHeight = topbar.offsetHeight + 'px';
+    void topbar.offsetHeight;
+    topbar.classList.add('closing');
+    topbar.style.maxHeight = '0px';
+    setTimeout(function () { topbar.hidden = true; if (logo) logo.focus({ preventScroll: true }); }, 320);
+  });
 
   /* ---------- Footer year ---------- */
   $$('footer span').forEach(function (s) { if (/^© \d{4} Auzbright/.test(s.textContent)) s.textContent = s.textContent.replace(/\d{4}/, String(new Date().getFullYear())); });

@@ -34,16 +34,24 @@ MUST DO BEFORE GOING LIVE
    Until then, customers will see a thank-you message but nothing reaches you.
 
 2. REPLACE PLACEHOLDER IMAGES
-   - hero-family.webp, hero-heat-pump-installer.webp, hero-solar-home.webp were AI-generated
-     to show the art direction. Replace with genuine Auzbright customer/installation photos
-     (with consent). Keep the same file names, or update index.html.
+   - The hero photos (hero-family, hero-heat-pump-installer, hero-solar-home) were
+     AI-generated to show the art direction. Replace them with genuine Auzbright customer or
+     installation photos (with consent). Each photo now comes in 480, 800 and 1200px WebP
+     versions (see README.md, "SEO and performance"), so ask your developer to regenerate all
+     sizes when swapping one.
    - Events section: the 4 grey/navy boxes are photo slots. Add real All-Energy Australia photos.
-   - Water Filter service card: shows an icon. Add a real water filter product photo.
-   - Some site photos (LED lighting, AC couple, solar panels, plumbing gauges) look like stock.
+   - Service cards: all six now use images from the current auzbright.com.au site (see
+     README.md, "Service card images").
+   - Water Filter service card: uses a blog featured image that appears to be AI-generated
+     and shows an "Auzbright" label on the filter bracket. Replace it with a genuine
+     installation photo.
+   - Some other site photos (for example solar panels and plumbing gauges) look like stock.
 
-3. PARTNER LOGOS. The partner strip shows brand NAMES, not logos. Get official logo files from
-   each partner (with permission to use) and swap them in. Confirm the names:
-   "Carrier" (written as "Career" in the brief), "HiCi", "Evenx", "Sigenergy" (written as "Sygenergy").
+3. PARTNER LOGOS. The partner strip now shows logos for all 12 brands, taken from each
+   brand's website, Wikimedia Commons or LinkedIn, plus the Evnex logo you supplied (see
+   README.md, "Partner logos"). Before launch, get each partner's permission to use their
+   logo, and swap in official artwork they supply. The HiCi logo is low resolution: ask
+   HiCi for a larger file.
 
 4. CHECK EVERY CLAIM
    - 116 Google reviews / "Excellent": this changes — keep in sync with Google.
@@ -54,9 +62,14 @@ MUST DO BEFORE GOING LIVE
    - Service area "Victoria & New South Wales" (current site also mentions SA & QLD teams).
    - Opening hours "Mon–Fri, 9am–5pm" (current site says "9am to 5pm, W.e/ Holiday").
    - ABN in the footer currently reads "[TO CONFIRM]" — add your ABN.
-   - Top green bar: make sure it names an offer that is live right now.
+   - Top utility bar: make sure the "Incentives" message names programs that are live right
+     now (currently VEU and NSW ESS). The bar also shows "Mon–Fri 9am–5pm", so confirm the hours.
+     Visitors who dismiss the bar won't see it again for 14 days.
    - Incentive wording (VEU, NSW ESS, Cheaper Home Batteries) — have it reviewed; programs change.
    - "60–75% less energy" is from NSW Climate and Energy Action; keep the source line.
+   - Savings section, air con card: "about a third of the cost" of a portable electric heater
+     cites Solar Victoria (based on CHOICE). Confirm the wording on the source page. The solar
+     and EV cards explain how savings work and make no numeric claims.
 
 5. GOOGLE REVIEWS LINKS. "Read all reviews" and "Write a review" currently open a Google search.
    Replace with your Google Business Profile review links.
