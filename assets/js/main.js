@@ -10,6 +10,12 @@
      While it is empty, enquiries are NOT sent anywhere. */
   var FORM_ENDPOINT = '';
 
+  /* ---------- Live chat ----------
+     To connect Tawk.to live chat, paste the two IDs from your Tawk.to dashboard
+     (Administration → Chat Widget → Direct Chat Link: https://tawk.to/chat/<propertyId>/<widgetId>).
+     While they are empty, the Chat button opens the contact panel instead. */
+  var CHAT = { tawkPropertyId: '', tawkWidgetId: '' };
+
   /* ---------- Sticky glass nav: compact state once the page scrolls ---------- */
   var siteNav = $('#site-nav');
   if (siteNav) {
@@ -82,6 +88,8 @@
       var open = menuBtn.getAttribute('aria-expanded') === 'true';
       menuBtn.setAttribute('aria-expanded', open ? 'false' : 'true');
       mnav.hidden = open;
+      var fabEl = document.getElementById('fab'); // floating buttons would cover the open menu
+      if (fabEl) fabEl.classList.toggle('is-hidden', !open);
     });
   }
   $$('[data-onclick^="mg."]').forEach(function (b) {
@@ -343,6 +351,52 @@
   }
   if (parBtn) parBtn.addEventListener('click', function () { setParPaused(!mq.classList.contains('paused')); });
   setParPaused(reduceMotion);
+
+  /* ---------- Floating chat button ----------
+     With CHAT IDs set, the first click loads Tawk.to (nothing loads before that) and opens
+     the chat; its own bubble stays hidden so there is only one chat button. Without IDs,
+     or if the chat script fails to load, the button opens the contact panel. */
+  var chatBtn = $('[data-onclick="chatToggle"]');
+  var chatPanel = $('#chat-panel');
+  var liveChat = !!(CHAT.tawkPropertyId && CHAT.tawkWidgetId);
+  var tawkState = 'idle'; // idle | loading | ready | failed
+  function setPanel(open, focusBack) {
+    if (!chatPanel || !chatBtn) return;
+    chatPanel.hidden = !open;
+    chatBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (open) { var first = chatPanel.querySelector('.cp-list a'); if (first) first.focus(); }
+    else if (focusBack) chatBtn.focus();
+  }
+  function openTawk() {
+    var T = window.Tawk_API;
+    if (tawkState === 'ready' && T) { T.showWidget(); T.maximize(); return; }
+    if (tawkState === 'loading') return;
+    tawkState = 'loading';
+    chatBtn.classList.add('is-loading');
+    chatBtn.setAttribute('aria-busy', 'true');
+    window.Tawk_API = T = window.Tawk_API || {};
+    window.Tawk_LoadStart = new Date();
+    var done = function () { chatBtn.classList.remove('is-loading'); chatBtn.removeAttribute('aria-busy'); };
+    T.onLoad = function () { tawkState = 'ready'; done(); T.showWidget(); T.maximize(); };
+    T.onChatMinimized = function () { T.hideWidget(); };
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://embed.tawk.to/' + encodeURIComponent(CHAT.tawkPropertyId) + '/' + encodeURIComponent(CHAT.tawkWidgetId);
+    s.charset = 'UTF-8';
+    s.setAttribute('crossorigin', '*');
+    s.onerror = function () { tawkState = 'failed'; done(); setPanel(true); };
+    document.head.appendChild(s);
+  }
+  on('chatToggle', function () {
+    if (liveChat && tawkState !== 'failed') { openTawk(); return; }
+    setPanel(chatPanel.hidden);
+  });
+  on('chatClose', function () { setPanel(false, true); });
+  if (chatPanel) {
+    $$('[data-chat-close]', chatPanel).forEach(function (a) { a.addEventListener('click', function () { setPanel(false); }); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !chatPanel.hidden) setPanel(false, true); });
+    document.addEventListener('click', function (e) { if (!chatPanel.hidden && !e.target.closest('#fab')) setPanel(false); });
+  }
 
   /* ---------- Top bar: dismiss and remember for 14 days ---------- */
   var topbar = $('#topbar');

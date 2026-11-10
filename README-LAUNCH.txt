@@ -33,6 +33,13 @@ MUST DO BEFORE GOING LIVE
    (it receives a JSON POST: propertyType, postcode, upgrade, selectedServices, firstName, mobile, source).
    Until then, customers will see a thank-you message but nothing reaches you.
 
+1b. CONNECT LIVE CHAT. The floating Chat button (bottom right) opens a contact panel (eligibility
+   check, call, email, Facebook Messenger) until live chat is connected. To connect Tawk.to (free):
+   create an account at tawk.to, then copy the two IDs from Administration > Chat Widget > Direct
+   Chat Link (https://tawk.to/chat/<propertyId>/<widgetId>) into CHAT at the top of
+   assets/js/main.js. For another provider (Intercom, HubSpot, Crisp), ask your developer to swap
+   the loader.
+
 2. REPLACE PLACEHOLDER IMAGES
    - The hero photos (hero-family, hero-heat-pump-installer, hero-solar-home) were
      AI-generated to show the art direction. Replace them with genuine Auzbright customer or

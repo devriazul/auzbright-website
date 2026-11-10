@@ -24,7 +24,7 @@ The homepage has two jobs: explain Auzbright's upgrades and the government incen
 | --- | --- | --- | --- |
 | 0 | Utility bar | `#topbar` | Slim navy bar: "Incentives" message linking to `#check`, plus service area, hours, phone and a dismiss button |
 | 1 | Header and navigation | `#site-nav` | Sticky glass bar, pinned on every section, with desktop dropdowns and a mobile menu |
-| 2 | Hero slider | | Three slides that advance every 7 seconds. Height adapts to the screen, so the buttons stay above the fold from 1280×720 up. On phones (≤620px) the image comes first (220px tall), followed by the text, and the controls sit on one row; the sticky "Get a Free Quote" bar keeps a call to action on screen |
+| 2 | Hero slider | | Three slides that advance every 7 seconds. Height adapts to the screen, so the buttons stay above the fold from 1280×720 up. On phones (≤620px) the image comes first (220px tall), followed by the text, and the controls sit on one row. The floating Chat and Call buttons stay on screen |
 | 3 | Partners | `#partners` | Scrolling strip of brand names |
 | 4 | Services | `#services` | Selectable upgrade cards |
 | 5 | Incentives | | How eligibility works |
@@ -36,6 +36,7 @@ The homepage has two jobs: explain Auzbright's upgrades and the government incen
 | 11 | FAQs | `#faqs` | Accordion, one answer open at a time |
 | 12 | Call to action | | Prompt to check eligibility |
 | 13 | Footer | `#contact` | Contact details and legal links |
+| – | Floating contact buttons | `#fab` | Chat (lime) and Call (white) buttons fixed to the bottom of every screen: stacked on the right from 621px up, and split on phones (Call bottom-left, Chat bottom-right) |
 
 ## Project structure
 
@@ -115,6 +116,7 @@ The `data-onchange` and `data-oninput` attributes in `index.html` are not read b
 | Reviews | Horizontal scrolling with expandable text |
 | Savings explainer | The cards are ARIA tabs (`.sav-tab`) that switch the detail panel (`.sav-panel`). Arrow keys, Home and End move between cards. In the stacked layout (≤1100px), the cards sit above the panel, and the page scrolls to the details after a click |
 | FAQs | Opening one answer closes the others |
+| Floating buttons | `#fab` sits outside `.ab`, because `.ab` is a size container, and `position: fixed` inside it would follow the page rather than the screen. Its styles therefore use `@media` rather than `@container`, and set their own `box-sizing`. Buttons are 56px (52px on phones), clear of the iPhone home bar (`env(safe-area-inset-*)`), and hidden while the phone menu is open (`.is-hidden` also stops the entrance animation, which would otherwise keep them visible). On phones (≤620px), `#fab` spans the screen width with Call on the left and Chat on the right. The strip between them uses `pointer-events: none`, so taps reach the page underneath. On desktop, hovering or focusing a button reveals its label. Chat opens Tawk.to live chat once `CHAT.tawkPropertyId` and `CHAT.tawkWidgetId` are set at the top of `main.js`. The chat script loads only on the first click, and Tawk's own bubble stays hidden so there's one chat button. Until the IDs are set, or if the script fails to load, Chat opens the contact panel (`#chat-panel`) with options to start the eligibility check, call, email or message on Facebook. Escape and outside clicks close it, and focus returns to the button |
 | Scroll reveal | As blocks enter the screen, they fade up 28px; photos also scale from 97%. Section headings reveal as one block. Cards in a grid stagger by 80ms (capped at 480ms): product cards, incentive steps, savings panel and cards, events, stats, FAQ questions and footer columns. `main.js` picks targets from each section's `.wrap` children and grids, so new sections are covered automatically. Content already on screen at load isn't hidden. Anything scrolled past (for example after an anchor jump) appears instantly. The `.reveal`/`.in` classes are removed after the animation, so each element's own hover transitions return. Nothing is hidden without JavaScript, and "reduce motion" turns it off |
 | Hero entrance | On first load, the slide 1 label, headline, text and buttons rise in sequence (80ms apart), and the image settles from a 6% zoom. The image has no fade, so the largest content paint isn't delayed. Later slide changes use the `.enter` fade |
 | Partner strip | CSS animation with a pause button |
@@ -188,7 +190,7 @@ To add a logo, put the file in `assets/images/partners/` and replace the brand's
 ### Accessibility
 
 - Skip link to `<main id="main">`, visible focus states and labelled form fields
-- Every link and button is at least 24×24px (WCAG 2.5.8). Small text links (`.link-row`, `.social-row`, `.legal-row`, `.call-link`, footer lists) get a 32px-high tap area; form radios sit inside full-width labels
+- Every link and button is at least 24×24px (WCAG 2.5.8). Footer social links are 44px round icon buttons with labels such as "Auzbright on Facebook"; they open in a new tab. Small text links (`.link-row`, `.legal-row`, `.call-link`, footer lists) get a 32px-high tap area; form radios sit inside full-width labels
 - Native buttons and links with ARIA state (`aria-expanded`, `aria-pressed`, `aria-invalid`)
 - Escape closes dropdowns and returns focus to the button that opened them
 - Focus moves to the new step in the form
@@ -208,7 +210,7 @@ Measured in headless Chrome:
 
 | Screen | Largest content paint | Data at load | Hero buttons |
 | --- | --- | --- | --- |
-| Phone 390×844, slow 4G, 4× CPU | 2.8s → 1.8s | 800 → 664 KB | Image first; sticky call-to-action bar always visible |
+| Phone 390×844, slow 4G, 4× CPU | 2.8s → 1.8s | 800 → 664 KB | Image first; floating Chat and Call buttons always visible |
 | Laptop 1366×768 | 460 → 290ms | 934 → 606 KB | Below → above fold |
 | Desktop 1440×900 | 404 → 296ms | 934 → 606 KB | Below → above fold |
 
@@ -231,6 +233,7 @@ There is no build. Upload `index.html` and the `assets/` folder together, keepin
 [README-LAUNCH.txt](README-LAUNCH.txt) has the full checklist. These are the main open items:
 
 - [ ] Set `FORM_ENDPOINT` so enquiries reach the CRM
+- [ ] Connect live chat: create a Tawk.to account and set `CHAT.tawkPropertyId` and `CHAT.tawkWidgetId` in `assets/js/main.js` (until then, Chat opens the contact panel)
 - [ ] Replace the `[TO CONFIRM]` ABN in the footer
 - [ ] Replace placeholder hero images and stock-style photos with genuine Auzbright photos
 - [ ] Add real photos to the Events section
