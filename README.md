@@ -60,6 +60,7 @@ The homepage has two jobs: explain Auzbright's upgrades and the government incen
 | Page | File | Notes |
 | --- | --- | --- |
 | Homepage | `index.html` | Source of the shared parts |
+| Page not found | `404.html` | Branded 404 page with links to the eligibility check, products, About and FAQs |
 | About | `about/index.html` | Hero with the Sydney Home Show photo, key numbers (5,258 projects counts up), who we are with vision/mission/values cards, four-step process, why choose us, Victoria and NSW cards, careers and the eligibility call to action. Content is adapted from auzbright.com.au/about/ |
 | Contact Us | `contact/index.html` | Hero, four contact cards (call, email, office, chat), enquiry form, office details and quick links |
 
@@ -97,10 +98,17 @@ Links to other site pages use root-relative paths such as `/about/`, so they ret
 | Markup | HTML5 in a single file |
 | Styles | Plain CSS with container queries |
 | Scripts | Vanilla JavaScript in one IIFE, loaded with `defer`, no dependencies |
-| Font | Inter, from Google Fonts (the only third-party runtime dependency, apart from the favicon below) |
+| Font | Inter, from Google Fonts (the only third-party runtime dependency, apart from the favicon) |
 | Favicon | Loaded from the existing WordPress uploads folder on auzbright.com.au |
 
 ### Styling
+
+**Premium layer** (end of `styles.css`):
+
+- **Depth:** `--sh-1`/`--sh-2` layered shadows on cards, soft teal and lime radial glows in the dark heroes (homepage, About, Contact, 404) and the footer, plus a fine SVG grain overlay at 7% opacity.
+- **Motion:** buttons with an arrow (`path d^="M4 10h12"`) nudge it on hover, lime and navy buttons get a light sheen, cards (`.svc`, `.why-card`, `.ct-way`, `.sav-tab`, `.ab-state`) show a teal spotlight that follows the mouse (`--mx`/`--my` set by `main.js`), and a 2px teal-to-lime scroll-progress line runs under the nav (`.scroll-prog`, `--sp`).
+- **Reduced motion:** all of this switches off under `prefers-reduced-motion`.
+
 
 All content sits inside `.ab`, which is a named size container (`page`). Layouts respond to that container's width rather than the viewport.
 
@@ -135,7 +143,7 @@ The `data-onchange` and `data-oninput` attributes in `index.html` are not read b
 | Navigation | Each top-level label is a link: About to `/about/`, Victoria to `/victoria/victorian-energy-upgrades/`, NSW to `/nsw/energy-savings-scheme-ess/` and Product and Services to `#services`. Dropdowns open on mouse hover or from the chevron button (keyboard and touch), and close on mouse leave, outside click or Escape |
 | Utility bar | Scrolls away with the page (only the nav is sticky). The ✕ (`data-onclick="dismissTopbar"`) collapses the bar and stores the time in `localStorage` (`auzbright-topbar-dismissed`). A small inline script after the bar keeps it hidden on later visits for 14 days, without a flash. Focus moves to the logo after dismissing. The message shortens below 620px, where the area and phone number collapse to icons; hours hide below 1100px |
 | Sticky nav | `<header class="site-nav">` is `position: sticky`. At the top of the page it's solid navy, matching the hero. After 8px of scroll, the script adds `.scrolled`, which fades it to translucent navy with `backdrop-filter` blur (solid navy where blur isn't supported), shrinks the bar (88→68px, or 68→60px on phones), scales the logo and adds a hairline border and shadow. On load, the bar's contents fade down into place (the dark bar itself stays put, so no gap shows), links get an animated underline, the dropdown arrow rotates and menus fade in. `scroll-padding-top` keeps anchor targets clear of the bar. Animations are off under `prefers-reduced-motion` |
-| Hero slider | Rotates every 7 seconds and pauses while the pointer is over it or focus is inside it. Stops after manual navigation, and has a pause button. Slides are stacked in one grid cell (hidden slides use `visibility: hidden`), so the page below doesn't move when slides change. Slides 2–7 load their images from `data-src`/`data-srcset` after the page loads, or when shown. On phones, the seven dots are replaced by the "01 / 07" counter. Only slides shown by navigation get the fade-in (`.enter`), not the first one |
+| Hero slider | Slides crossfade (0.8s) and each photo slowly zooms (`hero-kb`, 9s); the label, headline, text and buttons rise in on every slide (`.enter`). The active dot fills over 7 seconds as a timer (`dot-fill`), and the JavaScript timer matches it: hover or focus holds both (`.is-held`), and the pause button stops autoplay and shows a full dot (`.is-paused`). On phones, the timer runs even though the dots are hidden. Rotates every 7 seconds and pauses while the pointer is over it or focus is inside it. Stops after manual navigation, and has a pause button. Slides are stacked in one grid cell (hidden slides use `visibility: hidden`), so the page below doesn't move when slides change. Slides 2–7 load their images from `data-src`/`data-srcset` after the page loads, or when shown. On phones, the seven dots are replaced by the "01 / 07" counter. Only slides shown by navigation get the fade-in (`.enter`), not the first one |
 | Service cards | Multiple selection, with Residential Heat Pump selected by default |
 | Reviews | Horizontal scrolling with expandable text |
 | Savings explainer | The cards are ARIA tabs (`.sav-tab`) that switch the detail panel (`.sav-panel`). Arrow keys, Home and End move between cards. In the stacked layout (≤1100px), the cards sit above the panel, and the page scrolls to the details after a click |
@@ -275,10 +283,9 @@ There is no build. Upload `index.html` and the `assets/` folder together, keepin
 - [ ] Decide whether `contact/` and `about/` replace the WordPress `/contact/` and `/about/` pages when this site goes live
 - [ ] Confirm the About page numbers ("5,258 projects completed" and "80% saving on lighting costs", both from the current About page) and add real team members if you want a team section
 - [ ] Connect live chat: create a Tawk.to account and set `CHAT.tawkPropertyId` and `CHAT.tawkWidgetId` in `assets/js/main.js` (until then, Chat opens the contact panel)
-- [ ] Replace the `[TO CONFIRM]` ABN in the footer
+- [ ] Add the ABN to the footer copyright line (the placeholder was removed)
 - [ ] Replace placeholder hero images and stock-style photos with genuine Auzbright photos
 - [ ] Check the event photos: two show on-screen prices ($5,250 solar and battery combo) and a "70%" rebate banner, which may be out of date
-- [ ] Create the `/events/` page (the Events "View all events" button links to it)
 - [ ] Replace the AI-generated Water Filter card image with a genuine installation photo
 - [ ] Get each partner's permission to use their logo (see [Partner logos](#partner-logos))
 - [ ] Get a higher-resolution HiCi logo
@@ -287,18 +294,20 @@ There is no build. Upload `index.html` and the `assets/` folder together, keepin
 - [ ] Have the incentive wording reviewed
 - [ ] Check the savings claims: the air con figure ("about a third of the cost" of a portable electric heater) cites Solar Victoria and CHOICE, so confirm it on the source page
 
-### Linked pages to create
+### Links to pages that don't exist yet
 
-These pages are linked from the homepage and still need to be created, or the links changed:
+These pages 404 on auzbright.com.au, so their links currently point somewhere that works. When a page is created, change the link in `index.html` and run `python3 scripts/sync-pages.py`.
 
-```text
-/career/                 /accessibility/
-/installation/           /victoria/led-lighting/
-/claim-warranty/         /victoria/water-filter/
-/events/                 /nsw/air-conditioner/
-/terms-of-use/           /nsw/led-lighting/
-                         /nsw/water-filter/
-```
+| Missing page | Links now go to |
+| --- | --- |
+| `/career/` | About page, Careers section (`about/#careers`) |
+| `/installation/` | About page, Our process (`about/#process`) |
+| `/claim-warranty/` | Contact form with "Existing installation or warranty" preselected (`contact/?enquiry=warranty#contact-form`) |
+| `/events/` | Events button now says "More on LinkedIn" and opens the LinkedIn company page |
+| `/victoria/led-lighting/`, `/victoria/water-filter/`, `/nsw/air-conditioner/`, `/nsw/led-lighting/`, `/nsw/water-filter/` | The matching homepage product card (`#led-lighting` and so on) |
+| `/terms-of-use/`, `/accessibility/` | Removed from the footer; add them back when the pages exist |
+
+`404.html` is a branded "page not found" page with the shared header and footer. It sets a `<base>` at the site root (`/auzbright-website/` on the GitHub Pages preview, `/` on the domain), so its links and styles work at any URL depth. GitHub Pages serves it automatically for missing URLs.
 
 ## Testing
 

@@ -135,12 +135,11 @@ html{scroll-padding-top:88px}
 /* slider */
 .slider{position:relative}
 .slider [aria-live]{display:grid}
-.slide{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:center;grid-area:1 / 1}
-.slide[hidden]{display:grid !important;visibility:hidden}
-.slide.enter{animation:fadeIn .6s ease}
+.slide{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:center;grid-area:1 / 1;transition:opacity .8s ease,visibility 0s}
+.slide[hidden]{display:grid !important;visibility:hidden;opacity:0;pointer-events:none;transition:opacity .8s ease,visibility 0s linear .8s}
 .slide .h1{font-size:clamp(40px,4.8cqi,76px);line-height:1}
 @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-@media (prefers-reduced-motion:reduce){.slide{animation:none}}
+@media (prefers-reduced-motion:reduce){.slide,.slide[hidden]{transition:none}}
 .h1{font-size:clamp(44px,6.4cqi,96px);line-height:.95;letter-spacing:-.04em;font-weight:800}
 .slide-img{position:relative;height:clamp(380px,calc(100vh - 280px),600px);height:clamp(380px,calc(100svh - 280px),600px);border-radius:32px;overflow:hidden;background:#16234F}
 .slide-img img{width:100%;height:100%;object-fit:cover}
@@ -149,8 +148,12 @@ html{scroll-padding-top:88px}
 .s-controls{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:36px;flex-wrap:wrap}
 .dots{display:flex;gap:10px;align-items:center}
 .dotbtn{height:44px;min-width:44px;padding:0;border:0;background:transparent;cursor:pointer;display:inline-flex;align-items:center;justify-content:center}
-.dotbtn span{display:block;height:6px;width:28px;border-radius:3px;background:rgba(255,255,255,.28);transition:width .3s,background .3s}
-.dotbtn.on span{width:64px;background:#A0E25F}
+.dotbtn span{position:relative;overflow:hidden;display:block;height:6px;width:28px;border-radius:3px;background:rgba(255,255,255,.28);transition:width .3s,background .3s}
+.dotbtn.on span{width:64px}
+.dotbtn.on span::after{content:'';position:absolute;inset:0;border-radius:inherit;background:#A0E25F;transform-origin:left center;animation:dot-fill 7s linear both}
+.slider.is-held .dotbtn.on span::after{animation-play-state:paused}
+.slider.is-paused .dotbtn.on span::after{animation:none;transform:none}
+@keyframes dot-fill{from{transform:scaleX(0)}to{transform:scaleX(1)}}
 .s-count{font:700 15px/1 'Inter',sans-serif;color:#B9C0D2;letter-spacing:.06em}
 
 /* grids */
@@ -352,16 +355,17 @@ html{scroll-padding-top:72px}
 .reveal.in{opacity:1;transform:none}
 
 /* hero entrance on first load: text rises in sequence, image settles (no fade, so the first paint isn't delayed) */
-.slide[data-slide="0"]:not(.enter) > div:first-child > *{animation:hero-rise .75s cubic-bezier(.2,.8,.2,1) both}
-.slide[data-slide="0"]:not(.enter) > div:first-child > :nth-child(2){animation-delay:.08s}
-.slide[data-slide="0"]:not(.enter) > div:first-child > :nth-child(3){animation-delay:.16s}
-.slide[data-slide="0"]:not(.enter) > div:first-child > :nth-child(4){animation-delay:.24s}
-.slide[data-slide="0"]:not(.enter) .slide-img img{animation:hero-settle 1.4s cubic-bezier(.2,.8,.2,1) both}
-.slide[data-slide="0"]:not(.enter) .slide-chip{animation:hero-rise .7s .45s cubic-bezier(.2,.8,.2,1) both}
+.slide[data-slide="0"]:not(.enter) > div:first-child > *,.slide.enter > div:first-child > *{animation:hero-rise .75s cubic-bezier(.2,.8,.2,1) both}
+.slide[data-slide="0"]:not(.enter) > div:first-child > :nth-child(2),.slide.enter > div:first-child > :nth-child(2){animation-delay:.08s}
+.slide[data-slide="0"]:not(.enter) > div:first-child > :nth-child(3),.slide.enter > div:first-child > :nth-child(3){animation-delay:.16s}
+.slide[data-slide="0"]:not(.enter) > div:first-child > :nth-child(4),.slide.enter > div:first-child > :nth-child(4){animation-delay:.24s}
+.slide[data-slide="0"]:not(.enter) .slide-img img,.slide.enter .slide-img img{animation:hero-kb 9s ease-out both}
+.slide[data-slide="0"]:not(.enter) .slide-chip,.slide.enter .slide-chip{animation:hero-rise .7s .45s cubic-bezier(.2,.8,.2,1) both}
+@keyframes hero-kb{from{transform:scale(1.001)}to{transform:scale(1.07)}}
 @keyframes hero-rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
 @keyframes hero-settle{from{transform:scale(1.06)}to{transform:none}}
 
-@media (prefers-reduced-motion:reduce){.reveal,.reveal.reveal-img{opacity:1;transform:none;transition:none}.slide[data-slide="0"] *{animation:none !important}}
+@media (prefers-reduced-motion:reduce){.reveal,.reveal.reveal-img{opacity:1;transform:none;transition:none}.slide *{animation:none !important}}
 @media print{.reveal{opacity:1 !important;transform:none !important}}
 
 /* floating contact buttons + chat panel (outside .ab, so plain media queries) */
@@ -678,3 +682,40 @@ html{scroll-padding-top:72px}
 .ab-work-cta .btn{width:100%}
 }
 @media (prefers-reduced-motion:reduce){.ab-state,.ab-state .photo img{transition:none}.ab-state:hover{transform:none}.ab-state:hover .photo img{transform:none}}
+
+/* ================= Premium layer ================= */
+:root{--sh-1:0 1px 2px rgba(14,25,63,.05),0 8px 20px -10px rgba(14,25,63,.12);--sh-2:0 2px 6px rgba(14,25,63,.06),0 28px 56px -24px rgba(14,25,63,.32)}
+/* 1. Depth: layered card shadows */
+.svc,.why-card,.faq-item,.partner,.rv,.sav-tab,.ab-state,.ct-quick,.faq-help,.ct-form-card,.sav-panel,.ab-stats li{box-shadow:var(--sh-1)}
+.why-card,.ab-state,.ct-way,.faq-item,.partner{transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s,border-color .2s}
+@media (hover:hover){.why-card:hover,.partner:hover{transform:translateY(-3px);box-shadow:var(--sh-2)}}
+/* 1. Depth: soft glows and fine grain on the dark hero areas */
+#main > .dark,.ct-hero,.ab-hero{position:relative;isolation:isolate;background:radial-gradient(50% 55% at 86% 48%,rgba(68,208,187,.15),transparent 70%),radial-gradient(45% 55% at 4% 100%,rgba(160,226,95,.11),transparent 70%),#0E193F}
+#main > .dark::after,.ct-hero::after,.ab-hero::after,.foot::after{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.07;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.foot{position:relative;isolation:isolate;background:radial-gradient(50% 70% at 100% 0%,rgba(68,208,187,.10),transparent 70%),#091029}
+
+/* 3. Scroll progress under the nav */
+.scroll-prog{position:absolute;left:0;right:0;bottom:-1px;height:2px;pointer-events:none;z-index:1}
+.scroll-prog span{display:block;height:100%;background:linear-gradient(90deg,#44D0BB,#A0E25F);transform-origin:left center;transform:scaleX(var(--sp,0))}
+/* 3. Buttons: arrow nudge + light sheen */
+.btn{position:relative;overflow:hidden;isolation:isolate}
+.btn svg:has(path[d^="M4 10h12"]){transition:transform .25s cubic-bezier(.2,.8,.2,1)}
+.btn:hover svg:has(path[d^="M4 10h12"]){transform:translateX(4px)}
+.btn-lime::after,.btn-navy::after{content:'';position:absolute;top:0;bottom:0;left:-45%;width:35%;z-index:-1;pointer-events:none;background:linear-gradient(100deg,transparent,rgba(255,255,255,.5),transparent);transform:skewX(-20deg) translateX(0);opacity:0}
+.btn-navy::after{background:linear-gradient(100deg,transparent,rgba(255,255,255,.18),transparent)}
+.btn-lime:hover::after,.btn-navy:hover::after{animation:btn-sheen .9s ease}
+@keyframes btn-sheen{0%{opacity:1;transform:skewX(-20deg) translateX(0)}100%{opacity:1;transform:skewX(-20deg) translateX(520%)}}
+/* 3. Cards: soft spotlight that follows the cursor (main.js sets --mx/--my) */
+.svc,.why-card,.ct-way,.sav-tab,.ab-state{position:relative;isolation:isolate}
+.svc::before,.why-card::before,.ct-way::before,.sav-tab::before,.ab-state::before{content:'';position:absolute;inset:0;z-index:-1;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .3s;background:radial-gradient(260px circle at var(--mx,50%) var(--my,50%),rgba(68,208,187,.16),transparent 70%)}
+@media (hover:hover){.svc:hover::before,.why-card:hover::before,.ct-way:hover::before,.sav-tab:hover::before,.ab-state:hover::before{opacity:1}}
+
+@media (prefers-reduced-motion:reduce){
+.btn-lime:hover::after,.btn-navy:hover::after{animation:none}
+.btn svg:has(path[d^="M4 10h12"]),.why-card,.ab-state,.ct-way,.faq-item,.partner{transition:none}
+.btn:hover svg:has(path[d^="M4 10h12"]),.why-card:hover,.partner:hover{transform:none}
+}
+
+/* 404 page */
+.nf-hero{padding-bottom:132px}
+.nf-space{height:96px;background:#F4F8FA}

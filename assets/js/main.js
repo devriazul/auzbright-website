@@ -28,6 +28,8 @@
     var updateNav = function () {
       navTicking = false;
       siteNav.classList.toggle('scrolled', window.scrollY > 8);
+      var max = document.documentElement.scrollHeight - window.innerHeight;
+      siteNav.style.setProperty('--sp', max > 0 ? Math.min(1, window.scrollY / max).toFixed(4) : 0);
     };
     window.addEventListener('scroll', function () {
       if (!navTicking) { navTicking = true; requestAnimationFrame(updateNav); }
@@ -112,7 +114,20 @@
   var dots = $$('.dotbtn');
   var countEl = $('#slide-count');
   var pauseBtn = $('[data-onclick="togglePause"]');
-  var current = 0, paused = reduceMotion, timer = null;
+  var current = 0, paused = reduceMotion;
+  var sliderEl = slides.length ? slides[0].closest('.slider') : null, hoverHold = false, focusHold = false;
+  var DUR = 7000, remaining = DUR, startedAt = 0, timer = null;
+  function held() { return paused || hoverHold || focusHold || document.hidden; }
+  function stopTimer() { if (timer) { clearTimeout(timer); timer = null; remaining -= Date.now() - startedAt; } }
+  function startTimer() {
+    if (timer || held()) return;
+    startedAt = Date.now();
+    timer = setTimeout(function () { timer = null; show(current + 1); startTimer(); }, Math.max(0, remaining));
+  }
+  function updateHold() {
+    if (sliderEl) sliderEl.classList.toggle('is-held', hoverHold || focusHold || document.hidden);
+    if (held()) stopTimer(); else startTimer();
+  }
   // Slides 2+ ship without a real src so they don't compete with the first image.
   function loadSlideImg(s) {
     var img = s && s.querySelector('img[data-src]');
@@ -124,6 +139,7 @@
   }
   function show(i) {
     current = (i + slides.length) % slides.length;
+    remaining = DUR; // each slide gets the full time; the dot animation restarts too
     loadSlideImg(slides[current]);
     slides.forEach(function (s, n) { s.hidden = n !== current; });
     var cur = slides[current];
@@ -135,6 +151,8 @@
   }
   function setPaused(p) {
     paused = p;
+    if (sliderEl) sliderEl.classList.toggle('is-paused', p);
+    if (p) stopTimer(); else { stopTimer(); remaining = DUR; startTimer(); }
     if (pauseBtn) {
       pauseBtn.setAttribute('aria-label', p ? 'Play slideshow' : 'Pause slideshow');
       var play = $('.i-play', pauseBtn), pause = $('.i-pause', pauseBtn);
@@ -152,14 +170,14 @@
     if (pauseBtn) pauseBtn.addEventListener('click', function () { setPaused(!paused); });
     setPaused(paused);
     // Hold rotation while the pointer is over the hero or focus is inside it.
-    var sliderEl = slides[0].closest('.slider'), hoverHold = false, focusHold = false;
     if (sliderEl) {
-      sliderEl.addEventListener('pointerenter', function (e) { if (e.pointerType === 'mouse') hoverHold = true; });
-      sliderEl.addEventListener('pointerleave', function (e) { if (e.pointerType === 'mouse') hoverHold = false; });
-      sliderEl.addEventListener('focusin', function () { focusHold = true; });
-      sliderEl.addEventListener('focusout', function (e) { if (!sliderEl.contains(e.relatedTarget)) focusHold = false; });
+      sliderEl.addEventListener('pointerenter', function (e) { if (e.pointerType === 'mouse') { hoverHold = true; updateHold(); } });
+      sliderEl.addEventListener('pointerleave', function (e) { if (e.pointerType === 'mouse') { hoverHold = false; updateHold(); } });
+      sliderEl.addEventListener('focusin', function () { focusHold = true; updateHold(); });
+      sliderEl.addEventListener('focusout', function (e) { if (!sliderEl.contains(e.relatedTarget)) { focusHold = false; updateHold(); } });
     }
-    timer = setInterval(function () { if (!paused && !hoverHold && !focusHold && !document.hidden) show(current + 1); }, 7000);
+    document.addEventListener('visibilitychange', updateHold);
+    updateHold();
     // Fetch the other slides' images once the page has finished loading.
     var warm = function () { (window.requestIdleCallback || function (f) { setTimeout(f, 1200); })(function () { slides.forEach(loadSlideImg); }); };
     if (document.readyState === 'complete') warm(); else window.addEventListener('load', warm);
@@ -578,6 +596,9 @@
         if (el.getAttribute('aria-invalid') === 'true') validate();
       });
     });
+    // ?enquiry=warranty (e.g. from "Claim Warranty") preselects the topic
+    var topic = { warranty: 'Existing installation or warranty', quote: 'Get a quote', eligibility: 'Check incentive eligibility' }[new URLSearchParams(location.search).get('enquiry')];
+    if (topic) fld('ct-type').value = topic;
     fld('ct-postcode').addEventListener('input', function (e) { e.target.value = e.target.value.replace(/\D/g, '').slice(0, 4); });
 
     cform.addEventListener('submit', function (e) {
@@ -634,6 +655,16 @@
         .then(function () { cbtn.removeAttribute('aria-busy'); cbtn.disabled = false; });
     });
   }
+
+  /* ---------- Card spotlight (mouse only; CSS shows it on hover) ---------- */
+  document.addEventListener('pointermove', function (e) {
+    if (e.pointerType !== 'mouse') return;
+    var card = e.target.closest && e.target.closest('.svc,.why-card,.ct-way,.sav-tab,.ab-state');
+    if (!card) return;
+    var r = card.getBoundingClientRect();
+    card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+    card.style.setProperty('--my', (e.clientY - r.top) + 'px');
+  }, { passive: true });
 
   /* ---------- Footer year ---------- */
   $$('footer span').forEach(function (s) { if (/^© \d{4} Auzbright/.test(s.textContent)) s.textContent = s.textContent.replace(/\d{4}/, String(new Date().getFullYear())); });

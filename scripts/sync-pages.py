@@ -23,6 +23,7 @@ ROOT = Path(__file__).resolve().parent.parent
 PAGES = {
     'contact/index.html': 'contact/',
     'about/index.html': 'about/',
+    '404.html': None,
 }
 
 BLOCKS = {
@@ -48,8 +49,10 @@ def adapt(block, page, self_link):
     block = block.replace('href="assets/', f'href="{up}assets/')
     block = re.sub(r'href="#(?!main")', f'href="{up}#', block)       # homepage sections
     block = block.replace('href="./"', f'href="{up}"')                # home (logo)
-    block = block.replace(f'href="{self_link}"', 'href="./" aria-current="page"')
-    block = re.sub(r'href="([a-z][a-z0-9-]*/)"', lambda m: f'href="{up}{m.group(1)}"', block)  # other relative pages
+    if self_link:
+        block = block.replace(f'href="{self_link}"', 'href="./" aria-current="page"')
+    if up:
+        block = re.sub(r'href="([a-z][a-z0-9-]*/[^"]*)"', lambda m: f'href="{up}{m.group(1)}"', block)  # other relative pages
     return block
 
 

@@ -89,7 +89,8 @@ MUST DO BEFORE GOING LIVE
    - "Licensed electricians and plumbers": confirm wording (some installs are via partners).
    - Service area "Victoria & New South Wales" (current site also mentions SA & QLD teams).
    - Opening hours "Mon–Fri, 9am–5pm" (current site says "9am to 5pm, W.e/ Holiday").
-   - ABN in the footer currently reads "[TO CONFIRM]" — add your ABN.
+   - ABN: the "[TO CONFIRM]" placeholder was removed from the footer. Send your ABN and it
+     will be added back.
    - Top utility bar: make sure the "Incentives" message names programs that are live right
      now (currently VEU and NSW ESS). The bar also shows "Mon–Fri 9am–5pm", so confirm the hours.
      Visitors who dismiss the bar won't see it again for 14 days.
@@ -120,19 +121,16 @@ NSW FAQs ................ /nsw/nsw-faqs/
 Privacy Policy .......... /privacy-policy/
 Commercial heat pumps ... /victoria/free-hot-water-systems/
 
-LINKS — PAGES YOU STILL NEED TO CREATE (or change the link in index.html)
--------------------------------------------------------------------------
-/career/
-/installation/
-/claim-warranty/
-/events/
-/terms-of-use/
-/accessibility/
-/victoria/led-lighting/
-/victoria/water-filter/
-/nsw/air-conditioner/
-/nsw/led-lighting/
-/nsw/water-filter/
+LINKS — PAGES THAT DON'T EXIST YET (links temporarily point elsewhere)
+----------------------------------------------------------------------
+/career/ ......................... About page, Careers section
+/installation/ ................... About page, Our process
+/claim-warranty/ ................. Contact form with "warranty" preselected
+/events/ ......................... Events button opens LinkedIn instead
+/terms-of-use/, /accessibility/ .. removed from the footer for now
+/victoria/led-lighting/, /victoria/water-filter/, /nsw/air-conditioner/,
+/nsw/led-lighting/, /nsw/water-filter/ ... the matching homepage product card
+When you create one of these pages, ask your developer to point the links back to it.
 
 The "Product and Services" menu links jump to the service cards on the homepage.
 
