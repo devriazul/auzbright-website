@@ -46,7 +46,10 @@ MUST DO BEFORE GOING LIVE
      installation photos (with consent). Each photo now comes in 480, 800 and 1200px WebP
      versions (see README.md, "SEO and performance"), so ask your developer to regenerate all
      sizes when swapping one.
-   - Events section: the 4 grey/navy boxes are photo slots. Add real All-Energy Australia photos.
+   - Events section: now shows the Sydney Home Show 2026 (9–11 October) with four photos from
+     Auzbright's LinkedIn post. It previously named All-Energy Australia; no photos or public
+     record of that event were found. Add All-Energy back if Auzbright did exhibit there. Two
+     photos show on-screen prices and a "70%" rebate banner, so check they are still current.
    - Service cards: all six now use images from the current auzbright.com.au site (see
      README.md, "Service card images").
    - Water Filter service card: uses a blog featured image that appears to be AI-generated

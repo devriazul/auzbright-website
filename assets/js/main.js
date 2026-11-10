@@ -332,7 +332,7 @@
         var ans = o.closest('div').querySelector('.faq-a'); if (ans) ans.hidden = !open;
         var i = $('.faq-i', o); if (i) i.classList.toggle('on', open);
         var p = $('.faq-i path', o);
-        if (p) { p.setAttribute('d', open ? 'M4 10h12' : 'M10 4v12M4 10h12'); p.setAttribute('stroke', open ? '#FFFFFF' : '#0E193F'); }
+        if (p) p.setAttribute('d', open ? 'M4 10h12' : 'M10 4v12M4 10h12');
       });
     });
   });
@@ -356,7 +356,8 @@
      With CHAT IDs set, the first click loads Tawk.to (nothing loads before that) and opens
      the chat; its own bubble stays hidden so there is only one chat button. Without IDs,
      or if the chat script fails to load, the button opens the contact panel. */
-  var chatBtn = $('[data-onclick="chatToggle"]');
+  var chatBtn = $('.fab-chat'); // the floating button; other Chat buttons (e.g. in the FAQ) share its handler
+  var chatOpener = null;
   var chatPanel = $('#chat-panel');
   var liveChat = !!(CHAT.tawkPropertyId && CHAT.tawkWidgetId);
   var tawkState = 'idle'; // idle | loading | ready | failed
@@ -365,7 +366,7 @@
     chatPanel.hidden = !open;
     chatBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
     if (open) { var first = chatPanel.querySelector('.cp-list a'); if (first) first.focus(); }
-    else if (focusBack) chatBtn.focus();
+    else if (focusBack) (chatOpener || chatBtn).focus();
   }
   function openTawk() {
     var T = window.Tawk_API;
@@ -387,7 +388,8 @@
     s.onerror = function () { tawkState = 'failed'; done(); setPanel(true); };
     document.head.appendChild(s);
   }
-  on('chatToggle', function () {
+  on('chatToggle', function (e) {
+    if (e) { e.stopPropagation(); chatOpener = e.currentTarget; } // stop the outside-click handler closing it straight away
     if (liveChat && tawkState !== 'failed') { openTawk(); return; }
     setPanel(chatPanel.hidden);
   });
@@ -464,6 +466,7 @@
 
     groups.forEach(function (g) {
       g.forEach(function (el, i) {
+        if (getComputedStyle(el).display === 'contents') return; // no box of its own to animate
         if (el.getBoundingClientRect().top < fold) return; // already visible: leave it
         el.classList.add('reveal');
         if (el.matches('.photo') || el.querySelector(':scope > img')) el.classList.add('reveal-img');
@@ -494,6 +497,32 @@
       $$('.reveal').forEach(function (el) { el.classList.add('in'); });
     });
   })();
+
+  /* ---------- Count-up numbers ----------
+     Elements with data-count-to count from 0 when they come into view (ease-out, 1.6s).
+     The real number stays in the HTML (and in an .sr-only copy for screen readers), so
+     without JS, with reduced motion, or if already on screen at load, it simply shows. */
+  $$('[data-count-to]').forEach(function (el) {
+    var to = parseInt(el.getAttribute('data-count-to'), 10);
+    if (isNaN(to) || reduceMotion || !('IntersectionObserver' in window)) return;
+    if (el.getBoundingClientRect().top < window.innerHeight * 0.92) return;
+    el.textContent = '0';
+    var io = new IntersectionObserver(function (entries) {
+      if (!entries[0].isIntersecting) return;
+      io.disconnect();
+      setTimeout(function () { // let the stat's reveal fade begin first
+        var start = null, dur = 1600;
+        (function step(t) {
+          if (t === undefined) { requestAnimationFrame(step); return; }
+          if (start === null) start = t;
+          var p = Math.min(1, (t - start) / dur);
+          el.textContent = String(Math.round(to * (1 - Math.pow(1 - p, 3))));
+          if (p < 1) requestAnimationFrame(step);
+        })();
+      }, 250);
+    }, { threshold: 0.6 });
+    io.observe(el);
+  });
 
   /* ---------- Footer year ---------- */
   $$('footer span').forEach(function (s) { if (/^© \d{4} Auzbright/.test(s.textContent)) s.textContent = s.textContent.replace(/\d{4}/, String(new Date().getFullYear())); });

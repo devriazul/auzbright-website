@@ -30,12 +30,12 @@ The homepage has two jobs: explain Auzbright's upgrades and the government incen
 | 5 | Incentives | | How eligibility works |
 | 6 | Eligibility check | `#check` | Three-step lead form |
 | 7 | Savings | | Four selectable cards (hot water, air con, solar and battery, EV charging), each showing its details in a panel |
-| 8 | Events | `#events` | All-Energy Australia |
+| 8 | Events | `#events` | Auzbright at the Sydney Home Show 2026, with four photos from Auzbright's LinkedIn post about the show |
 | 9 | Google reviews | | Scrollable review cards |
-| 10 | Why Auzbright | `#about` | Local, accredited, accountable |
-| 11 | FAQs | `#faqs` | Accordion, one answer open at a time |
-| 12 | Call to action | | Prompt to check eligibility |
-| 13 | Footer | `#contact` | Contact details and legal links |
+| 10 | Why Auzbright | `#about` | Intro and "More about us" beside a photo labelled with location and service area, then four pillar cards: Since 2017, Accredited provider (highlighted in navy), Licensed trades, One team. On phones the cards become compact rows with the icon on the left |
+| 11 | FAQs | `#faqs` | Questions as rounded cards; the open one gets a navy outline and a lime icon, and answers fade open. Beside them, a "Still have a question?" card with Call, Email and Chat. On tablets and phones the order is heading, questions, then the help card |
+| 12 | Call to action | | Navy card in the hero's style: headline with a lime accent, three ticks (no obligation, written quote, about 2 minutes), lime "Check My Eligibility" and a call button, and the family photo filling the right half (below on smaller screens) |
+| 13 | Footer | `#contact` | Brand blurb and social icons, link columns, and contact details with lime icons; disclaimer and legal links below |
 | – | Floating contact buttons | `#fab` | Chat (lime) and Call (white) buttons fixed to the bottom of every screen: stacked on the right from 621px up, and split on phones (Call bottom-left, Chat bottom-right) |
 
 ## Project structure
@@ -115,9 +115,10 @@ The `data-onchange` and `data-oninput` attributes in `index.html` are not read b
 | Service cards | Multiple selection, with Residential Heat Pump selected by default |
 | Reviews | Horizontal scrolling with expandable text |
 | Savings explainer | The cards are ARIA tabs (`.sav-tab`) that switch the detail panel (`.sav-panel`). Arrow keys, Home and End move between cards. In the stacked layout (≤1100px), the cards sit above the panel, and the page scrolls to the details after a click |
-| FAQs | Opening one answer closes the others |
+| FAQs | Opening one answer closes the others. The open card is styled with `.faq-item:has(.faq-q[aria-expanded="true"])`. Any element with `data-onclick="chatToggle"` (the floating button, and the FAQ help card's "Chat with us") opens the chat; Escape returns focus to whichever button opened it |
 | Floating buttons | `#fab` sits outside `.ab`, because `.ab` is a size container, and `position: fixed` inside it would follow the page rather than the screen. Its styles therefore use `@media` rather than `@container`, and set their own `box-sizing`. Buttons are 56px (52px on phones), clear of the iPhone home bar (`env(safe-area-inset-*)`), and hidden while the phone menu is open (`.is-hidden` also stops the entrance animation, which would otherwise keep them visible). On phones (≤620px), `#fab` spans the screen width with Call on the left and Chat on the right. The strip between them uses `pointer-events: none`, so taps reach the page underneath. On desktop, hovering or focusing a button reveals its label. Chat opens Tawk.to live chat once `CHAT.tawkPropertyId` and `CHAT.tawkWidgetId` are set at the top of `main.js`. The chat script loads only on the first click, and Tawk's own bubble stays hidden so there's one chat button. Until the IDs are set, or if the script fails to load, Chat opens the contact panel (`#chat-panel`) with options to start the eligibility check, call, email or message on Facebook. Escape and outside clicks close it, and focus returns to the button |
 | Scroll reveal | As blocks enter the screen, they fade up 28px; photos also scale from 97%. Section headings reveal as one block. Cards in a grid stagger by 80ms (capped at 480ms): product cards, incentive steps, savings panel and cards, events, stats, FAQ questions and footer columns. `main.js` picks targets from each section's `.wrap` children and grids, so new sections are covered automatically. Content already on screen at load isn't hidden. Anything scrolled past (for example after an anchor jump) appears instantly. The `.reveal`/`.in` classes are removed after the animation, so each element's own hover transitions return. Nothing is hidden without JavaScript, and "reduce motion" turns it off |
+| Count-up numbers | Elements with `data-count-to` (currently the "116" Google reviews stat) count from 0 with an ease-out over 1.6s when they come into view, and the digits keep a fixed width (`tabular-nums`). The real number stays in the HTML, and an `.sr-only` copy means screen readers hear "116" rather than the changing digits. Without JavaScript, with reduced motion, or when already on screen at load, it shows 116 straight away. When the Google review count changes, update `data-count-to` and both copies of the number |
 | Hero entrance | On first load, the slide 1 label, headline, text and buttons rise in sequence (80ms apart), and the image settles from a 6% zoom. The image has no fade, so the largest content paint isn't delayed. Later slide changes use the `.enter` fade |
 | Partner strip | CSS animation with a pause button |
 | Footer | Sets the copyright year automatically |
@@ -161,6 +162,19 @@ The product cards in `#services` use images from the live auzbright.com.au produ
 | Water Filter | `svc-water-filter.webp` | Featured image of the blog post "Whole Home Water Filtration for Established Derrimut Homes". It appears to be AI-generated, and the bracket shows an "Auzbright" label | Cropped to fill the card |
 
 Contained images use the `.pic.contain-light` class, and full-bleed photos use plain `.pic`.
+
+### Event photos
+
+The Events section uses four photos from Auzbright's LinkedIn post "Auzbright at the Sydney Home Show 2026" (9–11 October 2026), converted to WebP. The section heading and intro come from that post.
+
+| File | Shows |
+| --- | --- |
+| `event-sydney-stand.webp` | Visitors talking with the team at the stand (large tile, labelled "Sydney Home Show · October 2026") |
+| `event-sydney-heat-pumps.webp` | Stand screen: hot water heat pumps |
+| `event-sydney-screen.webp` | Stand screen: Auzbright logo |
+| `event-sydney-solar-battery.webp` | Stand screen: solar and battery package |
+
+The LinkedIn images are only 800px wide, so they may look slightly soft on high-density screens. Replace them with the original camera files when available.
 
 ### Partner logos
 
@@ -236,7 +250,8 @@ There is no build. Upload `index.html` and the `assets/` folder together, keepin
 - [ ] Connect live chat: create a Tawk.to account and set `CHAT.tawkPropertyId` and `CHAT.tawkWidgetId` in `assets/js/main.js` (until then, Chat opens the contact panel)
 - [ ] Replace the `[TO CONFIRM]` ABN in the footer
 - [ ] Replace placeholder hero images and stock-style photos with genuine Auzbright photos
-- [ ] Add real photos to the Events section
+- [ ] Check the event photos: two show on-screen prices ($5,250 solar and battery combo) and a "70%" rebate banner, which may be out of date
+- [ ] Create the `/events/` page (the Events "View all events" button links to it)
 - [ ] Replace the AI-generated Water Filter card image with a genuine installation photo
 - [ ] Get each partner's permission to use their logo (see [Partner logos](#partner-logos))
 - [ ] Get a higher-resolution HiCi logo
