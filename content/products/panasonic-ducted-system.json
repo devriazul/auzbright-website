@@ -1,0 +1,89 @@
+{
+  "slug": "panasonic-ducted-system",
+  "category": "air-conditioner",
+  "order": 80,
+  "brand": "Panasonic",
+  "name": "Panasonic ducted system",
+  "tagline": "R32 ducted air conditioning with nanoe X air purification and smart control.",
+  "summary": [
+    "Panasonic's R32 ducted range hides the indoor unit in the ceiling and suits homes with many rooms as well as light commercial buildings.",
+    "High static pressure models run from 6.0 kW to 22.4 kW, with nanoe X air purification standard on the 6.0 kW to 16.0 kW models."
+  ],
+  "image": {
+    "src": "/assets/images/pages/panasonic-ducted-system.webp",
+    "alt": "Panasonic ducted system indoor unit, outdoor unit and wall controller",
+    "width": 570,
+    "height": 380
+  },
+  "highlights": [
+    {
+      "icon": "leaf",
+      "title": "nanoe X air purification",
+      "text": "Sends hydroxyl radicals through the ducts to inhibit airborne and adhered bacteria and viruses."
+    },
+    {
+      "icon": "plug",
+      "title": "DRED ready",
+      "text": "A built-in Demand Response Enabling Device complies with AS 4755."
+    },
+    {
+      "icon": "volume",
+      "title": "Quiet mode",
+      "text": "Quiet mode reduces outdoor operating sound by 2 dB."
+    },
+    {
+      "icon": "wifi",
+      "title": "Smart control",
+      "text": "Control from anywhere with the Panasonic Comfort Cloud app and an optional network adaptor."
+    },
+    {
+      "icon": "home",
+      "title": "Compact outdoor units",
+      "text": "Side-discharge R32 outdoor units are smaller, so they fit into tighter spaces."
+    },
+    {
+      "icon": "thermo",
+      "title": "Fewer cold drafts",
+      "text": "Accurate temperature sensing reduces cold drafts during heating."
+    }
+  ],
+  "specs": [
+    {
+      "label": "High static pressure ducted",
+      "value": "6.0 kW to 16.0 kW"
+    },
+    {
+      "label": "Splittable ducted",
+      "value": "18.0 kW to 22.4 kW"
+    },
+    {
+      "label": "Refrigerant",
+      "value": "R32"
+    },
+    {
+      "label": "EER : COP (6.0 to 14.0 kW Compact)",
+      "value": "3.21 to 3.58 : 3.76 to 4.25"
+    },
+    {
+      "label": "External static pressure",
+      "value": "Up to 150 Pa (6.0 to 14.0 kW)"
+    },
+    {
+      "label": "Operating range (Compact outdoor)",
+      "value": "Cooling -10 to 46°C, heating -15 to 24°C"
+    },
+    {
+      "label": "Max. piping length",
+      "value": "50 m to 85 m, depending on capacity"
+    },
+    {
+      "label": "Indoor sound pressure (high fan)",
+      "value": "43 to 51 dB(A) (6.0 to 14.0 kW)"
+    }
+  ],
+  "warranty": "5 years warranty",
+  "brochure": {
+    "label": "Download brochure (PDF)",
+    "href": "/assets/docs/panasonic-18kw-ducted-brochure.pdf"
+  }
+}

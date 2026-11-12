@@ -1,0 +1,84 @@
+{
+  "slug": "solax-battery",
+  "category": "battery",
+  "order": 40,
+  "brand": "Solax",
+  "name": "Solax Battery",
+  "tagline": "Stackable high-voltage LFP battery, from 7.37 kWh to 47.92 kWh.",
+  "summary": [
+    "The Solax T-BAT-SYS-HV-S3.6 is a high-voltage battery system built from stackable 3.6 kWh LFP modules, from two modules up to thirteen.",
+    "It is rated IP65 for indoor or outdoor floor mounting, and battery heating keeps it working at low temperatures."
+  ],
+  "image": {
+    "src": "/assets/images/pages/solax-battery.webp",
+    "alt": "Solax Battery stackable home battery",
+    "width": 400,
+    "height": 380
+  },
+  "highlights": [
+    {
+      "icon": "wifi",
+      "title": "Remote management",
+      "text": "Faults can be diagnosed and the battery upgraded and maintained remotely."
+    },
+    {
+      "icon": "thermo",
+      "title": "Battery heating",
+      "text": "Built-in heating technology supports operation at low temperatures."
+    },
+    {
+      "icon": "shield",
+      "title": "Reliable LFP cells",
+      "text": "LFP battery cells with high-performance processors and soft-start surge protection."
+    },
+    {
+      "icon": "drop",
+      "title": "IP65 protection",
+      "text": "Rated IP65 for indoor or outdoor installation."
+    },
+    {
+      "icon": "chart",
+      "title": "Extendable capacity",
+      "text": "Stackable plug-and-play modules let you add capacity over time."
+    }
+  ],
+  "specs": [
+    {
+      "label": "Rated energy",
+      "value": "7.37 kWh to 47.92 kWh"
+    },
+    {
+      "label": "Usable energy (90% DOD)",
+      "value": "6.6 kWh to 43.1 kWh"
+    },
+    {
+      "label": "Battery module",
+      "value": "3.6 kWh, 34 kg"
+    },
+    {
+      "label": "Max. charge / discharge current",
+      "value": "50 A"
+    },
+    {
+      "label": "Cycle life",
+      "value": "> 6000 cycles"
+    },
+    {
+      "label": "Ingress protection",
+      "value": "IP65"
+    },
+    {
+      "label": "Discharge temperature",
+      "value": "-30 ~ +53°C (with heating function)"
+    },
+    {
+      "label": "Communication interfaces",
+      "value": "RS485, CAN"
+    }
+  ],
+  "warranty": "10 years warranty",
+  "brochure": {
+    "label": "Download spec sheet (PDF)",
+    "href": "/assets/docs/spec-solax-battery.pdf"
+  }
+}

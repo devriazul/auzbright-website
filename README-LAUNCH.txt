@@ -3,12 +3,14 @@ AUZBRIGHT HOMEPAGE — LAUNCH PACKAGE
 
 WHAT'S IN THE FOLDER
 --------------------
-index.html                 The homepage
-assets/css/styles.css      All styles (fonts: Inter, loaded from Google Fonts)
-assets/js/main.js          Slider, menus, service cards, eligibility form, reviews, FAQs, partner strip
-assets/images/             13 images (logo + photos), WebP format
+The site is built with Next.js. Your developer runs "npm run build", which produces a plain
+static website in the out/ folder (HTML, CSS, JavaScript and images; no server software needed).
 
-No build step and no plugins. Upload the whole folder as-is. Keep the folder structure.
+public/assets/css/styles.css   All styles (fonts: Inter, loaded from Google Fonts)
+public/assets/js/main.js       Slider, menus, service cards, eligibility form, reviews, FAQs, partner strip
+public/assets/images/          Logo and photos, WebP format
+
+Upload the contents of out/ (after building) as-is. Keep the folder structure.
 
 
 HOW TO PUT IT LIVE
@@ -16,36 +18,46 @@ HOW TO PUT IT LIVE
 Your current site runs on WordPress + Elementor. Pick ONE of these:
 
 A) Test first (recommended)
-   Upload the folder to a subfolder or a staging subdomain, e.g. https://auzbright.com.au/new-home/
+   Upload the out/ folder to a subfolder or a staging subdomain, e.g. https://auzbright.com.au/new-home/
    or https://staging.auzbright.com.au/, and check it on desktop, tablet and phone.
+   For a subfolder, the site must be built for it: NEXT_PUBLIC_BASE_PATH=/new-home npm run build
 
 B) Replace the WordPress homepage
-   Ask your developer/host to serve this index.html as the site's homepage, or rebuild it as an
-   Elementor page using this file as the design. Back up the current homepage first.
+   Ask your developer/host to serve the built out/index.html as the site's homepage. Back up the current homepage first.
 
 Pages linked from this homepage must exist on the same domain (see "Links" below).
 
 
 MUST DO BEFORE GOING LIVE
 -------------------------
+0. REVIEW THE CARRIED-OVER CONTENT. Every page and all 29 blog posts from the current WordPress site
+   have been rebuilt at the same web addresses. The wording was kept, including claims that look
+   wrong or risky ("free" upgrades, "$9,000 rebates", text about the wrong state). The full list is in
+   README.md under "Content carried over from the live site that needs review".
+
 1. CONNECT THE ENQUIRY FORM. The "Find the right upgrade" form does NOT send enquiries yet.
-   Open assets/js/main.js and set FORM_ENDPOINT to your CRM / form-handler URL
+   Open public/assets/js/main.js and set FORM_ENDPOINT to your CRM / form-handler URL
    (it receives a JSON POST: propertyType, postcode, upgrade, selectedServices, firstName, mobile, source).
    Until then, customers will see a thank-you message but nothing reaches you.
+
+1a. CHAT ASSISTANT IS A DEMO. The Chat button now opens a guided assistant that asks for the product,
+   full name and phone number, then shows "Existing customer" or "New customer". It does NOT send
+   leads anywhere yet and does not check your real customer list (it uses two sample records).
+   Your developer must connect it before launch; see "Chat assistant (demo)" in README.md.
 
 1b. CONNECT LIVE CHAT. The floating Chat button (bottom right) opens a contact panel (eligibility
    check, call, email, Facebook Messenger) until live chat is connected. To connect Tawk.to (free):
    create an account at tawk.to, then copy the two IDs from Administration > Chat Widget > Direct
    Chat Link (https://tawk.to/chat/<propertyId>/<widgetId>) into CHAT at the top of
-   assets/js/main.js. For another provider (Intercom, HubSpot, Crisp), ask your developer to swap
+   public/assets/js/main.js. For another provider (Intercom, HubSpot, Crisp), ask your developer to swap
    the loader.
 
-1c. CONTACT US PAGE. A new Contact Us page is in contact/index.html. Its form needs a form
-   handler too: set CONTACT_ENDPOINT in assets/js/main.js. Until then, "Send message" opens the
+1c. CONTACT US PAGE. A new Contact Us page is in app/contact/page.tsx. Its form needs a form
+   handler too: set CONTACT_ENDPOINT in public/assets/js/main.js. Until then, "Send message" opens the
    visitor's email app addressed to admin@auzbright.com.au. Your WordPress site already has a
    /contact/ page, so decide which one to keep when going live.
 
-1d. ABOUT PAGE. A new About page is in about/index.html, adapted from auzbright.com.au/about/.
+1d. ABOUT PAGE. A new About page is in app/about/page.tsx, adapted from auzbright.com.au/about/.
    - Left out on purpose: the "Meet the team" names and photos (Kate Stivenson, "Edward Doson,
      Tester" and others look like the theme's demo team) and a placeholder paragraph under
      "Why Choose Us". Send real team names, roles and photos to add a team section.

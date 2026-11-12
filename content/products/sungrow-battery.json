@@ -1,0 +1,84 @@
+{
+  "slug": "sungrow-battery",
+  "category": "battery",
+  "order": 20,
+  "brand": "Sungrow",
+  "name": "Sungrow Battery",
+  "tagline": "High-voltage LFP battery, expandable from 9.6 kWh to 25.6 kWh per unit.",
+  "summary": [
+    "The Sungrow SBR is a high-voltage lithium iron phosphate battery built from 3.2 kWh modules. A unit holds three to eight modules, and up to four units can be connected in parallel.",
+    "Modules plug together without cables, and the battery can be extended later."
+  ],
+  "image": {
+    "src": "/assets/images/pages/sungrow-battery.webp",
+    "alt": "Sungrow Battery modular home battery",
+    "width": 400,
+    "height": 380
+  },
+  "highlights": [
+    {
+      "icon": "bolt",
+      "title": "Strong charge rate",
+      "text": "Charges and discharges continuously at up to 30 A with high efficiency."
+    },
+    {
+      "icon": "battery",
+      "title": "Full usable energy",
+      "text": "Up to 100% of the stored energy is usable."
+    },
+    {
+      "icon": "shield",
+      "title": "LFP safety",
+      "text": "Lithium iron phosphate cells with multi-stage protection and extensive safety certification."
+    },
+    {
+      "icon": "chart",
+      "title": "Expandable later",
+      "text": "Runs three to eight modules per unit, with up to four units in parallel."
+    },
+    {
+      "icon": "wrench",
+      "title": "Easy installation",
+      "text": "Compact, light modules plug together with no cables between them."
+    }
+  ],
+  "specs": [
+    {
+      "label": "Usable energy",
+      "value": "9.6 kWh to 25.6 kWh (3 to 8 modules)"
+    },
+    {
+      "label": "Battery module",
+      "value": "3.2 kWh, 33 kg"
+    },
+    {
+      "label": "Max. continuous current",
+      "value": "30 A"
+    },
+    {
+      "label": "Rated DC power",
+      "value": "5.76 kW to 15.36 kW"
+    },
+    {
+      "label": "Depth of discharge",
+      "value": "Max.100 % DOD (settable)"
+    },
+    {
+      "label": "Degree of protection",
+      "value": "IP55"
+    },
+    {
+      "label": "Operating temperature",
+      "value": "Charge 0 to 50 ℃, discharge -30 to 50 ℃"
+    },
+    {
+      "label": "Weight",
+      "value": "114 kg to 279 kg"
+    }
+  ],
+  "warranty": "10 years warranty",
+  "brochure": {
+    "label": "Download spec sheet (PDF)",
+    "href": "/assets/docs/spec-sungrow-battery.pdf"
+  }
+}

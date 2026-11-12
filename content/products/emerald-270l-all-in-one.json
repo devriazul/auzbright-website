@@ -1,0 +1,76 @@
+{
+  "slug": "emerald-270l-all-in-one",
+  "category": "heat-pump",
+  "order": 10,
+  "brand": "Emerald Energy",
+  "name": "270L all-in-one",
+  "tagline": "A 270 litre all-in-one heat pump with DC inverter technology.",
+  "summary": [
+    "The Emerald all-in-one heat pump puts the tank and heat pump in a single unit. Its DC inverter technology is designed to extend component life and keep noise down.",
+    "A simple controller lets you set the water temperature, pick a running mode and schedule heating times."
+  ],
+  "image": {
+    "src": "/assets/images/pages/780b832f-48c4-4d1f-9dec-682dc8dba416-1-1-1-2.webp",
+    "alt": "Emerald Energy 270L white all-in-one heat pump",
+    "width": 270,
+    "height": 405
+  },
+  "highlights": [
+    {
+      "icon": "bolt",
+      "title": "DC inverter technology",
+      "text": "Efficient inverter operation that helps components last longer and reduces noise."
+    },
+    {
+      "icon": "volume",
+      "title": "Silent mode",
+      "text": "Runs the heat pump at a lower frequency for one quieter heating cycle."
+    },
+    {
+      "icon": "thermo",
+      "title": "Booster mode",
+      "text": "Runs at a higher heating capacity for one cycle when you need hot water sooner."
+    },
+    {
+      "icon": "clock",
+      "title": "Timer control",
+      "text": "Set up to three timer periods so the system heats when it suits you."
+    },
+    {
+      "icon": "shield",
+      "title": "Daily legionella control",
+      "text": "Heats at least 45% of the tank to 60ºC every day, whatever the controller settings."
+    }
+  ],
+  "specs": [
+    {
+      "label": "Tank capacity",
+      "value": "270 L"
+    },
+    {
+      "label": "Residential models",
+      "value": "EE-HWS-A1-270, EE-HWS-A1-270E"
+    },
+    {
+      "label": "Running modes",
+      "value": "Standard, Silent, Booster"
+    },
+    {
+      "label": "Set temperature (Standard mode)",
+      "value": "15ºC - 63ºC"
+    },
+    {
+      "label": "Set temperature (Silent mode)",
+      "value": "15ºC - 60ºC"
+    },
+    {
+      "label": "Timer periods",
+      "value": "3"
+    }
+  ],
+  "warranty": "5 years warranty",
+  "brochure": {
+    "label": "Download controller instructions (PDF)",
+    "href": "/assets/docs/emerald-heat-pump-all-in-one-controller-instructions.pdf"
+  }
+}

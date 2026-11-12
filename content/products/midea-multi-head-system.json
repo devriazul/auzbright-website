@@ -1,0 +1,89 @@
+{
+  "slug": "midea-multi-head-system",
+  "category": "air-conditioner",
+  "order": 40,
+  "brand": "Midea",
+  "name": "Midea multi head system",
+  "tagline": "One outdoor unit for up to six rooms, with four indoor unit types.",
+  "summary": [
+    "Midea's inverter multi split system connects up to six independently controlled indoor units to one outdoor unit, saving outdoor space and letting you heat or cool only the rooms you need.",
+    "Five outdoor unit sizes pair with wall mounted, ducted, compact cassette and floor console indoor units."
+  ],
+  "image": {
+    "src": "/assets/images/pages/midea-multi-head-system.webp",
+    "alt": "Midea multi head system outdoor unit with four wall-mounted indoor units",
+    "width": 198,
+    "height": 373
+  },
+  "highlights": [
+    {
+      "icon": "home",
+      "title": "Up to six rooms",
+      "text": "One outdoor unit connects to as many as six indoor units, each with its own control."
+    },
+    {
+      "icon": "check",
+      "title": "Four indoor types",
+      "text": "Combine wall mounted, ducted, compact cassette and floor console units."
+    },
+    {
+      "icon": "bolt",
+      "title": "Efficient at part load",
+      "text": "Runs at partial output when only some rooms are in use, using up to 30% less energy."
+    },
+    {
+      "icon": "thermo",
+      "title": "Steady temperature",
+      "text": "Midea's inverter control keeps room temperature stable to within ±0.5°C."
+    },
+    {
+      "icon": "wifi",
+      "title": "Wi-Fi app control",
+      "text": "Adjust wall mounted and floor console units remotely from the Midea mobile app."
+    },
+    {
+      "icon": "wrench",
+      "title": "Automatic wiring correction",
+      "text": "The system automatically corrects crossed wiring and piping connections after installation."
+    }
+  ],
+  "specs": [
+    {
+      "label": "Outdoor unit sizes",
+      "value": "Five, for up to 2 to 6 indoor units"
+    },
+    {
+      "label": "Rated cooling capacity",
+      "value": "5.25 kW to 19.0 kW"
+    },
+    {
+      "label": "Rated heating capacity",
+      "value": "5.5 kW to 20.5 kW"
+    },
+    {
+      "label": "AEER (cooling)",
+      "value": "3.48 to 3.94"
+    },
+    {
+      "label": "ACOP (heating)",
+      "value": "4.0 to 4.62"
+    },
+    {
+      "label": "Refrigerant",
+      "value": "R32"
+    },
+    {
+      "label": "Max. pipe length for all rooms",
+      "value": "40 m to 80 m, depending on model"
+    },
+    {
+      "label": "Power supply",
+      "value": "220-240 V, single phase, 50 Hz"
+    }
+  ],
+  "warranty": "7 years warranty",
+  "brochure": {
+    "label": "Download brochure (PDF)",
+    "href": "/assets/docs/midea-new-multi-brochure.pdf"
+  }
+}

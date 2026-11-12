@@ -1,0 +1,84 @@
+{
+  "slug": "anker-solix-battery",
+  "category": "battery",
+  "order": 70,
+  "brand": "Anker",
+  "name": "Anker SOLIX Solar Battery",
+  "tagline": "Modular LFP home battery, from 5 kWh to 30 kWh.",
+  "summary": [
+    "The Anker SOLIX X1 is a hybrid single-phase energy storage system built from 5 kWh LFP battery modules. One to six modules give 5 kWh to 30 kWh of storage.",
+    "It is weatherproof and rated to operate from -20°C to 55°C."
+  ],
+  "image": {
+    "src": "/assets/images/pages/anker-solar-battery.webp",
+    "alt": "Anker SOLIX Solar Battery modular home battery",
+    "width": 400,
+    "height": 380
+  },
+  "highlights": [
+    {
+      "icon": "shield",
+      "title": "Safety and performance",
+      "text": "Optimised for safe operation and strong performance."
+    },
+    {
+      "icon": "drop",
+      "title": "Weatherproof",
+      "text": "The battery module carries an IP66 ingress protection rating."
+    },
+    {
+      "icon": "thermo",
+      "title": "Extreme conditions",
+      "text": "Works in temperatures from -20°C to 55°C."
+    },
+    {
+      "icon": "bolt",
+      "title": "Backup power",
+      "text": "Provides 24/7 backup power."
+    },
+    {
+      "icon": "chart",
+      "title": "Modular capacity",
+      "text": "Add 5 kWh modules to build a system of up to 30 kWh."
+    }
+  ],
+  "specs": [
+    {
+      "label": "Energy capacity",
+      "value": "5 kWh to 30 kWh (1 to 6 modules)"
+    },
+    {
+      "label": "Max. charge / discharge power",
+      "value": "3 kW (per battery module)"
+    },
+    {
+      "label": "Battery type",
+      "value": "Li-ion (LFP)"
+    },
+    {
+      "label": "Ingress protection rating",
+      "value": "IP66"
+    },
+    {
+      "label": "Operating temperature",
+      "value": "-20 °C to 55 °C"
+    },
+    {
+      "label": "Battery module weight",
+      "value": "51 kg"
+    },
+    {
+      "label": "System weight",
+      "value": "73.5 kg to 334 kg"
+    },
+    {
+      "label": "Module dimensions (W × H × D)",
+      "value": "670 × 360 × 150 mm"
+    }
+  ],
+  "warranty": "10 years warranty",
+  "brochure": {
+    "label": "Download spec sheet (PDF)",
+    "href": "/assets/docs/spec-anker-solar-battery.pdf"
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "slug": "tesla-battery",
+  "category": "battery",
+  "order": 120,
+  "brand": "Tesla",
+  "name": "Tesla Battery",
+  "tagline": "A compact, high-capacity home battery that can scale.",
+  "summary": [
+    "The Tesla battery is a compact, high-capacity home battery that supports energy independence. It integrates seamlessly and can be scaled up."
+  ],
+  "image": {
+    "src": "/assets/images/pages/tesla-battery-info.webp",
+    "alt": "Tesla Battery units on an outside wall",
+    "width": 400,
+    "height": 380
+  },
+  "highlights": [
+    {
+      "icon": "sun",
+      "title": "Energy independence",
+      "text": "Helps you rely more on your own stored energy."
+    },
+    {
+      "icon": "battery",
+      "title": "High capacity",
+      "text": "A high-capacity battery."
+    },
+    {
+      "icon": "plug",
+      "title": "Seamless integration",
+      "text": "Designed to integrate seamlessly."
+    },
+    {
+      "icon": "chart",
+      "title": "Scalable",
+      "text": "Storage can be scaled up."
+    },
+    {
+      "icon": "home",
+      "title": "Compact design",
+      "text": "A compact unit."
+    }
+  ],
+  "specs": [],
+  "warranty": "10 years warranty"
+}

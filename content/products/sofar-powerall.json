@@ -1,0 +1,89 @@
+{
+  "slug": "sofar-powerall",
+  "category": "battery",
+  "order": 90,
+  "brand": "Sofar",
+  "name": "Sofar PowerAll",
+  "tagline": "Single-phase all-in-one inverter and battery, 5 kWh to 30 kWh.",
+  "summary": [
+    "The Sofar PowerAll combines a single-phase hybrid inverter with one to six 5.12 kWh LFP battery modules in a modular stack.",
+    "Capacity can be expanded later, and the system switches to critical loads in under 10 milliseconds. It is rated IP65."
+  ],
+  "image": {
+    "src": "/assets/images/pages/sofar-powerall.webp",
+    "alt": "Sofar PowerAll all-in-one battery system",
+    "width": 400,
+    "height": 380
+  },
+  "highlights": [
+    {
+      "icon": "wrench",
+      "title": "Modular design",
+      "text": "The integrated modular build makes transport and installation simple."
+    },
+    {
+      "icon": "chart",
+      "title": "Expandable capacity",
+      "text": "Add battery modules as your energy needs grow."
+    },
+    {
+      "icon": "leaf",
+      "title": "Low standby use",
+      "text": "The battery uses very little power in sleep mode."
+    },
+    {
+      "icon": "bolt",
+      "title": "Fast switchover",
+      "text": "Switches to critical loads in under 10 milliseconds."
+    },
+    {
+      "icon": "sun",
+      "title": "High-current panels",
+      "text": "Compatible with high current PV panels, with two MPPTs."
+    },
+    {
+      "icon": "wifi",
+      "title": "Display and app",
+      "text": "LCD display plus app and Bluetooth, with WiFi communication."
+    }
+  ],
+  "specs": [
+    {
+      "label": "Battery capacity",
+      "value": "5.12kWh to 30.72kWh (1 to 6 batteries)"
+    },
+    {
+      "label": "Usable energy",
+      "value": "4.75kWh to 28.5kWh"
+    },
+    {
+      "label": "Rated output power",
+      "value": "3000-6000W"
+    },
+    {
+      "label": "Max. efficiency",
+      "value": "97.7% or 97.8%, by inverter model"
+    },
+    {
+      "label": "Switchover time",
+      "value": "<10 ms"
+    },
+    {
+      "label": "Degree of protection",
+      "value": "IP65"
+    },
+    {
+      "label": "Ambient temperature range",
+      "value": "-10°C ~ 50°C"
+    },
+    {
+      "label": "Weight",
+      "value": "74.5kg to 330.5kg"
+    }
+  ],
+  "warranty": "10 years warranty",
+  "brochure": {
+    "label": "Download spec sheet (PDF)",
+    "href": "/assets/docs/spec-sofar-powerall.pdf"
+  }
+}

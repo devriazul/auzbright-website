@@ -1,0 +1,89 @@
+{
+  "slug": "rinnai-ducted-air-conditioning",
+  "category": "air-conditioner",
+  "order": 10,
+  "brand": "Rinnai",
+  "name": "Rinnai ducted air conditioning",
+  "tagline": "Whole-home reverse-cycle ducted heating and cooling with optional zoning.",
+  "summary": [
+    "The Rinnai Ducted Reverse Cycle Inverter (DRCi) system heats and cools the whole home through insulated ductwork, with the indoor unit hidden in the roof space.",
+    "It comes in six sizes from 7 kW to 18 kW, uses R32 refrigerant, and can be zoned so you only condition the rooms in use."
+  ],
+  "image": {
+    "src": "/assets/images/pages/rinnai-ducted-air-conditioning.webp",
+    "alt": "Rinnai ducted air conditioning outdoor unit beside a wall",
+    "width": 570,
+    "height": 380
+  },
+  "highlights": [
+    {
+      "icon": "home",
+      "title": "Whole-home comfort",
+      "text": "One concealed system heats, cools and dehumidifies every room through ceiling outlets."
+    },
+    {
+      "icon": "pin",
+      "title": "Optional zoning",
+      "text": "The optional Rinnai Home controller manages up to 8 zones with a touch screen and wireless sensors."
+    },
+    {
+      "icon": "wifi",
+      "title": "Wi-Fi app control",
+      "text": "Switch the system on and adjust temperature and fan speed from the Android or Apple app."
+    },
+    {
+      "icon": "volume",
+      "title": "Quiet operation",
+      "text": "Efficient fans and a DC inverter compressor keep noise low without affecting performance."
+    },
+    {
+      "icon": "bolt",
+      "title": "DC inverter efficiency",
+      "text": "The inverter varies its speed to hold a steady temperature and conserve energy."
+    },
+    {
+      "icon": "clock",
+      "title": "Auto restart",
+      "text": "The system restarts by itself after a power outage."
+    }
+  ],
+  "specs": [
+    {
+      "label": "Nominal capacity",
+      "value": "7, 9, 11, 13, 15 and 18 kW"
+    },
+    {
+      "label": "Rated cooling capacity",
+      "value": "7.3 kW to 17 kW"
+    },
+    {
+      "label": "Rated heating capacity",
+      "value": "7.5 kW to 18.0 kW"
+    },
+    {
+      "label": "Efficiency",
+      "value": "AEER 3.2 to 3.6, ACOP 3.9 to 4.4"
+    },
+    {
+      "label": "Refrigerant",
+      "value": "R32"
+    },
+    {
+      "label": "Power supply",
+      "value": "220-240 V, single phase, 50 Hz"
+    },
+    {
+      "label": "Outdoor ambient limits",
+      "value": "Cooling -15~50°C, heating -20~24°C"
+    },
+    {
+      "label": "Outdoor sound pressure at 1 m",
+      "value": "60 to 62 dB(A)"
+    }
+  ],
+  "warranty": "7 years warranty",
+  "brochure": {
+    "label": "Download brochure (PDF)",
+    "href": "/assets/docs/rinnai-ducted-air-conditioning.pdf"
+  }
+}

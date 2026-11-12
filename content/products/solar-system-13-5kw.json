@@ -1,0 +1,57 @@
+{
+  "slug": "solar-system-13-5kw",
+  "category": "solar-system",
+  "order": 30,
+  "brand": "Jinko / Canadian Solar",
+  "name": "13.5kW solar system",
+  "tagline": "Solar with battery storage for serious energy independence.",
+  "summary": [
+    "A 13.5kW solar system using Jinko or Canadian Solar panels, supplied with battery storage. It is our largest package, for serious energy independence."
+  ],
+  "image": {
+    "src": "/assets/images/pages/alpha-ess-battery2-1.webp",
+    "alt": "13.5kW solar system with Jinko or Canadian Solar panels",
+    "width": 570,
+    "height": 380
+  },
+  "highlights": [
+    {
+      "icon": "sun",
+      "title": "Tier 1 panels",
+      "text": "Tier 1 solar panels with 25-year warranty."
+    },
+    {
+      "icon": "wifi",
+      "title": "Hybrid Wi-Fi inverter",
+      "text": "Hybrid Wi-Fi–enabled inverter with 10-year warranty."
+    },
+    {
+      "icon": "battery",
+      "title": "Battery included",
+      "text": "1x 9.6kW battery with 10-year warranty."
+    },
+    {
+      "icon": "users",
+      "title": "Local support",
+      "text": "Supported by local Australian service and payment plans."
+    }
+  ],
+  "specs": [
+    {
+      "label": "Solar system size",
+      "value": "13.5kW"
+    },
+    {
+      "label": "Panel warranty",
+      "value": "25 years"
+    },
+    {
+      "label": "Inverter warranty",
+      "value": "10 years"
+    },
+    {
+      "label": "Battery warranty",
+      "value": "10 years"
+    }
+  ]
+}

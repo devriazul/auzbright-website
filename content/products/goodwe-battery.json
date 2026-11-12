@@ -1,0 +1,84 @@
+{
+  "slug": "goodwe-battery",
+  "category": "battery",
+  "order": 50,
+  "brand": "GoodWe",
+  "name": "GoodWe Battery",
+  "tagline": "Modular high-voltage LFP battery, from 6.4 kWh to 28.8 kWh per tower.",
+  "summary": [
+    "The GoodWe Lynx F G2 Series is a high-voltage battery made of stackable 3.2 kWh modules, for use with GoodWe EH and ET series inverters.",
+    "Up to eight towers can be connected in parallel, so it suits homes through to commercial sites. It is rated IP55 for outdoor installation."
+  ],
+  "image": {
+    "src": "/assets/images/pages/goodwe-battery.webp",
+    "alt": "GoodWe Battery modular home battery",
+    "width": 400,
+    "height": 380
+  },
+  "highlights": [
+    {
+      "icon": "wifi",
+      "title": "Smart monitoring",
+      "text": "Remote diagnosis and updates through the inverter, with automatic reboot after undervoltage."
+    },
+    {
+      "icon": "wrench",
+      "title": "Easy to install",
+      "text": "Stackable modules are recognised automatically and use plug-and-play wiring."
+    },
+    {
+      "icon": "shield",
+      "title": "Long-lasting LFP",
+      "text": "Lithium iron phosphate cells offer reliable performance and high cycle stability."
+    },
+    {
+      "icon": "drop",
+      "title": "IP55 protection",
+      "text": "Rated IP55 for safe outdoor installation."
+    },
+    {
+      "icon": "chart",
+      "title": "Flexible capacity",
+      "text": "Connect up to eight towers in parallel for as much as 230 kWh."
+    }
+  ],
+  "specs": [
+    {
+      "label": "Usable energy",
+      "value": "6.4 kWh to 28.8 kWh"
+    },
+    {
+      "label": "Nominal power",
+      "value": "4.48 kW to 20.16 kW"
+    },
+    {
+      "label": "Battery module",
+      "value": "LX F3.2-20: 64V 3.2kWh"
+    },
+    {
+      "label": "Round-trip efficiency",
+      "value": "94%"
+    },
+    {
+      "label": "Cycle life",
+      "value": ">4000"
+    },
+    {
+      "label": "Ingress protection rating",
+      "value": "IP55"
+    },
+    {
+      "label": "Operating temperature range",
+      "value": "-20 ~ +50 °C"
+    },
+    {
+      "label": "Weight",
+      "value": "86 kg to 324 kg"
+    }
+  ],
+  "warranty": "10 years warranty",
+  "brochure": {
+    "label": "Download spec sheet (PDF)",
+    "href": "/assets/docs/spec-goodwe-battery.pdf"
+  }
+}

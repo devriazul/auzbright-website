@@ -1,0 +1,15 @@
+{
+  "slug": "ecogenica-r215",
+  "category": "heat-pump",
+  "order": 60,
+  "brand": "Ecogenica",
+  "name": "R 215",
+  "tagline": "A 215 litre heat pump hot water system.",
+  "summary": [
+    "The Ecogenica R 215 is the updated and improved take on the original 215 litre product designed by the team at Ecogenica.",
+    "It is a sleek, modern and energy-efficient unit that has become one of the most sought-after alternatives for heating water."
+  ],
+  "image": { "src": "/assets/images/pages/product-image1.webp", "alt": "Ecogenica R 215 heat pump hot water system", "width": 270, "height": 405 },
+  "highlights": [],
+  "specs": [{ "label": "Tank capacity", "value": "215 L" }]
+}
