@@ -23,6 +23,7 @@ export interface Img {
 
 export interface Cta {
   label: string;
+  /** A site path, URL, tel: or mailto: link; or "quote:<product slug or name>" to open the quick quote pop-up */
   href: string;
 }
 
