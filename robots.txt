@@ -1,0 +1,4 @@
+User-Agent: *
+Allow: /
+
+Sitemap: https://auzbright.com.au/sitemap.xml

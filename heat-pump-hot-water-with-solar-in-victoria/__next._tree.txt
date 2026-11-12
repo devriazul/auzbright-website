@@ -1,0 +1,7 @@
+:HL["https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap","style"]
+:HL["/auzbright-website/assets/css/styles.css","style"]
+:HL["/auzbright-website/assets/images/auzbright-logo-reversed.png","image"]
+:HL["/auzbright-website/assets/images/blog/heat-pump-hot-water-with-solar-in-victoria.webp","image"]
+2:[["children",{"s":"__PAGE__","h":160}]]
+1:[["children",{"s":{"n":"slug","t":"d","k":"heat-pump-hot-water-with-solar-in-victoria","s":["about","blogs","contact","emerald-energy","enquire-now","ev-charger","landing","nsw","privacy-policy","products","solar-battery-solutions","thank-you","victoria"]},"h":65600,"c":"$Q2"}]]
+0:{"b":"_LMKUFrn--ZXLVn9OW5EN","t":{"t":{"s":"","h":131088,"c":"$Q1"}}}

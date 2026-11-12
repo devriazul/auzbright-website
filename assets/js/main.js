@@ -10,7 +10,7 @@
      While it is empty, enquiries are NOT sent anywhere. */
   var FORM_ENDPOINT = '';
 
-  /* Contact page form (contact/index.html). Set to your form handler URL (JSON POST).
+  /* Contact page form (app/contact/page.tsx). Set to your form handler URL (JSON POST).
      While it is empty, sending opens the visitor's email app with the message filled in. */
   var CONTACT_ENDPOINT = '';
   var CONTACT_EMAIL = 'admin@auzbright.com.au';
@@ -388,7 +388,7 @@
     if (!chatPanel || !chatBtn) return;
     chatPanel.hidden = !open;
     chatBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
-    if (open) { var first = chatPanel.querySelector('.cp-list a'); if (first) first.focus(); }
+    if (open) { var first = chatPanel.querySelector('.ca-chips button, .ca-form input, .cp-list a'); if (first) first.focus({ preventScroll: true }); }
     else if (focusBack) (chatOpener || chatBtn).focus();
   }
   function openTawk() {
