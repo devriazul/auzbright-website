@@ -83,6 +83,9 @@ export const getProduct = (slug: string) => getProducts().find((p) => p.slug ===
 
 export const productHref = (p: Product) => `/products/${p.slug}/`;
 
+/** A compact product card (image, name, one line, warranty) with Get a quote and View details buttons. */
+const productCard = (p: Product) => ({ brand: p.brand, name: p.name, text: p.tagline, badge: p.warranty, image: p.image, href: productHref(p) });
+
 /** Lays a product out as a content page: hero, overview, features, specifications, related products. */
 export function productPage(p: Product): PageData {
   const cat = CATEGORIES[p.category];
@@ -132,11 +135,11 @@ export function productPage(p: Product): PageData {
       ...(others.length
         ? [
             {
-              type: "cards" as const,
+              type: "products" as const,
               tone: "mist" as const,
               eyebrow: "Compare",
               title: `More ${cat.plural.toLowerCase()}`,
-              items: others.map((o) => ({ label: o.brand, title: o.name, text: o.tagline, href: productHref(o), image: { ...o.image, fit: "contain" as const } })),
+              items: others.map(productCard),
             },
           ]
         : []),
@@ -161,15 +164,13 @@ export function productsIndexPage(): PageData {
     sections: (Object.keys(CATEGORIES) as CategoryKey[])
       .filter((k) => all.some((p) => p.category === k))
       .map((k, i) => ({
-        type: "cards" as const,
+        type: "products" as const,
         id: k,
         tone: i % 2 ? ("mist" as const) : ("white" as const),
         eyebrow: CATEGORIES[k].label,
         title: CATEGORIES[k].plural,
         intro: CATEGORIES[k].intro,
-        items: all
-          .filter((p) => p.category === k)
-          .map((p) => ({ label: p.brand, title: p.name, text: p.tagline, href: productHref(p), image: { ...p.image, fit: "contain" as const } })),
+        items: all.filter((p) => p.category === k).map(productCard),
       })),
   };
 }
