@@ -988,3 +988,58 @@ html{scroll-padding-top:72px}
 .qq :focus-visible{outline:3px solid #A0E25F;outline-offset:2px}
 @media (max-width:480px){.qq-box{padding:22px 20px}.qq h2{font-size:22px}.qq-row{grid-template-columns:minmax(0,1fr)}}
 @media (prefers-reduced-motion:reduce){.qq[open]{animation:none}}
+
+/* ============================================================
+   Motion for the inner pages: header entrance, card hover, page-to-page fade.
+   Scroll reveal and the cursor spotlight are set up in main.js.
+   ============================================================ */
+/* Header entrance: breadcrumb, label, heading, text and buttons rise in turn; the photo settles */
+.ab-hero-copy > *,.ct-hero > .wrap > *{animation:hero-rise .7s cubic-bezier(.2,.8,.2,1) both}
+.ab-hero-copy > :nth-child(2),.ct-hero > .wrap > :nth-child(2){animation-delay:.07s}
+.ab-hero-copy > :nth-child(3),.ct-hero > .wrap > :nth-child(3){animation-delay:.14s}
+.ab-hero-copy > :nth-child(4),.ct-hero > .wrap > :nth-child(4){animation-delay:.21s}
+.ab-hero-copy > :nth-child(5),.ct-hero > .wrap > :nth-child(5){animation-delay:.28s}
+.ab-hero-copy > :nth-child(n+6),.ct-hero > .wrap > :nth-child(n+6){animation-delay:.35s}
+.ab-hero-photo img{animation:hero-settle 1.4s cubic-bezier(.2,.8,.2,1) both}
+.pg-chips li{animation:hero-rise .6s cubic-bezier(.2,.8,.2,1) both}
+.pg-chips li:nth-child(1){animation-delay:.3s}.pg-chips li:nth-child(2){animation-delay:.38s}.pg-chips li:nth-child(n+3){animation-delay:.46s}
+
+/* Cards: lift, image zoom and the cursor spotlight */
+.pg-prod,.post-card,.pg-rv,.pg-specs > div{position:relative;isolation:isolate}
+.pg-prod::before,.post-card::before,.pg-rv::before,.pg-specs > div::before{content:'';position:absolute;inset:0;z-index:-1;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .3s;background:radial-gradient(260px circle at var(--mx,50%) var(--my,50%),rgba(68,208,187,.16),transparent 70%)}
+@media (hover:hover){.pg-prod:hover::before,.post-card:hover::before,.pg-rv:hover::before,.pg-specs > div:hover::before{opacity:1}}
+.pg-prod,.pg-rv,.pg-specs > div,.side-card,.pg-list .why-card{transition:border-color .2s,box-shadow .25s,transform .25s cubic-bezier(.2,.8,.2,1)}
+.pg-prod:hover{border-color:#B9C0D2;box-shadow:0 28px 56px -32px rgba(14,25,63,.4);transform:translateY(-4px)}
+.pg-rv:hover,.pg-list .why-card:hover{border-color:#B9C0D2;transform:translateY(-3px)}
+.pg-specs > div:hover{border-color:#44D0BB}
+.side-card:not(.side-cta):not(.side-service):hover{border-color:#B9C0D2}
+.pg-prod-img img{transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.pg-prod:hover .pg-prod-img img{transform:scale(1.05)}
+.pg-photo img,.post-cover img,.side-posts img{transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+.pg-split:hover .pg-photo img,.post-cover:hover img{transform:scale(1.03)}
+.side-posts a:hover img{transform:scale(1.06)}
+.pg-badge svg{transition:transform .3s}
+.pg-prod:hover .pg-badge svg{transform:scale(1.15)}
+.pg-ticks li .tick-dot{transition:transform .25s cubic-bezier(.2,.8,.2,1)}
+.pg-ticks li:hover .tick-dot{transform:scale(1.15)}
+.side-toc a{transition:color .15s,border-color .15s,padding-left .2s}
+.side-toc a:hover{padding-left:20px}
+.crumbs a,.foot a,.pg-prod-link,.ca-link{transition:color .15s}
+.foot-nav a{position:relative}
+.foot-nav a::after{content:'';position:absolute;left:0;right:0;bottom:4px;height:1px;background:#A0E25F;transform:scaleX(0);transform-origin:left;transition:transform .25s cubic-bezier(.2,.8,.2,1)}
+.foot-nav a:hover::after,.foot-nav a:focus-visible::after{transform:scaleX(1)}
+.post-body details > :not(summary){animation:faq-open .3s cubic-bezier(.2,.8,.2,1)}
+.post-body summary::after{transition:background-color .2s,transform .2s}
+.post-body details[open] summary::after{transform:rotate(180deg)}
+.post-table tbody tr{transition:background-color .15s}
+.post-table tbody tr:hover{background:#E6F8F5}
+
+/* Page-to-page: a short cross-fade instead of a hard cut (browsers that support it) */
+@media (prefers-reduced-motion:no-preference){@view-transition{navigation:auto}}
+::view-transition-old(root),::view-transition-new(root){animation-duration:.22s}
+
+@media (prefers-reduced-motion:reduce){
+.ab-hero-copy > *,.ct-hero > .wrap > *,.ab-hero-photo img,.pg-chips li,.post-body details > :not(summary){animation:none}
+.pg-prod,.pg-rv,.pg-specs > div,.side-card,.pg-list .why-card,.pg-prod-img img,.pg-photo img,.post-cover img,.side-posts img,.pg-badge svg,.tick-dot,.side-toc a,.foot-nav a::after,.post-body summary::after{transition:none}
+.pg-prod:hover,.pg-rv:hover,.pg-list .why-card:hover,.pg-prod:hover .pg-prod-img img,.pg-split:hover .pg-photo img,.post-cover:hover img,.side-posts a:hover img,.pg-prod:hover .pg-badge svg,.pg-ticks li:hover .tick-dot{transform:none}
+}

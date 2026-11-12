@@ -444,7 +444,7 @@
      animation ends so each element's own hover transitions come back. */
   (function () {
     if (reduceMotion || !('IntersectionObserver' in window)) return;
-    var GRID = '.g-2,.g-3,.g-4,.g-sav,.g-split,.g-half,.ev-grid,.g-foot';
+    var GRID = '.g-2,.g-3,.g-4,.g-sav,.g-split,.g-half,.ev-grid,.g-foot,.faq-list,.post-side,.pager';
     var groups = [];
     function kids(el) { return Array.prototype.slice.call(el.children); }
     function sameTagList(el) {
@@ -461,11 +461,20 @@
         if (cells.length) groups.push(cells);
       } else if (el.children.length === 1 && el.firstElementChild.matches(GRID)) {
         groups.push(kids(el.firstElementChild));
+      } else if (el.matches('.post-main')) {
+        // a whole article is far taller than the screen: reveal only its cover image
+        var cover = el.querySelector(':scope > .post-cover');
+        if (cover) groups.push([cover]);
       } else {
-        groups.push([el]);
+        // text blocks that hold a list of specs or tick points: the list items stagger
+        var inner = el.querySelector(':scope > .pg-specs, :scope > .pg-ticks');
+        if (inner && inner.children.length > 1) {
+          groups.push(kids(el).filter(function (c) { return c !== inner; }));
+          groups.push(kids(inner));
+        } else groups.push([el]);
       }
     }
-    $$('main > section, footer').forEach(function (root) {
+    $$('main > section, main > .post-sec, footer').forEach(function (root) {
       var wrap = root.querySelector(':scope > .wrap');
       if (!wrap) { addBlock(root); return; }
       if (wrap.matches(GRID)) addBlock(wrap); else kids(wrap).forEach(addBlock);
@@ -475,7 +484,8 @@
     var fold = window.innerHeight * 0.92;
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
-        if (!en.isIntersecting) return;
+        // blocks taller than the screen never reach the ratio, so also accept a good slice of the screen
+        if (!en.isIntersecting || (en.intersectionRatio < 0.08 && en.intersectionRect.height < window.innerHeight * 0.2)) return;
         var el = en.target;
         io.unobserve(el);
         el.classList.add('in');
@@ -485,7 +495,7 @@
           el.style.transitionDelay = '';
         }, delay * 1000 + 900);
       });
-    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: [0, 0.02, 0.08] });
 
     groups.forEach(function (g) {
       g.forEach(function (el, i) {
@@ -659,7 +669,7 @@
   /* ---------- Card spotlight (mouse only; CSS shows it on hover) ---------- */
   document.addEventListener('pointermove', function (e) {
     if (e.pointerType !== 'mouse') return;
-    var card = e.target.closest && e.target.closest('.svc,.why-card,.ct-way,.sav-tab,.ab-state');
+    var card = e.target.closest && e.target.closest('.svc,.why-card,.ct-way,.sav-tab,.ab-state,.pg-prod,.post-card,.pg-rv,.pg-specs > div');
     if (!card) return;
     var r = card.getBoundingClientRect();
     card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
