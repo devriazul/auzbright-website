@@ -102,7 +102,7 @@ export function productPage(p: Product): PageData {
       lead: p.tagline,
       image: { ...p.image, fit: "contain" },
       chips: [p.warranty, ...p.specs.slice(0, 2).map((s) => `${s.label}: ${s.value}`)].filter((c): c is string => !!c && c.length <= 44),
-      primary: { label: "Get a quote", href: "/enquire-now/" },
+      primary: { label: "Get a quote", href: `quote:${p.slug}` },
       secondary: p.brochure ?? { label: "Call 03 8609 5195", href: "tel:0386095195" },
     },
     sections: [

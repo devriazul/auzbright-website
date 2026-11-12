@@ -45,6 +45,10 @@ MUST DO BEFORE GOING LIVE
    leads anywhere yet and does not check your real customer list (it uses two sample records).
    Your developer must connect it before launch; see "Chat assistant (demo)" in README.md.
 
+1a-2. QUICK QUOTE POP-UP IS A DEMO. Each product card has a "Get a quote" button that opens a short
+   form with the product already selected. It does NOT send requests anywhere yet. Your developer
+   must connect it before launch; see "Quick quote pop-up (demo)" in README.md.
+
 1b. CONNECT LIVE CHAT. The floating Chat button (bottom right) opens a contact panel (eligibility
    check, call, email, Facebook Messenger) until live chat is connected. To connect Tawk.to (free):
    create an account at tawk.to, then copy the two IDs from Administration > Chat Widget > Direct

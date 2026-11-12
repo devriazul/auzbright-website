@@ -59,6 +59,7 @@ The homepage has two jobs: explain Auzbright's upgrades and the government incen
 │   ├── SiteFooter.tsx          Footer
 │   ├── FloatingContact.tsx     Floating Chat and Call buttons and the chat panel
 │   ├── ChatAssistant.tsx       Guided chat assistant inside the chat panel (demo)
+│   ├── QuickQuote.tsx          Quick quote pop-up opened from product cards (demo)
 │   ├── ContentPage.tsx         Renders a content/pages/ file: hero plus sections
 │   ├── EligibilityCta.tsx      Closing "Find out what you're eligible for" call to action
 │   ├── EnquiryForm.tsx         Enquiry form with office details (Contact Us and Enquire Now)
@@ -147,6 +148,15 @@ The text is a short summary of the manufacturer's brochure in `public/assets/doc
 Product cards on the service pages link to these pages through the `href` field of a `products` section item.
 
 To add a product, add a JSON file (the `slug` must match the file name) and set `href` on its card. It appears on `/products/`, in related products and in `sitemap.xml` automatically.
+
+### Quick quote pop-up (demo)
+
+Every product card has a "Get a quote" button, and so does the header of each product detail page. It opens a small form in a pop-up (`components/QuickQuote.tsx`, a native `<dialog>` mounted once per page by `SiteShell`) with that product already selected. The form asks for the product, full name, phone and an optional postcode, and submits without leaving the page.
+
+- **Opening it:** any element with `data-quote="<product slug or name>"` opens the pop-up. In content data, a button whose `href` is `quote:<product slug>` does the same. The product list in the dropdown comes from `content/products/`, followed by the six upgrade types; a product that is not in the list (the Emerald R290 card) is added for that visit.
+- **Checks:** a product, a name of at least two letters and a valid Australian phone number are required; the postcode must be four digits if given. Errors clear as the field is corrected, Escape or a click outside closes it, and focus returns to the button.
+- **Sending:** set `NEXT_PUBLIC_QUOTE_ENDPOINT` at build time and each request is POSTed as JSON: `product`, `productId`, `name`, `phone`, `postcode`, `page`, `createdAt`, `source: "Quick quote"`. The thank-you message appears only when the server answers OK; otherwise the visitor sees an error with the phone number and keeps their input.
+- **Demo mode:** while the endpoint is empty, nothing is sent. The request is saved in the visitor's own browser (`localStorage`, key `auzbright-quote-requests`), the thank-you message still appears, and the pop-up shows a "Demo" tag.
 
 ### Chat assistant (demo)
 
@@ -424,6 +434,7 @@ To serve the site from a sub-folder, build with that folder as the base path, fo
 - [ ] Set `CONTACT_ENDPOINT` for the Contact Us page form (until then it opens an email instead)
 - [ ] Decide whether `contact/` and `about/` replace the WordPress `/contact/` and `/about/` pages when this site goes live
 - [ ] Confirm the About page numbers ("5,258 projects completed" and "80% saving on lighting costs", both from the current About page) and add real team members if you want a team section
+- [ ] Quick quote pop-up is a demo: set `NEXT_PUBLIC_QUOTE_ENDPOINT` so requests reach the CRM (see [Quick quote pop-up](#quick-quote-pop-up-demo)). Until then, quote requests are not sent to anyone
 - [ ] Chat assistant is a demo: connect the customer lookup and lead endpoint, then remove the "Demo" tag (see [Chat assistant](#chat-assistant-demo)). Until then, chat leads are not sent to anyone
 - [ ] Connect live chat: create a Tawk.to account and set `CHAT.tawkPropertyId` and `CHAT.tawkWidgetId` in `public/assets/js/main.js` (until then, Chat opens the contact panel)
 - [ ] Add the ABN to the footer copyright line (the placeholder was removed)

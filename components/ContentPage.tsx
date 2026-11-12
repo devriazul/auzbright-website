@@ -33,8 +33,7 @@ const ICONS: Record<IconName, string> = {
   globe: "M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Z M3 12h18 M12 3a14 14 0 0 1 0 18 M12 3a14 14 0 0 0 0 18",
   volume: "M11 5 6 9H3v6h3l5 4V5Z M22 9l-6 6 M16 9l6 6",
   doc: "M14 3H6v18h12V7l-4-4Z M14 3v4h4 M9 13h6 M9 17h6",
-  phone:
-    "M5 4h3l2 5-2.5 1.5a11 11 0 0 0 6 6L15 14l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z",
+  phone: "M5 4h3l2 5-2.5 1.5a11 11 0 0 0 6 6L15 14l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z",
   mail: "M4 6h16v12H4z M4 7l8 6 8-6",
   pin: "M12 21s-7-6.1-7-11.5A7 7 0 0 1 19 9.5C19 14.9 12 21 12 21Z M12 12a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z",
   award: "M12 15a6 6 0 1 0 0-12 6 6 0 0 0 0 12Z M8.5 14 7 22l5-3 5 3-1.5-8",
@@ -53,7 +52,13 @@ export function Icon({ name = "check", size = 24 }: { name?: IconName; size?: nu
 export function Arrow({ size = 20 }: { size?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 20 20" fill="none" aria-hidden="true">
-      <path d="M4 10h12m0 0-5-5m5 5-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <path
+        d="M4 10h12m0 0-5-5m5 5-5 5"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </svg>
   );
 }
@@ -124,12 +129,26 @@ function Photo({ img, className = "", priority = false }: { img: Img; className?
 
 function Button({ cta, kind }: { cta: Cta; kind: string }) {
   const ext = /^https?:/.test(cta.href);
+  // "quote:<product slug or name>" opens the quick quote pop-up with that product selected
+  if (cta.href.startsWith("quote:"))
+    return (
+      <button type="button" className={`btn ${kind}`} data-quote={cta.href.slice(6)}>
+        {cta.label}
+        <Arrow />
+      </button>
+    );
   return (
     <a className={`btn ${kind}`} href={link(cta.href)} {...(ext ? { target: "_blank", rel: "noopener" } : {})}>
       {cta.label}
       {kind.includes("btn-lime") || kind.includes("btn-navy") ? <Arrow /> : null}
     </a>
   );
+}
+
+/** "Emerald Energy® 270L" -> "Emerald Energy 270L"; no doubled brand. */
+function quoteLabel(brand: string | undefined, name: string) {
+  const b = (brand ?? "").replace(/[®™]/g, "").trim();
+  return !b || name.toLowerCase().startsWith(b.toLowerCase()) ? name : `${b} ${name}`;
 }
 
 function Head({ s, id }: { s: Section; id: string }) {
@@ -268,12 +287,31 @@ function SectionBody({ s, id }: { s: Section; id: string }) {
               <li key={i} className="pg-prod">
                 {it.image && (
                   <div className="pg-prod-img">
-                    <img src={link(it.image.src)} width={it.image.width} height={it.image.height} alt={it.image.alt} loading="lazy" decoding="async" />
+                    <img
+                      src={link(it.image.src)}
+                      width={it.image.width}
+                      height={it.image.height}
+                      alt={it.image.alt}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    {it.badge && (
+                      <span className="pg-badge">
+                        <Icon name="shield" size={16} />
+                        {it.badge}
+                      </span>
+                    )}
                   </div>
                 )}
                 <div className="pg-prod-body">
                   {it.brand && <p className="why-k">{it.brand}</p>}
                   <h3>{it.href ? <a href={link(it.href)}>{it.name}</a> : it.name}</h3>
+                  {it.badge && !it.image && (
+                    <span className="pg-badge">
+                      <Icon name="shield" size={16} />
+                      {it.badge}
+                    </span>
+                  )}
                   {it.text && (
                     <p className="why-d">
                       <Rich text={it.text} />
@@ -286,31 +324,44 @@ function SectionBody({ s, id }: { s: Section; id: string }) {
                       ))}
                     </ul>
                   )}
-                  {(it.badge || it.links || it.href) && (
-                    <div className="pg-prod-foot">
-                      {it.badge && (
-                        <span className="pg-badge">
-                          <Icon name="shield" size={16} />
-                          {it.badge}
-                        </span>
-                      )}
+                  <div className="pg-prod-foot">
+                    {/* Two clear actions side by side: ask for a quote, or read more */}
+                    <div className={`pg-prod-actions ${it.href ? "" : "is-single"}`}>
+                      <button
+                        type="button"
+                        className="btn btn-lime btn-sm"
+                        data-quote={it.href?.match(/^\/products\/([^/]+)\/$/)?.[1] ?? quoteLabel(it.brand, it.name)}
+                        data-quote-label={quoteLabel(it.brand, it.name)}
+                        aria-label={`Get a quote: ${quoteLabel(it.brand, it.name)}`}
+                      >
+                        Get a quote
+                      </button>
                       {it.href && (
-                        <a className="ct-go" href={link(it.href)} aria-label={`View details: ${it.name}`}>
+                        <a
+                          className="btn btn-ghost btn-sm"
+                          href={link(it.href)}
+                          aria-label={`View details: ${quoteLabel(it.brand, it.name)}`}
+                        >
                           View details
-                          <Arrow size={16} />
                         </a>
                       )}
-                      {it.links?.map((l, j) => {
-                        const file = /\.pdf$/.test(l.href);
-                        return (
-                          <a key={j} className="ct-go" href={link(l.href)} {...(file ? { target: "_blank", rel: "noopener" } : {})}>
-                            {l.label}
-                            {file ? <Icon name="doc" size={16} /> : <Arrow size={16} />}
-                          </a>
-                        );
-                      })}
                     </div>
-                  )}
+                    {it.links?.map((l, j) => {
+                      const file = /\.pdf$/.test(l.href);
+                      return (
+                        <a
+                          key={j}
+                          className="pg-prod-link"
+                          href={link(l.href)}
+                          {...(file ? { target: "_blank", rel: "noopener" } : {})}
+                        >
+                          <Icon name={file ? "doc" : "check"} size={16} />
+                          {l.label}
+                          {file && <span className="pg-prod-file">PDF</span>}
+                        </a>
+                      );
+                    })}
+                  </div>
                 </div>
               </li>
             ))}
@@ -363,7 +414,12 @@ function SectionBody({ s, id }: { s: Section; id: string }) {
                     {it.q}
                     <span className={`faq-i ${i === 0 ? "on" : ""}`} aria-hidden="true">
                       <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
-                        <path d={i === 0 ? "M4 10h12" : "M10 4v12M4 10h12"} stroke="#0E193F" strokeWidth="2" strokeLinecap="round" />
+                        <path
+                          d={i === 0 ? "M4 10h12" : "M10 4v12M4 10h12"}
+                          stroke="#0E193F"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                        />
                       </svg>
                     </span>
                   </button>
@@ -413,7 +469,14 @@ function SectionBody({ s, id }: { s: Section; id: string }) {
               <a key={i} className="ab-state" href={link(it.href)}>
                 {it.image && (
                   <span className={`photo ${it.image.fit === "contain" ? "pg-contain" : ""}`}>
-                    <img src={link(it.image.src)} width={it.image.width} height={it.image.height} alt={it.image.alt} loading="lazy" decoding="async" />
+                    <img
+                      src={link(it.image.src)}
+                      width={it.image.width}
+                      height={it.image.height}
+                      alt={it.image.alt}
+                      loading="lazy"
+                      decoding="async"
+                    />
                   </span>
                 )}
                 <span className="ab-state-body">
@@ -509,7 +572,11 @@ export default function ContentPage({ data, extraJsonLd }: { data: PageData; ext
                 {data.crumbs.map((c, i) => (
                   <span key={i} style={{ display: "contents" }}>
                     <span aria-hidden="true">/</span>
-                    {c.href && i < data.crumbs.length - 1 ? <a href={link(c.href)}>{c.label}</a> : <span aria-current="page">{c.label}</span>}
+                    {c.href && i < data.crumbs.length - 1 ? (
+                      <a href={link(c.href)}>{c.label}</a>
+                    ) : (
+                      <span aria-current="page">{c.label}</span>
+                    )}
                   </span>
                 ))}
               </nav>
@@ -537,7 +604,10 @@ export default function ContentPage({ data, extraJsonLd }: { data: PageData; ext
               )}
               <div className="btn-row">
                 <Button cta={hero.primary ?? { label: "Check My Eligibility", href: "/#check" }} kind="btn-lime" />
-                <Button cta={hero.secondary ?? { label: "Call 03 8609 5195", href: "tel:0386095195" }} kind="btn-ghost-dark" />
+                <Button
+                  cta={hero.secondary ?? { label: "Call 03 8609 5195", href: "tel:0386095195" }}
+                  kind="btn-ghost-dark"
+                />
               </div>
             </div>
             {hero.image && <Photo img={hero.image} className="ab-hero-photo" priority />}
