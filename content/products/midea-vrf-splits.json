@@ -1,0 +1,89 @@
+{
+  "slug": "midea-vrf-splits",
+  "category": "air-conditioner",
+  "order": 50,
+  "brand": "Midea",
+  "name": "Midea VRF splits",
+  "tagline": "One Mini VRF outdoor unit running up to six wall mounted indoor units.",
+  "summary": [
+    "The Midea MDV-V235WN1(AU)-R Mini VRF connects one outdoor unit to as many as six wall mounted indoor units through a branch box, freeing up space outside.",
+    "It provides 20.0 kW of cooling and 23.5 kW of heating, with flare connections throughout for simpler installation."
+  ],
+  "image": {
+    "src": "/assets/images/pages/midea-vrf-splits.webp",
+    "alt": "Midea VRF splits outdoor unit with connected indoor units",
+    "width": 307,
+    "height": 364
+  },
+  "highlights": [
+    {
+      "icon": "home",
+      "title": "One to six rooms",
+      "text": "A single outdoor unit supports one to six indoor units through a branch box."
+    },
+    {
+      "icon": "wrench",
+      "title": "All flare connections",
+      "text": "Flare joints replace welding, which simplifies installation and lowers its cost."
+    },
+    {
+      "icon": "bolt",
+      "title": "Full DC inverter",
+      "text": "The DC inverter compressor and fan motor adjust speed steplessly for efficient, consistent, quieter running."
+    },
+    {
+      "icon": "volume",
+      "title": "Quiet and turbo modes",
+      "text": "Quiet mode for low-noise comfort, and turbo mode for rapid cooling or heating."
+    },
+    {
+      "icon": "shield",
+      "title": "Leak detection",
+      "text": "A refrigerant leak detection system, plus auto restart after power interruptions."
+    },
+    {
+      "icon": "clock",
+      "title": "24-hour timer",
+      "text": "A programmable 24-hour timer and a high-density air filter are included."
+    }
+  ],
+  "specs": [
+    {
+      "label": "Outdoor unit model",
+      "value": "MDV-V235WN1(AU)-R"
+    },
+    {
+      "label": "Cooling capacity",
+      "value": "20.0 kW"
+    },
+    {
+      "label": "Heating capacity",
+      "value": "23.5 kW"
+    },
+    {
+      "label": "Power input",
+      "value": "4.95 kW cooling, 5.3 kW heating"
+    },
+    {
+      "label": "Indoor units",
+      "value": "Up to 6 wall mounted, 1.5 to 8 kW each"
+    },
+    {
+      "label": "Refrigerant",
+      "value": "R410A"
+    },
+    {
+      "label": "Max. piping length",
+      "value": "80 m"
+    },
+    {
+      "label": "Sound pressure (cooling/heating)",
+      "value": "59/59 dB(A)"
+    }
+  ],
+  "warranty": "7 years warranty",
+  "brochure": {
+    "label": "Download brochure (PDF)",
+    "href": "/assets/docs/midea-vrf-splits.pdf"
+  }
+}

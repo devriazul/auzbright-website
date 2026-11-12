@@ -1,0 +1,33 @@
+{
+  "slug": "econova-heat-pump",
+  "category": "heat-pump",
+  "order": 30,
+  "brand": "ECONOVA",
+  "name": "ECONOVA",
+  "tagline": "All-in-one R290 heat pump hot water with Wi-Fi and inverter control.",
+  "summary": [
+    "The ECONOVA residential range is a round-tank, all-in-one heat pump hot water system. It draws heat from the air using R290, a natural refrigerant, and an inverter DC compressor with variable frequency control.",
+    "Every model is Wi-Fi enabled with a timer, and most add a rapid boost element for back-up."
+  ],
+  "image": { "src": "/assets/images/pages/econova1.webp", "alt": "ECONOVA dark grey all-in-one heat pump", "width": 133, "height": 427 },
+  "highlights": [
+    { "icon": "leaf", "title": "R290 refrigerant", "text": "Uses R290, an ozone-friendly natural refrigerant, to absorb heat from the air." },
+    { "icon": "bolt", "title": "Inverter compressor", "text": "A high efficiency DC compressor with variable frequency electric control." },
+    { "icon": "wifi", "title": "Wi-Fi and timer", "text": "All models are Wi-Fi enabled and work with a mobile app and timer." },
+    { "icon": "thermo", "title": "Wide operating range", "text": "Operates in ambient temperatures from -7 to +40 degrees Celsius." },
+    { "icon": "shield", "title": "Auto disinfection", "text": "Periodically heats the water above its set temperature to prevent bacteria and legionella." },
+    { "icon": "volume", "title": "Low operating noise", "text": "Engineered to operate with low noise levels." }
+  ],
+  "specs": [
+    { "label": "Residential models", "value": "ECON-260RVW-2.0E, 300RVW, 300RVW-2.0E" },
+    { "label": "Total heating capacity", "value": "2650 W (no element) or 4650 W" },
+    { "label": "Heat pump heating input", "value": "250-775 W" },
+    { "label": "Rapid boost element", "value": "2kW, or no element (ECON-300RVW)" },
+    { "label": "Refrigerant", "value": "R290" },
+    { "label": "Tank dimension", "value": "620 * 1935 or 640 * 2005" },
+    { "label": "RCBO current rating", "value": "10 Amps or 15 Amps" },
+    { "label": "Ambient operating range", "value": "-7 to +40 degrees Celsius" }
+  ],
+  "warranty": "5 years warranty",
+  "brochure": { "label": "Download brochure (PDF)", "href": "/assets/docs/econova-latest-version.pdf" }
+}

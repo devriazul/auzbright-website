@@ -1,0 +1,33 @@
+{
+  "slug": "neopower-315l-all-in-one",
+  "category": "heat-pump",
+  "order": 40,
+  "brand": "Neopower",
+  "name": "315L Neopower all-in-one",
+  "tagline": "A 315 litre R290 all-in-one heat pump sized for four to six people.",
+  "summary": [
+    "The Neopower Black Diamond is an all-in-one heat pump hot water system designed for Australian conditions. The 315 litre model suits households of four to six people.",
+    "It runs on R290 natural refrigerant, works in air temperatures down to -7°C, and is controlled from a touch screen or a phone app over Wi-Fi."
+  ],
+  "image": { "src": "/assets/images/pages/315l-neopower-all-in-one.webp", "alt": "Neopower 315L Neopower all-in-one black heat pump, front and side", "width": 382, "height": 435 },
+  "highlights": [
+    { "icon": "bolt", "title": "Efficient heating", "text": "Turns 1kW of electricity into 4kW of heat by drawing warmth from the surrounding air." },
+    { "icon": "leaf", "title": "R290 refrigerant", "text": "A natural refrigerant with low ozone-depleting properties and an extremely low GWP." },
+    { "icon": "wifi", "title": "Wi-Fi app control", "text": "Control and monitor the system remotely with a free app, or use the touch screen." },
+    { "icon": "shield", "title": "Three anodes", "text": "Triple corrosion protection reduces maintenance, which helps in hard water areas." },
+    { "icon": "thermo", "title": "Four operating modes", "text": "Choose Standard, Economy, Hybrid or Heating element mode to suit how you use hot water." },
+    { "icon": "sun", "title": "Solar PV compatible", "text": "Compatible with solar PV systems, with built-in frost protection and quiet operation." }
+  ],
+  "specs": [
+    { "label": "Water tank volume", "value": "315 L" },
+    { "label": "Heating capacity", "value": "2.9 kW" },
+    { "label": "COP", "value": "4.33" },
+    { "label": "Refrigerant", "value": "R290/400g" },
+    { "label": "Noise", "value": "42 dB" },
+    { "label": "Working temperature range", "value": "-7~43 °C" },
+    { "label": "Net dimension", "value": "Φ620×1979 mm" },
+    { "label": "Net weight", "value": "127 kg" }
+  ],
+  "warranty": "5 years warranty",
+  "brochure": { "label": "Download brochure (PDF)", "href": "/assets/docs/neopower-4ppa4-all-in-one-black-brochure-315l.pdf" }
+}

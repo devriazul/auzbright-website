@@ -1,0 +1,89 @@
+{
+  "slug": "midea-ducted",
+  "category": "air-conditioner",
+  "order": 30,
+  "brand": "Midea",
+  "name": "Midea ducted",
+  "tagline": "Compact Mini VRF ducted system with flare connections for simpler installation.",
+  "summary": [
+    "The Midea MDV-V230WN1(AU) is an R410A Mini VRF outdoor unit paired with a high static pressure ducted indoor unit. It delivers 19.5 kW of cooling and 23.0 kW of heating.",
+    "Flare connections replace welding, and the ducted unit can be installed in sections for easier handling."
+  ],
+  "image": {
+    "src": "/assets/images/pages/midea-ducted.webp",
+    "alt": "Midea ducted system outdoor unit and ducted indoor unit",
+    "width": 306,
+    "height": 332
+  },
+  "highlights": [
+    {
+      "icon": "wrench",
+      "title": "All flare connections",
+      "text": "Flare joints replace welding, which simplifies installation and lowers its cost."
+    },
+    {
+      "icon": "check",
+      "title": "Installs in sections",
+      "text": "The high static pressure ducted unit installs in sections, so each piece is lighter to handle."
+    },
+    {
+      "icon": "home",
+      "title": "Long piping runs",
+      "text": "A total piping length of up to 200 m allows a wide range of system layouts."
+    },
+    {
+      "icon": "thermo",
+      "title": "Wide operating range",
+      "text": "Runs in cooling from -15°C to 55°C and in heating from -20°C to 27°C."
+    },
+    {
+      "icon": "bolt",
+      "title": "Full DC inverter",
+      "text": "The DC inverter compressor and fan motor adjust speed steplessly for efficient, consistent, quieter running."
+    },
+    {
+      "icon": "chart",
+      "title": "Fine airflow control",
+      "text": "Seven indoor fan speeds, and static pressure set in up to 20 steps from the wired controller."
+    }
+  ],
+  "specs": [
+    {
+      "label": "Outdoor unit model",
+      "value": "MDV-V230WN1(AU)"
+    },
+    {
+      "label": "Cooling capacity",
+      "value": "19.5 kW"
+    },
+    {
+      "label": "Heating capacity",
+      "value": "23.0 kW"
+    },
+    {
+      "label": "Power input",
+      "value": "5.6 kW cooling, 5.28 kW heating"
+    },
+    {
+      "label": "Refrigerant",
+      "value": "R410A"
+    },
+    {
+      "label": "Sound pressure (cooling/heating)",
+      "value": "59/59 dB(A)"
+    },
+    {
+      "label": "Outdoor unit size (W×H×D)",
+      "value": "902×1327×320 mm"
+    },
+    {
+      "label": "Outdoor unit net weight",
+      "value": "103 kg"
+    }
+  ],
+  "warranty": "7 years warranty",
+  "brochure": {
+    "label": "Download brochure (PDF)",
+    "href": "/assets/docs/brochure-mdv-v230wn8au-vrf-ducted.pdf"
+  }
+}

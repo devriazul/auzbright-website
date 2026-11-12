@@ -1,0 +1,77 @@
+{
+  "slug": "alpha-ess-battery",
+  "category": "battery",
+  "order": 30,
+  "brand": "Alpha ESS",
+  "name": "Alpha ESS Battery",
+  "tagline": "All-in-one inverter and battery systems for new or existing solar.",
+  "summary": [
+    "AlphaESS SMILE systems combine the inverter and battery in one unit. The single-phase range runs from 3 kW to 5 kW of output, with storage from 4 kWh up to 60.6 kWh.",
+    "Models suit new solar installations or adding storage to an existing system, with monitoring through AlphaCloud."
+  ],
+  "image": {
+    "src": "/assets/images/pages/alpha-ess-battery.webp",
+    "alt": "Alpha ESS Battery all-in-one home battery",
+    "width": 400,
+    "height": 380
+  },
+  "highlights": [
+    {
+      "icon": "battery",
+      "title": "All-in-one unit",
+      "text": "The inverter and battery are integrated in a single unit."
+    },
+    {
+      "icon": "volume",
+      "title": "Ultra-quiet",
+      "text": "Operates at under 35 dB."
+    },
+    {
+      "icon": "bolt",
+      "title": "Full discharge depth",
+      "text": "100% depth of discharge for maximum energy use."
+    },
+    {
+      "icon": "wrench",
+      "title": "Stackable design",
+      "text": "Stacks for a quick setup and easy expansion."
+    },
+    {
+      "icon": "wifi",
+      "title": "24/7 online monitoring",
+      "text": "Track the system on the AlphaCloud web and app platform."
+    },
+    {
+      "icon": "shield",
+      "title": "Backup ready",
+      "text": "UPS ability with a built-in changeover switch."
+    }
+  ],
+  "specs": [
+    {
+      "label": "SMILE-G3-S3.6",
+      "value": "3.6 kW, single phase, 4 - 16 kWh"
+    },
+    {
+      "label": "SMILE-G3-S5",
+      "value": "5 kW, single phase, 10.1 - 60.6 kWh"
+    },
+    {
+      "label": "SMILE-G3-B5",
+      "value": "5 kW, single phase, 10.1 - 60.6 kWh"
+    },
+    {
+      "label": "SMILE-B3-Plus",
+      "value": "3 kW, single phase, 5.04 - 30.24 kWh"
+    },
+    {
+      "label": "Monitoring",
+      "value": "AlphaCloud (web + app)"
+    }
+  ],
+  "warranty": "10 years warranty",
+  "brochure": {
+    "label": "Download brochure (PDF)",
+    "href": "/assets/docs/spec-alpha-ess-battery.pdf"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "slug": "midea-280l-all-in-one",
+  "category": "heat-pump",
+  "order": 50,
+  "brand": "Midea",
+  "name": "280L all-in-one system",
+  "tagline": "A 280 litre R290 heat pump that plugs into a 10 amp power point.",
+  "summary": [
+    "The Midea Smart Saver is an all-in-one heat pump hot water system. The 280 litre model suits families of three to five people.",
+    "It uses R290 refrigerant, plugs into a standard 10 amp power point, and has Wi-Fi control. A built-in electric heater backs up the heat pump in cold weather."
+  ],
+  "image": { "src": "/assets/images/pages/280l-hot-water-heat-pump-full.webp", "alt": "Midea 280L all-in-one system, two white heat pump units", "width": 364, "height": 534 },
+  "highlights": [
+    { "icon": "plug", "title": "10 amp plug", "text": "Plugs into a 10 amp power point, with overload and short-circuit protection." },
+    { "icon": "leaf", "title": "R290 refrigerant", "text": "Runs on R290, a refrigerant with a global warming potential of 3." },
+    { "icon": "wifi", "title": "Wi-Fi control", "text": "Wi-Fi enabled, with Economy, E-Heater and Hybrid modes to choose from." },
+    { "icon": "sun", "title": "Solar PV ready", "text": "In PV mode it uses surplus solar energy to heat water and store it for later." },
+    { "icon": "shield", "title": "Two-way disinfection", "text": "Heats the water to 60°C automatically or manually to prevent bacteria and legionella." },
+    { "icon": "wrench", "title": "Easy to maintain", "text": "An easy-to-access E-Box, error codes and power outage memory simplify servicing." }
+  ],
+  "specs": [
+    { "label": "Storage size", "value": "280 L" },
+    { "label": "COP", "value": "4.6" },
+    { "label": "Capacity (heat pump only)", "value": "2.5 kW" },
+    { "label": "Refrigerant type/quantity", "value": "R290 / 0.42 kg" },
+    { "label": "Sound pressure level", "value": "48 dB(A)" },
+    { "label": "Ambient temp (heat pump only)", "value": "-7 ~ 43 °C" },
+    { "label": "Dimension (DxH)", "value": "650 x 650 x 1962 mm" },
+    { "label": "Net weight", "value": "138 kg" }
+  ],
+  "warranty": "5 years warranty",
+  "brochure": { "label": "Download brochure (PDF)", "href": "/assets/docs/midea-residential-heat-pump-brochures.pdf" }
+}

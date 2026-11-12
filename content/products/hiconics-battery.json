@@ -1,0 +1,79 @@
+{
+  "slug": "hiconics-battery",
+  "category": "battery",
+  "order": 100,
+  "brand": "Hiconics",
+  "name": "Hiconics Battery",
+  "tagline": "Single-phase all-in-one home storage with stackable battery modules.",
+  "summary": [
+    "The Hiconics HiEnergy-S (HEC2 Series) is a single-phase all-in-one residential energy storage system that uses high-voltage battery modules.",
+    "The models in the spec sheet hold 10.2 kWh to 30.6 kWh in total. The system is rated IP65 and has a 94% battery round-trip efficiency."
+  ],
+  "image": {
+    "src": "/assets/images/pages/hiconics-battery.webp",
+    "alt": "Hiconics Battery stackable home battery",
+    "width": 400,
+    "height": 380
+  },
+  "highlights": [
+    {
+      "icon": "thermo",
+      "title": "Thermal management",
+      "text": "Advanced thermal management supports reliable performance."
+    },
+    {
+      "icon": "battery",
+      "title": "Modular and stackable",
+      "text": "Battery modules stack, so capacity can be matched to the home."
+    },
+    {
+      "icon": "shield",
+      "title": "Built for extremes",
+      "text": "Engineered for extreme environmental conditions, with IP65 protection."
+    },
+    {
+      "icon": "bolt",
+      "title": "Smooth changeover",
+      "text": "Moves smoothly between on-grid and off-grid power."
+    }
+  ],
+  "specs": [
+    {
+      "label": "Total energy",
+      "value": "10.2 kWh to 30.6 kWh"
+    },
+    {
+      "label": "Usable energy (@90%DOD)",
+      "value": "9.18 kWh to 27.54 kWh"
+    },
+    {
+      "label": "Nominal power",
+      "value": "5.12 kW to 15.36 kW"
+    },
+    {
+      "label": "Battery roundtrip efficiency",
+      "value": "94%"
+    },
+    {
+      "label": "Cycle life",
+      "value": "6000 Cycles (60%)"
+    },
+    {
+      "label": "Protection",
+      "value": "IP65"
+    },
+    {
+      "label": "System to inverter",
+      "value": "RS485/CAN2.0"
+    },
+    {
+      "label": "Weight",
+      "value": "124±6 kg to 358±16 kg"
+    }
+  ],
+  "warranty": "10 years warranty",
+  "brochure": {
+    "label": "Download spec sheet (PDF)",
+    "href": "/assets/docs/spec-hiconics-battery.pdf"
+  }
+}

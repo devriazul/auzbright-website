@@ -1,0 +1,84 @@
+{
+  "slug": "sigenergy-battery",
+  "category": "battery",
+  "order": 80,
+  "brand": "Sigenergy",
+  "name": "Sigenergy Solar Battery",
+  "tagline": "Stackable LiFePO4 battery modules in 5 kWh and 8 kWh sizes.",
+  "summary": [
+    "The Sigen Battery (SigenStor BAT) comes as 5.0 and 8.0 modules with 5.2 kWh or 7.8 kWh of usable energy. Up to six modules stack in one system.",
+    "It is rated IP66, can be floor standing or wall-mounted, and shows battery status in the mySigen App."
+  ],
+  "image": {
+    "src": "/assets/images/pages/sigenergy-solar-battery.webp",
+    "alt": "Sigenergy Solar Battery stackable home battery",
+    "width": 400,
+    "height": 380
+  },
+  "highlights": [
+    {
+      "icon": "shield",
+      "title": "Multi-layer safety",
+      "text": "Several layers of safety protection cover the whole battery."
+    },
+    {
+      "icon": "wifi",
+      "title": "mySigen App",
+      "text": "See the battery's status in real time in the mySigen App."
+    },
+    {
+      "icon": "plug",
+      "title": "Quick connectors",
+      "text": "Quick-connect fittings make installation faster."
+    },
+    {
+      "icon": "bulb",
+      "title": "AI optimisation",
+      "text": "AI-enabled optimisation helps extend the battery's cycle life."
+    },
+    {
+      "icon": "chart",
+      "title": "Flexible battery mix",
+      "text": "Modules connect in parallel, so different sizes can be combined."
+    }
+  ],
+  "specs": [
+    {
+      "label": "Usable energy capacity",
+      "value": "5.2 kWh (BAT 5.0), 7.8 kWh (BAT 8.0)"
+    },
+    {
+      "label": "Max. charge / discharge power",
+      "value": "2500 W (BAT 5.0), 4000 W (BAT 8.0)"
+    },
+    {
+      "label": "Battery type",
+      "value": "LiFePO4"
+    },
+    {
+      "label": "Modules per stack",
+      "value": "1 to 6 (up to 48.36 kWh with BAT 8.0)"
+    },
+    {
+      "label": "Ingress protection rating",
+      "value": "IP66"
+    },
+    {
+      "label": "Operating temperature range",
+      "value": "-20 ~ 55 °C"
+    },
+    {
+      "label": "Weight",
+      "value": "55 kg (BAT 5.0), 70 kg (BAT 8.0)"
+    },
+    {
+      "label": "Dimensions (W / H / D)",
+      "value": "767 / 270 / 260 mm"
+    }
+  ],
+  "warranty": "10 years warranty",
+  "brochure": {
+    "label": "Download spec sheet (PDF)",
+    "href": "/assets/docs/spec-sigenergy-solar-battery.pdf"
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "slug": "fox-ess-battery",
+  "category": "battery",
+  "order": 60,
+  "brand": "Fox ESS",
+  "name": "Fox ESS Solar Battery",
+  "tagline": "A 10.36 kWh high-voltage lithium iron phosphate home battery.",
+  "summary": [
+    "The Fox ESS EP11 is a high-voltage lithium iron phosphate battery with its own battery management system, made for homes with solar.",
+    "It stores surplus solar during the day for use at night, and can provide standby power. Units can be used singly or in parallel."
+  ],
+  "image": {
+    "src": "/assets/images/pages/fox-ess-solar-battery.webp",
+    "alt": "Fox ESS Solar Battery home battery unit",
+    "width": 400,
+    "height": 380
+  },
+  "highlights": [
+    {
+      "icon": "battery",
+      "title": "LFP chemistry",
+      "text": "Uses lithium iron phosphate cells with a customised battery management system."
+    },
+    {
+      "icon": "shield",
+      "title": "Multiple protections",
+      "text": "Guards against short circuit, over-voltage, over-current, over-temperature and under-voltage."
+    },
+    {
+      "icon": "chart",
+      "title": "Modular and scalable",
+      "text": "Run a single battery or connect several in parallel as your needs grow."
+    },
+    {
+      "icon": "wifi",
+      "title": "App monitoring",
+      "text": "Remote monitoring is available through the inverter app."
+    },
+    {
+      "icon": "drop",
+      "title": "IP65 protection",
+      "text": "The EP11 carries an IP65 ingress protection rating."
+    }
+  ],
+  "specs": [
+    {
+      "label": "Nominal energy",
+      "value": "10.36 kWh"
+    },
+    {
+      "label": "Nominal voltage",
+      "value": "384 Vdc"
+    },
+    {
+      "label": "Max. continuous discharge/charge current",
+      "value": "27/27 A"
+    },
+    {
+      "label": "Cycle life",
+      "value": "≥4000 @25℃ @100%DOD"
+    },
+    {
+      "label": "Ingress protection",
+      "value": "IP65"
+    },
+    {
+      "label": "Operating temperature",
+      "value": "Charge: 0~55 °C; discharge: -10~55 °C"
+    },
+    {
+      "label": "Weight",
+      "value": "99±2 kg"
+    },
+    {
+      "label": "Dimensions (L*W*H)",
+      "value": "710*147*625 mm"
+    }
+  ],
+  "warranty": "10 years warranty",
+  "brochure": {
+    "label": "Download user manual (PDF)",
+    "href": "/assets/docs/ep11-user-manual-au-v1.0.1-20250815.pdf"
+  }
+}

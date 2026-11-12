@@ -1,0 +1,80 @@
+{
+  "slug": "potis-edge-battery",
+  "category": "battery",
+  "order": 10,
+  "brand": "Potis",
+  "name": "Potis Edge Battery",
+  "tagline": "Stackable 48 V home battery, from 4.8 kWh to 19.2 kWh per stack.",
+  "summary": [
+    "The Potis Edge (iPotisEdge ALOE series) is a stackable home battery built from 4.8 kWh packs. One stack takes up to four packs, and up to 24 packs can run in parallel.",
+    "It is rated IP65 and has a quick-plug design for easier transport and installation."
+  ],
+  "image": {
+    "src": "/assets/images/pages/potis-edge-battery.webp",
+    "alt": "Potis Edge Battery stackable home battery",
+    "width": 400,
+    "height": 380
+  },
+  "highlights": [
+    {
+      "icon": "plug",
+      "title": "Quick-plug design",
+      "text": "Packs connect with a quick plug for easier transport and installation."
+    },
+    {
+      "icon": "shield",
+      "title": "Triple protection",
+      "text": "Three layers of protection keep the battery pack operating safely."
+    },
+    {
+      "icon": "home",
+      "title": "Compact and durable",
+      "text": "A space-saving stack that is built to last."
+    },
+    {
+      "icon": "leaf",
+      "title": "Low power mode",
+      "text": "The system drops into a low power mode when it is idle."
+    },
+    {
+      "icon": "battery",
+      "title": "Room to grow",
+      "text": "Stack up to four packs, and connect up to 24 packs in parallel."
+    }
+  ],
+  "specs": [
+    {
+      "label": "Usable capacity",
+      "value": "4.8, 9.6, 14.4 or 19.2 kWh"
+    },
+    {
+      "label": "Rated DC power",
+      "value": "2.4 kW to 4.8 kW"
+    },
+    {
+      "label": "Rated voltage",
+      "value": "48V"
+    },
+    {
+      "label": "Max. discharge current",
+      "value": "70A to 140A"
+    },
+    {
+      "label": "IP rating",
+      "value": "IP65"
+    },
+    {
+      "label": "Weight (ALOE-MB)",
+      "value": "45kg to 180kg"
+    },
+    {
+      "label": "Dimensions (W * D * H mm)",
+      "value": "600*430*178 (one pack, ALOE-MB5)"
+    }
+  ],
+  "warranty": "10 years warranty",
+  "brochure": {
+    "label": "Download spec sheet (PDF)",
+    "href": "/assets/docs/spec-potis-edge-battery.pdf"
+  }
+}

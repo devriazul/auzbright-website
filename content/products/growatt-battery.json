@@ -1,0 +1,41 @@
+{
+  "slug": "growatt-battery",
+  "category": "battery",
+  "order": 110,
+  "brand": "Growatt",
+  "name": "Growatt Battery",
+  "tagline": "Home battery storage with smart remote monitoring.",
+  "summary": [
+    "The Growatt battery is quick and easy to install, with built-in protection and smart remote monitoring. It comes with a full system warranty."
+  ],
+  "image": {
+    "src": "/assets/images/pages/growatt-battery-info.webp",
+    "alt": "Growatt Battery units with inverters",
+    "width": 400,
+    "height": 380
+  },
+  "highlights": [
+    {
+      "icon": "wrench",
+      "title": "Easy installation",
+      "text": "Quick and easy to install."
+    },
+    {
+      "icon": "shield",
+      "title": "Safe and reliable",
+      "text": "Includes surge protection and under-voltage wake-up."
+    },
+    {
+      "icon": "wifi",
+      "title": "Smart monitoring",
+      "text": "Supports remote diagnostics and upgrades."
+    },
+    {
+      "icon": "award",
+      "title": "Full system warranty",
+      "text": "Covered by a full system warranty for peace of mind."
+    }
+  ],
+  "specs": [],
+  "warranty": "10 years warranty"
+}

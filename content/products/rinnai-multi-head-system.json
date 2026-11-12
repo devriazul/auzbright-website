@@ -1,0 +1,89 @@
+{
+  "slug": "rinnai-multi-head-system",
+  "category": "air-conditioner",
+  "order": 20,
+  "brand": "Rinnai",
+  "name": "Rinnai multi head system",
+  "tagline": "One outdoor unit heats or cools up to six rooms, each controlled separately.",
+  "summary": [
+    "The Rinnai Inverter Multi Split System connects up to six indoor units to a single outdoor unit, saving outdoor space. Each room is controlled individually, so you only heat or cool the rooms you need.",
+    "Five outdoor unit sizes pair with wall mounted, slim ducted, compact cassette and floor console indoor units."
+  ],
+  "image": {
+    "src": "/assets/images/pages/rinnai-multi-head-system.webp",
+    "alt": "Rinnai multi head system outdoor unit with four wall-mounted indoor units",
+    "width": 198,
+    "height": 373
+  },
+  "highlights": [
+    {
+      "icon": "home",
+      "title": "Up to six rooms",
+      "text": "One outdoor unit runs up to six individually controlled indoor units."
+    },
+    {
+      "icon": "check",
+      "title": "Four indoor types",
+      "text": "Mix wall mounted, slim ducted, compact cassette and floor console units in one system."
+    },
+    {
+      "icon": "wifi",
+      "title": "Wi-Fi control",
+      "text": "Wi-Fi is standard on wall mounted, floor console and cassette units, and optional on slim ducted."
+    },
+    {
+      "icon": "bolt",
+      "title": "3D DC inverter",
+      "text": "Three DC motors work together for a faster warm-up or cool-down and higher efficiency."
+    },
+    {
+      "icon": "plug",
+      "title": "DRED enabled",
+      "text": "Lets your electricity provider manage the system's demand on the grid during peak periods."
+    },
+    {
+      "icon": "clock",
+      "title": "Timer and auto restart",
+      "text": "Set on and off times, and the system restarts by itself after a power outage."
+    }
+  ],
+  "specs": [
+    {
+      "label": "Indoor units per outdoor unit",
+      "value": "3 to 6, depending on model"
+    },
+    {
+      "label": "Rated cooling capacity",
+      "value": "7.5 kW to 17.5 kW"
+    },
+    {
+      "label": "Rated heating capacity",
+      "value": "7.4 kW to 20.0 kW"
+    },
+    {
+      "label": "AEER (cooling)",
+      "value": "3.37 to 4.24"
+    },
+    {
+      "label": "ACOP (heating)",
+      "value": "3.87 to 4.54"
+    },
+    {
+      "label": "Refrigerant",
+      "value": "R32"
+    },
+    {
+      "label": "Maximum total pipe length",
+      "value": "60 m to 80 m, depending on model"
+    },
+    {
+      "label": "Ambient temperature limits",
+      "value": "Cooling -15~50°C, heating -25~30°C"
+    }
+  ],
+  "warranty": "7 years warranty",
+  "brochure": {
+    "label": "Download brochure (PDF)",
+    "href": "/assets/docs/rinnai-multi-head-system.pdf"
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "slug": "daikin-ducted-system",
+  "category": "air-conditioner",
+  "order": 70,
+  "brand": "Daikin",
+  "name": "Daikin ducted system",
+  "tagline": "Whole-home ducted heating and cooling with a concealed indoor unit and zoning.",
+  "summary": [
+    "Daikin ducted air conditioning combines a concealed indoor unit, a zone controller and a compact outdoor unit to heat and cool the whole home.",
+    "The 2024 range covers Premium Inverter, Inverter, Slimline and Bulkhead models from 2.5 kW to 24.0 kW, most using R32 refrigerant."
+  ],
+  "image": {
+    "src": "/assets/images/pages/daikin-multi-split-system.webp",
+    "alt": "Daikin indoor unit and outdoor unit",
+    "width": 262,
+    "height": 339
+  },
+  "highlights": [
+    {
+      "icon": "home",
+      "title": "Whole-home comfort",
+      "text": "The indoor unit is concealed in the ceiling, so it does not compromise the look of your home."
+    },
+    {
+      "icon": "pin",
+      "title": "Up to 8 zones",
+      "text": "Manage up to 8 zones, switching rooms on or off from the zone controller."
+    },
+    {
+      "icon": "volume",
+      "title": "Night Quiet mode",
+      "text": "Night Quiet mode reduces outdoor unit noise levels by 4 dBA."
+    },
+    {
+      "icon": "leaf",
+      "title": "R32 refrigerant",
+      "text": "R32 models use a refrigerant with a substantially lower global warming potential than R410A."
+    },
+    {
+      "icon": "award",
+      "title": "Australian made",
+      "text": "Premium Inverter, Inverter and Bulkhead indoor units are designed and manufactured in Sydney."
+    },
+    {
+      "icon": "wifi",
+      "title": "Airbase app control",
+      "text": "The optional Airbase adaptor lets you control the system from a smartphone or tablet."
+    }
+  ],
+  "specs": [
+    {
+      "label": "Premium Inverter (R32)",
+      "value": "7.1 kW to 16.0 kW"
+    },
+    {
+      "label": "Premium Inverter (R410A)",
+      "value": "18.0 kW to 24.0 kW"
+    },
+    {
+      "label": "Inverter (R32)",
+      "value": "5.0 kW to 15.5 kW"
+    },
+    {
+      "label": "Inverter (R410A)",
+      "value": "18.0 kW to 23.5 kW"
+    },
+    {
+      "label": "FBA Slimline (R32)",
+      "value": "5.0 kW to 14.0 kW"
+    },
+    {
+      "label": "FDYBA Bulkhead (R32)",
+      "value": "2.5 kW to 7.1 kW"
+    },
+    {
+      "label": "Zone control",
+      "value": "Up to 8 zones"
+    },
+    {
+      "label": "Inverter indoor unit height",
+      "value": "≤360 mm"
+    }
+  ],
+  "warranty": "5 years warranty",
+  "brochure": {
+    "label": "Download brochure (PDF)",
+    "href": "/assets/docs/daikin-multi-split-system.pdf"
+  }
+}

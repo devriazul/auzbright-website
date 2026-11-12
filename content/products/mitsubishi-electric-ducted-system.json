@@ -1,0 +1,89 @@
+{
+  "slug": "mitsubishi-electric-ducted-system",
+  "category": "air-conditioner",
+  "order": 60,
+  "brand": "Mitsubishi",
+  "name": "Mitsubishi Electric ducted system",
+  "tagline": "Concealed ducted heating and cooling for the whole home, with optional zoning.",
+  "summary": [
+    "Mitsubishi Electric ducted air conditioning uses an indoor unit concealed in the ceiling to deliver warm or cool air through discreet outlets around the home.",
+    "The range runs from 2.5 kW bulkhead units to 24.5 kW ceiling-concealed models, and an optional zone controller manages up to 8 zones."
+  ],
+  "image": {
+    "src": "/assets/images/pages/mitsubishi-electric-multi-split-system.webp",
+    "alt": "Mitsubishi Electric indoor unit and outdoor unit",
+    "width": 364,
+    "height": 380
+  },
+  "highlights": [
+    {
+      "icon": "home",
+      "title": "Whole-home comfort",
+      "text": "A central system hidden in the ceiling cavity or bulkhead, with only subtle diffusers and grilles visible."
+    },
+    {
+      "icon": "pin",
+      "title": "Up to 8 zones",
+      "text": "An optional zone controller directs air to 4 or 8 zones, so unoccupied rooms are not conditioned."
+    },
+    {
+      "icon": "volume",
+      "title": "Impressively quiet",
+      "text": "SEZ Series 25 and 35 models operate at a hushed 23 dBA."
+    },
+    {
+      "icon": "wifi",
+      "title": "Wi-Fi and voice control",
+      "text": "An optional Wi-Fi adapter adds app control, plus Amazon Alexa and Google Assistant voice control."
+    },
+    {
+      "icon": "thermo",
+      "title": "Built for extremes",
+      "text": "Selected models have a guaranteed cooling operating range of -5°C to 52°C outdoors."
+    },
+    {
+      "icon": "wrench",
+      "title": "Two-piece indoor units",
+      "text": "PEA-M HAA and LAA units separate into two pieces for easier installation in the roof space."
+    }
+  ],
+  "specs": [
+    {
+      "label": "SEZ-M bulkhead",
+      "value": "2.5 to 7.1 kW, 200 mm high"
+    },
+    {
+      "label": "PEAD-M low profile",
+      "value": "5.0 to 14.0 kW, 250 mm high"
+    },
+    {
+      "label": "PEA-M GAA",
+      "value": "10.0 to 14.0 kW, 50/100/150 Pa"
+    },
+    {
+      "label": "PEA-M HAA",
+      "value": "10.0 to 16.0 kW, 50/100/150 Pa"
+    },
+    {
+      "label": "PEA-M LAA",
+      "value": "18.0 to 24.5 kW, 75 to 250 Pa"
+    },
+    {
+      "label": "Guaranteed cooling range",
+      "value": "-5°C to 52°C (selected models)"
+    },
+    {
+      "label": "Quietest indoor sound level",
+      "value": "23 dBA (SEZ 25/35 models)"
+    },
+    {
+      "label": "Zone control",
+      "value": "Optional, up to 4 or 8 zones"
+    }
+  ],
+  "warranty": "5 years warranty",
+  "brochure": {
+    "label": "Download brochure (PDF)",
+    "href": "/assets/docs/mitsubishi-electric-multi-split-system.pdf"
+  }
+}
