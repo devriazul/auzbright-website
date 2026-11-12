@@ -4,4 +4,4 @@
 :HL["/auzbright-website/assets/images/pages/why-choose-solar-battery.webp","image"]
 2:[["children",{"s":"__PAGE__","h":160}]]
 1:[["children",{"s":"solar-battery-solutions","h":64,"c":"$Q2"}]]
-0:{"b":"_LMKUFrn--ZXLVn9OW5EN","t":{"t":{"s":"","h":16,"c":"$Q1"}}}
+0:{"b":"suvHqJaIaqi4iHlGVZlUJ","t":{"t":{"s":"","h":16,"c":"$Q1"}}}

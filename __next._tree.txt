@@ -3,4 +3,4 @@
 :HL["/auzbright-website/assets/images/auzbright-logo-reversed.png","image"]
 :HL["/auzbright-website/assets/images/hero-family.webp","image",{"fetchPriority":"high","imageSrcSet":"/auzbright-website/assets/images/hero-family-480.webp 480w, /auzbright-website/assets/images/hero-family-800.webp 800w, /auzbright-website/assets/images/hero-family.webp 1024w","imageSizes":"(max-width: 620px) calc(100vw - 40px), (max-width: 1100px) calc(100vw - 80px), 620px"}]
 1:[["children",{"s":"__PAGE__","h":128}]]
-0:{"b":"_LMKUFrn--ZXLVn9OW5EN","t":{"t":{"s":"","h":16,"c":"$Q1"}}}
+0:{"b":"suvHqJaIaqi4iHlGVZlUJ","t":{"t":{"s":"","h":16,"c":"$Q1"}}}
