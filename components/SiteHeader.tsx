@@ -318,7 +318,7 @@ export default function SiteHeader({ current }: { current?: string }) {
                     </a>
                   </li>
                   <li>
-                    <a href={`${BASE}/#air-conditioner`}>
+                    <a href={`${BASE}/products/#air-conditioner`}>
                       <span className="dd-ico">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                           <path
@@ -424,7 +424,7 @@ export default function SiteHeader({ current }: { current?: string }) {
                 <ul id="dd-prod" className="dd-menu wide" hidden>
                   <li className="dd-head">Product and Services</li>
                   <li>
-                    <a href={`${BASE}/#heat-pump`}>
+                    <a href={`${BASE}/products/#heat-pump`}>
                       <span className="dd-ico">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                           <path
@@ -440,7 +440,7 @@ export default function SiteHeader({ current }: { current?: string }) {
                     </a>
                   </li>
                   <li>
-                    <a href={`${BASE}/#air-conditioner`}>
+                    <a href={`${BASE}/products/#air-conditioner`}>
                       <span className="dd-ico">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                           <path
@@ -710,7 +710,7 @@ export default function SiteHeader({ current }: { current?: string }) {
                 </svg>
                 Residential Heat Pump
               </a>
-              <a href={`${BASE}/#air-conditioner`}>
+              <a href={`${BASE}/products/#air-conditioner`}>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                   <path
                     d="M3 6h18v7H3z M6 10h12 M7 16l-1 3 M12 16v3 M17 16l1 3"
@@ -786,7 +786,7 @@ export default function SiteHeader({ current }: { current?: string }) {
               </svg>
             </button>
             <div className="msub" data-mg="prod" hidden>
-              <a href={`${BASE}/#heat-pump`}>
+              <a href={`${BASE}/products/#heat-pump`}>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                   <path
                     d="M10 13.5V5a2 2 0 1 1 4 0v8.5a4 4 0 1 1-4 0Z M12 17v-6"
@@ -798,7 +798,7 @@ export default function SiteHeader({ current }: { current?: string }) {
                 </svg>
                 Residential Heat Pump
               </a>
-              <a href={`${BASE}/#air-conditioner`}>
+              <a href={`${BASE}/products/#air-conditioner`}>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                   <path
                     d="M3 6h18v7H3z M6 10h12 M7 16l-1 3 M12 16v3 M17 16l1 3"

@@ -9,7 +9,7 @@ const data: PageData = {
   crumbs: [{ label: "Victoria" }],
   hero: {
     eyebrow: "Victoria",
-    title: "Energy-efficient upgrades for {Victoria homes and businesses.}",
+    title: "Energy-efficient upgrades for {Victorian homes and businesses.}",
     lead: "Auzbright is an accredited provider under the Victorian Energy Upgrades (VEU) program. Choose an upgrade below, or start with a free eligibility check.",
     image: { src: "/assets/images/about-melbourne.webp", alt: "The Melbourne city skyline on a sunny day", width: 636, height: 360 },
   },
