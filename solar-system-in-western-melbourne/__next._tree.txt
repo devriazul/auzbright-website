@@ -3,5 +3,5 @@
 :HL["/auzbright-website/assets/images/auzbright-logo-reversed.png","image"]
 :HL["/auzbright-website/assets/images/blog/solar-system-in-western-melbourne.webp","image"]
 2:[["children",{"s":"__PAGE__","h":160}]]
-1:[["children",{"s":{"n":"slug","t":"d","k":"solar-system-in-western-melbourne","s":["about","blogs","contact","emerald-energy","enquire-now","ev-charger","landing","nsw","privacy-policy","products","solar-battery-solutions","thank-you","victoria"]},"h":65600,"c":"$Q2"}]]
-0:{"b":"e6I9Ea4SCfFBRMg59s_pY","t":{"t":{"s":"","h":131088,"c":"$Q1"}}}
+1:[["children",{"s":{"n":"slug","t":"d","k":"solar-system-in-western-melbourne","s":["about","blogs","claim-warranty","contact","emerald-energy","enquire-now","ev-charger","faqs","installation","landing","led-lighting","nsw","privacy-policy","products","solar-battery-solutions","thank-you","victoria","water-filter"]},"h":65600,"c":"$Q2"}]]
+0:{"b":"isPpMhsk0QJXThM4Cb7aH","t":{"t":{"s":"","h":131088,"c":"$Q1"}}}

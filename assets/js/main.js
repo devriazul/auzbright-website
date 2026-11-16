@@ -25,9 +25,16 @@
   var siteNav = $('#site-nav');
   if (siteNav) {
     var navTicking = false;
+    // Two thresholds, not one: the compact bar is 20px shorter (8px on phones), and the browser's
+    // scroll anchoring moves scrollY by that amount when it changes. With a single 8px threshold,
+    // a small scroll flipped the class on every frame (the nav flickered). The 32px gap between
+    // these two is wider than the height change, so the bar settles in one state.
+    var NAV_COMPACT_AT = 40, NAV_FULL_BELOW = 8;
     var updateNav = function () {
       navTicking = false;
-      siteNav.classList.toggle('scrolled', window.scrollY > 8);
+      var y = window.scrollY;
+      if (y > NAV_COMPACT_AT) siteNav.classList.add('scrolled');
+      else if (y < NAV_FULL_BELOW) siteNav.classList.remove('scrolled');
       var max = document.documentElement.scrollHeight - window.innerHeight;
       siteNav.style.setProperty('--sp', max > 0 ? Math.min(1, window.scrollY / max).toFixed(4) : 0);
     };
@@ -349,7 +356,9 @@
   faqBtns.forEach(function (b) {
     b.addEventListener('click', function () {
       var willOpen = b.getAttribute('aria-expanded') !== 'true';
-      faqBtns.forEach(function (o) {
+      // one open answer per list, so pages with several FAQ groups keep each group independent
+      var list = b.closest('.faq-list');
+      (list ? $$('[data-onclick="f.toggle"]', list) : faqBtns).forEach(function (o) {
         var open = o === b && willOpen;
         o.setAttribute('aria-expanded', open ? 'true' : 'false');
         var ans = o.closest('div').querySelector('.faq-a'); if (ans) ans.hidden = !open;
@@ -666,10 +675,42 @@
     });
   }
 
+  /* ---------- Our Team: department filter ----------
+     Buttons with data-team-filter show only the .tm-card items whose data-dept matches
+     ("all" shows every card). Shown cards rise in, staggered; a live region announces the count. */
+  var teamBtns = $$('[data-team-filter]');
+  if (teamBtns.length) {
+    var teamCards = $$('.tm-grid > .tm-card');
+    var teamCount = $('#tm-count');
+    teamBtns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        if (btn.getAttribute('aria-pressed') === 'true') return;
+        var key = btn.getAttribute('data-team-filter');
+        teamBtns.forEach(function (b) { b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'); });
+        var shown = 0;
+        teamCards.forEach(function (card) {
+          var match = key === 'all' || card.getAttribute('data-dept') === key;
+          card.classList.remove('tm-pop', 'reveal', 'in');
+          card.hidden = !match;
+          if (match) {
+            card.style.setProperty('--d', Math.min(shown * 0.06, 0.42) + 's');
+            void card.offsetWidth; // restart the animation
+            card.classList.add('tm-pop');
+            shown++;
+          }
+        });
+        if (teamCount) {
+          var label = btn.firstChild ? btn.firstChild.textContent.trim() : '';
+          teamCount.textContent = key === 'all' ? 'Showing all ' + shown + ' team members' : 'Showing ' + shown + ' ' + label + ' team members';
+        }
+      });
+    });
+  }
+
   /* ---------- Card spotlight (mouse only; CSS shows it on hover) ---------- */
   document.addEventListener('pointermove', function (e) {
     if (e.pointerType !== 'mouse') return;
-    var card = e.target.closest && e.target.closest('.svc,.why-card,.ct-way,.sav-tab,.ab-state,.pg-prod,.post-card,.pg-rv,.pg-specs > div');
+    var card = e.target.closest && e.target.closest('.svc,.why-card,.ct-way,.sav-tab,.ab-state,.pg-prod,.post-card,.pg-rv,.pg-specs > div,.tm-card');
     if (!card) return;
     var r = card.getBoundingClientRect();
     card.style.setProperty('--mx', (e.clientX - r.left) + 'px');

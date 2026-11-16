@@ -3,6 +3,6 @@
 :HL["/auzbright-website/assets/images/auzbright-logo-reversed.png","image"]
 :HL["/auzbright-website/assets/images/pages/780b832f-48c4-4d1f-9dec-682dc8dba416-1-1-1-2.webp","image"]
 3:[["children",{"s":"__PAGE__","h":160}]]
-2:[["children",{"s":{"n":"slug","t":"d","k":"emerald-270l-all-in-one","s":[]},"h":65632,"c":"$Q3"}]]
+2:[["children",{"s":{"n":"slug","t":"d","k":"emerald-270l-all-in-one","s":["air-conditioner","heat-pump"]},"h":65632,"c":"$Q3"}]]
 1:[["children",{"s":"products","h":131136,"c":"$Q2"}]]
-0:{"b":"e6I9Ea4SCfFBRMg59s_pY","t":{"t":{"s":"","h":131088,"c":"$Q1"}}}
+0:{"b":"isPpMhsk0QJXThM4Cb7aH","t":{"t":{"s":"","h":131088,"c":"$Q1"}}}
