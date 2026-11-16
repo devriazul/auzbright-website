@@ -4,7 +4,7 @@ import { BASE } from "@/lib/site";
  * Enquiry form with the office details beside it. public/assets/js/main.js handles validation
  * and sending (#contact-form). Use once per page: the field ids must stay unique.
  */
-export default function EnquiryForm() {
+export default function EnquiryForm({ topic }: { topic?: string } = {}) {
   return (
     <section className="sec mist" aria-labelledby="form-h">
       <div className="wrap ct-grid">
@@ -89,7 +89,7 @@ export default function EnquiryForm() {
                 <label htmlFor="ct-type">
                   What’s it about? <span aria-hidden="true">*</span>
                 </label>
-                <select id="ct-type" name="enquiryType" required>
+                <select id="ct-type" name="enquiryType" required defaultValue={topic ?? ""}>
                   <option value="">Choose one</option>
                   <option>Get a quote</option>
                   <option>Check incentive eligibility</option>
@@ -245,7 +245,7 @@ export default function EnquiryForm() {
                 </a>
               </li>
               <li>
-                <a href={`${BASE}/contact/?enquiry=warranty#contact-form`}>
+                <a href={`${BASE}/claim-warranty/`}>
                   <span className="cp-ico">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                       <path
@@ -264,7 +264,7 @@ export default function EnquiryForm() {
                 </a>
               </li>
               <li>
-                <a href={`${BASE}/#faqs`}>
+                <a href={`${BASE}/faqs/`}>
                   <span className="cp-ico">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                       <path

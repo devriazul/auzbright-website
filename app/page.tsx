@@ -349,7 +349,7 @@ export default function Page() {
                           />
                         </svg>
                       </a>
-                      <a className="btn btn-ghost-dark" href="#led-lighting">
+                      <a className="btn btn-ghost-dark" href={`${BASE}/led-lighting/`}>
                         LED Lighting Options
                       </a>
                     </div>
@@ -406,7 +406,7 @@ export default function Page() {
                           />
                         </svg>
                       </a>
-                      <a className="btn btn-ghost-dark" href="#water-filter">
+                      <a className="btn btn-ghost-dark" href={`${BASE}/water-filter/`}>
                         Water Filter Options
                       </a>
                     </div>

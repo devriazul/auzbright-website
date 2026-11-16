@@ -118,6 +118,8 @@ export interface ProseSection extends SectionBase {
 /** The enquiry form (same form and handler as the Contact Us page) */
 export interface FormSection extends SectionBase {
   type: "form";
+  /** Preselects "What's it about?", e.g. "Existing installation or warranty" */
+  topic?: "Get a quote" | "Check incentive eligibility" | "Existing installation or warranty" | "Partnership or business enquiry";
 }
 
 export type Section =

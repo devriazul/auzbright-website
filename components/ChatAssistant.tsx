@@ -21,11 +21,11 @@ const DEMO_CUSTOMERS: Record<string, { name: string; lastProduct: string }> = {
 
 const PRODUCTS = [
   { key: "heat-pump", label: "Residential Heat Pump", vic: "/victoria/energy-efficient-hot-water-solutions-for-homes/", nsw: "/nsw/energy-efficient-hot-water-solutions-for-homes/" },
-  { key: "air-con", label: "Air Conditioner", vic: "/victoria/split-aircon-rebate-government-program/", nsw: "/#air-conditioner" },
+  { key: "air-con", label: "Air Conditioner", vic: "/victoria/split-aircon-rebate-government-program/", nsw: "/products/air-conditioner/" },
   { key: "solar", label: "Solar & Battery", vic: "/solar-battery-solutions/", nsw: "/solar-battery-solutions/" },
   { key: "ev", label: "EV Charger", vic: "/ev-charger/", nsw: "/ev-charger/" },
-  { key: "led", label: "LED Lighting", vic: "/#led-lighting", nsw: "/#led-lighting" },
-  { key: "water", label: "Water Filter", vic: "/#water-filter", nsw: "/#water-filter" },
+  { key: "led", label: "LED Lighting", vic: "/led-lighting/", nsw: "/led-lighting/" },
+  { key: "water", label: "Water Filter", vic: "/water-filter/", nsw: "/water-filter/" },
   { key: "unsure", label: "Not sure yet", vic: "/products/", nsw: "/products/" },
 ] as const;
 
@@ -252,7 +252,7 @@ export default function ChatAssistant() {
       text,
       action:
         request === "warranty"
-          ? { label: "Open the warranty form", href: "/contact/?enquiry=warranty#contact-form" }
+          ? { label: "Open the warranty form", href: "/claim-warranty/" }
           : { label: product?.key === "unsure" ? "Browse our products" : `About ${product?.label}`, href: product?.vic ?? "/products/" },
     });
   }

@@ -67,7 +67,7 @@ export const TOPICS: Topic[] = [
   {
     key: "water-filter",
     match: /water-filt/,
-    service: { label: "Water filters", title: "Whole-home and under-sink filtration", text: "Cleaner, better-tasting water at every tap, or just where you need it.", href: "/#water-filter" },
+    service: { label: "Water filters", title: "Whole-home and under-sink filtration", text: "Cleaner, better-tasting water at every tap, or just where you need it.", href: "/water-filter/" },
   },
   {
     key: "heat-pump",

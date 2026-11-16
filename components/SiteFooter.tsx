@@ -10,8 +10,8 @@ const COLUMNS: { title: string; links: [string, string][] }[] = [
     links: [
       ["Solar & Battery", "/solar-battery-solutions/"],
       ["EV Charger", "/ev-charger/"],
-      ["LED Lighting", "/#led-lighting"],
-      ["Water Filter", "/#water-filter"],
+      ["LED Lighting", "/led-lighting/"],
+      ["Water Filter", "/water-filter/"],
       ["Emerald Energy Heat Pump", "/emerald-energy/"],
       ["All Products", "/products/"],
     ],
@@ -38,12 +38,12 @@ const COLUMNS: { title: string; links: [string, string][] }[] = [
   {
     title: "Company",
     links: [
-      ["Our Team", "/about/"],
+      ["Our Team", "/about/our-team/"],
       ["Career", "/about/work-with-auzbright/"],
       ["Blogs", "/blogs/"],
-      ["FAQs", "/#faqs"],
-      ["Installation", "/about/#process"],
-      ["Claim Warranty", "/contact/?enquiry=warranty#contact-form"],
+      ["FAQs", "/faqs/"],
+      ["Installation", "/installation/"],
+      ["Claim Warranty", "/claim-warranty/"],
       ["Contact Us", "/contact/"],
       ["Get a Quote", "/enquire-now/"],
     ],

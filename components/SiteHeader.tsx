@@ -122,7 +122,7 @@ export default function SiteHeader({ current }: { current?: string }) {
                 </button>
                 <ul id="dd-about" className="dd-menu" hidden>
                   <li>
-                    <a href={`${BASE}/about/`} aria-current={current === "/about/" ? "page" : undefined}>
+                    <a href={`${BASE}/about/our-team/`} aria-current={current === "/about/our-team/" ? "page" : undefined}>
                       <span className="dd-ico">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                           <path
@@ -244,7 +244,7 @@ export default function SiteHeader({ current }: { current?: string }) {
                     </a>
                   </li>
                   <li>
-                    <a href={`${BASE}/#led-lighting`}>
+                    <a href={`${BASE}/led-lighting/`}>
                       <span className="dd-ico">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                           <path
@@ -260,7 +260,7 @@ export default function SiteHeader({ current }: { current?: string }) {
                     </a>
                   </li>
                   <li>
-                    <a href={`${BASE}/#water-filter`}>
+                    <a href={`${BASE}/water-filter/`}>
                       <span className="dd-ico">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                           <path
@@ -318,7 +318,7 @@ export default function SiteHeader({ current }: { current?: string }) {
                     </a>
                   </li>
                   <li>
-                    <a href={`${BASE}/products/#air-conditioner`}>
+                    <a href={`${BASE}/products/air-conditioner/`}>
                       <span className="dd-ico">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                           <path
@@ -366,7 +366,7 @@ export default function SiteHeader({ current }: { current?: string }) {
                     </a>
                   </li>
                   <li>
-                    <a href={`${BASE}/#led-lighting`}>
+                    <a href={`${BASE}/led-lighting/`}>
                       <span className="dd-ico">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                           <path
@@ -382,7 +382,7 @@ export default function SiteHeader({ current }: { current?: string }) {
                     </a>
                   </li>
                   <li>
-                    <a href={`${BASE}/#water-filter`}>
+                    <a href={`${BASE}/water-filter/`}>
                       <span className="dd-ico">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                           <path
@@ -424,7 +424,7 @@ export default function SiteHeader({ current }: { current?: string }) {
                 <ul id="dd-prod" className="dd-menu wide" hidden>
                   <li className="dd-head">Product and Services</li>
                   <li>
-                    <a href={`${BASE}/products/#heat-pump`}>
+                    <a href={`${BASE}/products/heat-pump/`}>
                       <span className="dd-ico">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                           <path
@@ -440,7 +440,7 @@ export default function SiteHeader({ current }: { current?: string }) {
                     </a>
                   </li>
                   <li>
-                    <a href={`${BASE}/products/#air-conditioner`}>
+                    <a href={`${BASE}/products/air-conditioner/`}>
                       <span className="dd-ico">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                           <path
@@ -488,7 +488,7 @@ export default function SiteHeader({ current }: { current?: string }) {
                     </a>
                   </li>
                   <li>
-                    <a href={`${BASE}/#led-lighting`}>
+                    <a href={`${BASE}/led-lighting/`}>
                       <span className="dd-ico">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                           <path
@@ -504,7 +504,7 @@ export default function SiteHeader({ current }: { current?: string }) {
                     </a>
                   </li>
                   <li>
-                    <a href={`${BASE}/#water-filter`}>
+                    <a href={`${BASE}/water-filter/`}>
                       <span className="dd-ico">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                           <path
@@ -533,7 +533,7 @@ export default function SiteHeader({ current }: { current?: string }) {
             <div className="nav-right">
               <a
                 className="btn btn-ghost-dark btn-sm nav-warranty"
-                href={`${BASE}/contact/?enquiry=warranty#contact-form`}
+                href={`${BASE}/claim-warranty/`}
               >
                 Claim Warranty
               </a>{" "}
@@ -570,7 +570,7 @@ export default function SiteHeader({ current }: { current?: string }) {
               </svg>
             </button>
             <div className="msub" data-mg="about" hidden>
-              <a href={`${BASE}/about/`} aria-current={current === "/about/" ? "page" : undefined}>
+              <a href={`${BASE}/about/our-team/`} aria-current={current === "/about/our-team/" ? "page" : undefined}>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                   <path
                     d="M16 19v-1a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v1 M9.5 10a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z M21 19v-1a4 4 0 0 0-3-3.9 M15.5 3.1a3.5 3.5 0 0 1 0 6.8"
@@ -658,7 +658,7 @@ export default function SiteHeader({ current }: { current?: string }) {
                 </svg>
                 EV Charger
               </a>
-              <a href={`${BASE}/#led-lighting`}>
+              <a href={`${BASE}/led-lighting/`}>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                   <path
                     d="M9 18h6 M10 21h4 M12 3a6 6 0 0 0-3.5 10.9c.6.4 1 1.1 1 1.9V16h5v-.2c0-.8.4-1.5 1-1.9A6 6 0 0 0 12 3Z"
@@ -670,7 +670,7 @@ export default function SiteHeader({ current }: { current?: string }) {
                 </svg>
                 LED Lighting
               </a>
-              <a href={`${BASE}/#water-filter`}>
+              <a href={`${BASE}/water-filter/`}>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                   <path
                     d="M12 3c3 4 6 7 6 10.5A6 6 0 0 1 6 13.5C6 10 9 7 12 3Z M9.5 14a2.5 2.5 0 0 0 2.5 2.5"
@@ -710,7 +710,7 @@ export default function SiteHeader({ current }: { current?: string }) {
                 </svg>
                 Residential Heat Pump
               </a>
-              <a href={`${BASE}/products/#air-conditioner`}>
+              <a href={`${BASE}/products/air-conditioner/`}>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                   <path
                     d="M3 6h18v7H3z M6 10h12 M7 16l-1 3 M12 16v3 M17 16l1 3"
@@ -746,7 +746,7 @@ export default function SiteHeader({ current }: { current?: string }) {
                 </svg>
                 EV Charger
               </a>
-              <a href={`${BASE}/#led-lighting`}>
+              <a href={`${BASE}/led-lighting/`}>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                   <path
                     d="M9 18h6 M10 21h4 M12 3a6 6 0 0 0-3.5 10.9c.6.4 1 1.1 1 1.9V16h5v-.2c0-.8.4-1.5 1-1.9A6 6 0 0 0 12 3Z"
@@ -758,7 +758,7 @@ export default function SiteHeader({ current }: { current?: string }) {
                 </svg>
                 LED Lighting
               </a>
-              <a href={`${BASE}/#water-filter`}>
+              <a href={`${BASE}/water-filter/`}>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                   <path
                     d="M12 3c3 4 6 7 6 10.5A6 6 0 0 1 6 13.5C6 10 9 7 12 3Z M9.5 14a2.5 2.5 0 0 0 2.5 2.5"
@@ -786,7 +786,7 @@ export default function SiteHeader({ current }: { current?: string }) {
               </svg>
             </button>
             <div className="msub" data-mg="prod" hidden>
-              <a href={`${BASE}/products/#heat-pump`}>
+              <a href={`${BASE}/products/heat-pump/`}>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                   <path
                     d="M10 13.5V5a2 2 0 1 1 4 0v8.5a4 4 0 1 1-4 0Z M12 17v-6"
@@ -798,7 +798,7 @@ export default function SiteHeader({ current }: { current?: string }) {
                 </svg>
                 Residential Heat Pump
               </a>
-              <a href={`${BASE}/products/#air-conditioner`}>
+              <a href={`${BASE}/products/air-conditioner/`}>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                   <path
                     d="M3 6h18v7H3z M6 10h12 M7 16l-1 3 M12 16v3 M17 16l1 3"
@@ -834,7 +834,7 @@ export default function SiteHeader({ current }: { current?: string }) {
                 </svg>
                 EV Charger
               </a>
-              <a href={`${BASE}/#led-lighting`}>
+              <a href={`${BASE}/led-lighting/`}>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                   <path
                     d="M9 18h6 M10 21h4 M12 3a6 6 0 0 0-3.5 10.9c.6.4 1 1.1 1 1.9V16h5v-.2c0-.8.4-1.5 1-1.9A6 6 0 0 0 12 3Z"
@@ -846,7 +846,7 @@ export default function SiteHeader({ current }: { current?: string }) {
                 </svg>
                 LED Lighting
               </a>
-              <a href={`${BASE}/#water-filter`}>
+              <a href={`${BASE}/water-filter/`}>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                   <path
                     d="M12 3c3 4 6 7 6 10.5A6 6 0 0 1 6 13.5C6 10 9 7 12 3Z M9.5 14a2.5 2.5 0 0 0 2.5 2.5"
@@ -875,7 +875,7 @@ export default function SiteHeader({ current }: { current?: string }) {
             </a>
             <a
               className="btn btn-ghost-dark"
-              href={`${BASE}/contact/?enquiry=warranty#contact-form`}
+              href={`${BASE}/claim-warranty/`}
               style={{ justifyContent: "center", border: "1.5px solid rgba(255,255,255,.45)", fontSize: "16px" }}
             >
               Claim Warranty

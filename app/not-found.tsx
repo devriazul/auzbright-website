@@ -104,7 +104,7 @@ export default function NotFound() {
                 </a>
               </li>
               <li>
-                <a className="ct-way" href={`${BASE}/#faqs`}>
+                <a className="ct-way" href={`${BASE}/faqs/`}>
                   <span className="ct-ico">
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                       <path

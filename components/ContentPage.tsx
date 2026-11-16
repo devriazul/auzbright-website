@@ -616,7 +616,7 @@ export default function ContentPage({ data, extraJsonLd }: { data: PageData; ext
 
         {data.sections.map((s, i) => {
           const id = `s${i + 1}-h`;
-          if (s.type === "form") return <EnquiryForm key={i} />;
+          if (s.type === "form") return <EnquiryForm key={i} topic={s.topic} />;
           return (
             <section
               key={i}

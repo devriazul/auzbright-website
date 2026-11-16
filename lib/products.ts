@@ -83,6 +83,12 @@ export const getProduct = (slug: string) => getProducts().find((p) => p.slug ===
 
 export const productHref = (p: Product) => `/products/${p.slug}/`;
 
+/** Categories with their own page (see categoryPage below and app/products/<key>/). */
+export const CATEGORY_HUBS: Partial<Record<CategoryKey, string>> = {
+  "heat-pump": "/products/heat-pump/",
+  "air-conditioner": "/products/air-conditioner/",
+};
+
 /** A compact product card (image, name, one line, warranty) with Get a quote and View details buttons. */
 const productCard = (p: Product) => ({ brand: p.brand, name: p.name, text: p.tagline, badge: p.warranty, image: p.image, href: productHref(p) });
 
@@ -98,7 +104,13 @@ export function productPage(p: Product): PageData {
     path: productHref(p),
     seoTitle: `${full} | ${cat.label} | Auzbright`,
     description: `${p.tagline.replace(/\.$/, "")}. ${p.summary[0]}`.slice(0, 300).replace(/^(.{0,155})\s.*$/s, "$1").replace(/[,;:.\s]+$/, "") + ".",
-    crumbs: [{ label: "Products", href: "/products/" }, { label: cat.parent.label, href: cat.parent.href }, { label: full }],
+    crumbs: [
+      { label: "Products", href: "/products/" },
+      CATEGORY_HUBS[p.category]
+        ? { label: cat.label, href: CATEGORY_HUBS[p.category] }
+        : { label: cat.parent.label, href: cat.parent.href },
+      { label: full },
+    ],
     hero: {
       eyebrow: `${p.brand} · ${cat.label}`,
       title: full,
@@ -172,5 +184,139 @@ export function productsIndexPage(): PageData {
         intro: CATEGORIES[k].intro,
         items: all.filter((p) => p.category === k).map(productCard),
       })),
+  };
+}
+
+const blogCard = (slug: string, label: string, title: string, text: string) => ({
+  label,
+  title,
+  text,
+  href: `/${slug}/`,
+  image: { src: `/assets/images/blog/${slug}-600.webp`, alt: "", width: 600, height: 338 },
+});
+
+/** Extra sections for each category page, after the hero and the product list. */
+const HUB_CONTENT: Record<"heat-pump" | "air-conditioner", Pick<PageData, "seoTitle" | "description" | "hero"> & { sections: PageData["sections"] }> = {
+  "heat-pump": {
+    seoTitle: "Heat Pump Hot Water Systems | Victoria & NSW | Auzbright",
+    description:
+      "Compare the heat pump hot water systems Auzbright supplies and installs, from Emerald, Midea, Neopower, Econova and Ecogenica, and check your VEU or ESS eligibility.",
+    hero: {
+      eyebrow: "Heat pump hot water",
+      title: "Hot water that costs {less to run.}",
+      lead: "Swap an old electric or gas tank for an efficient heat pump that draws heat from the air. Installed by licensed plumbers in Victoria and NSW.",
+      image: { src: "/assets/images/svc-heat-pump.webp", alt: "Three heat pump hot water systems outside a modern brick home at dusk", width: 900, height: 450 },
+      chips: ["Up to 70% lower running costs", "Licensed plumbers", "VEU & ESS eligible"],
+      primary: { label: "Get a quote", href: "quote:Residential heat pump" },
+      secondary: { label: "Check my eligibility", href: "/#check" },
+    },
+    sections: [
+      {
+        type: "features",
+        tone: "mist",
+        eyebrow: "Why a heat pump",
+        title: "Why upgrade your hot water",
+        columns: 3,
+        items: [
+          { icon: "thermo", title: "Heat from the air", text: "A heat pump moves heat from the surrounding air into your water, using far less electricity than an element." },
+          { icon: "dollar", title: "Lower running costs", text: "Cut hot water running costs by up to 70% compared with an old electric or gas system." },
+          { icon: "sun", title: "Works with solar", text: "Run your heat pump during the day to heat water with your own solar power." },
+        ],
+      },
+      {
+        type: "cards",
+        eyebrow: "By state and property",
+        title: "Heat pump programs in your state",
+        intro: "Incentives and rules differ between states, and between homes and businesses.",
+        items: [
+          { label: "Victoria · Homes", title: "Residential heat pumps in Victoria", href: "/victoria/energy-efficient-hot-water-solutions-for-homes/" },
+          { label: "Victoria · Businesses", title: "Commercial heat pumps in Victoria", href: "/victoria/free-hot-water-systems/" },
+          { label: "NSW · Homes", title: "Residential heat pumps in NSW", href: "/nsw/energy-efficient-hot-water-solutions-for-homes/" },
+          { label: "NSW · Businesses", title: "Commercial heat pumps in NSW", href: "/nsw/energy-efficient-hot-water-solutions-for-businesses/" },
+        ],
+      },
+      {
+        type: "cards",
+        tone: "mist",
+        eyebrow: "Guides",
+        title: "Before you upgrade",
+        items: [
+          blogCard("heat-pump-hot-water-in-victoria", "Victoria", "Heat pump hot water in Victoria", "What to check before upgrading."),
+          blogCard("heat-pump-hot-water-for-nsw-homes", "NSW", "Heat pump hot water for NSW homes", "Eligibility questions to ask first."),
+          blogCard("replacing-electric-storage-hot-water-with-a-heat-pump-in-western-melbourne", "Guide", "Replacing electric storage hot water", "Moving from an electric tank to a heat pump."),
+        ],
+      },
+    ],
+  },
+  "air-conditioner": {
+    seoTitle: "Air Conditioning: Split, Multi-Head & Ducted Systems | Auzbright",
+    description:
+      "Compare the reverse-cycle split, multi-head and ducted air conditioning systems Auzbright supplies and installs in Victoria and NSW, from Daikin, Mitsubishi Electric, Panasonic, Rinnai and Midea.",
+    hero: {
+      eyebrow: "Air conditioning",
+      title: "Heating and cooling, {done efficiently.}",
+      lead: "Reverse-cycle split, multi-head and ducted systems from proven brands, installed by our team in Victoria and NSW.",
+      image: { src: "/assets/images/svc-air-conditioner.webp", alt: "A Mitsubishi Electric split system indoor unit above its outdoor unit on a patio wall", width: 900, height: 450 },
+      chips: ["Split, multi-head & ducted", "5–7 year warranties", "Victoria & NSW"],
+      primary: { label: "Get a quote", href: "quote:Air conditioner" },
+      secondary: { label: "Check my eligibility", href: "/#check" },
+    },
+    sections: [
+      {
+        type: "features",
+        tone: "mist",
+        eyebrow: "Choose your system",
+        title: "Which type suits your home?",
+        columns: 3,
+        items: [
+          { icon: "snow", title: "Split system", text: "One indoor unit and one outdoor unit, for heating and cooling a single room or living area." },
+          { icon: "home", title: "Multi-head", text: "One outdoor unit powers heating or cooling for several rooms, each with its own temperature control." },
+          { icon: "wifi", title: "Ducted", text: "Whole-home heating and cooling through ceiling vents, with zoning and Wi-Fi app control." },
+        ],
+      },
+      {
+        type: "cards",
+        eyebrow: "Incentives",
+        title: "Air conditioning programs",
+        items: [
+          { label: "Victoria", title: "Split system air conditioner government program", text: "How the Victorian program works and how to apply.", href: "/victoria/split-aircon-rebate-government-program/" },
+          { label: "New South Wales", title: "Ask about NSW", text: "Tell us your postcode and we’ll check what’s available for your home.", href: "/#check" },
+        ],
+      },
+      {
+        type: "cards",
+        tone: "mist",
+        eyebrow: "Guides",
+        title: "Before you choose",
+        items: [
+          blogCard("ducted-vs-split-system-air-conditioning", "Guide", "Ducted vs split system", "Which suits your home?"),
+          blogCard("multi-head-split-system-air-conditioning", "Guide", "Multi-head split systems", "Several rooms, one outdoor unit."),
+          blogCard("split-system-air-conditioning-upgrade-in-victoria", "Victoria", "Split system upgrades in Victoria", "What to know before you upgrade."),
+        ],
+      },
+    ],
+  },
+};
+
+/** A category page, e.g. /products/heat-pump/: hero, every product in the category, then HUB_CONTENT. */
+export function categoryPage(k: "heat-pump" | "air-conditioner"): PageData {
+  const c = HUB_CONTENT[k];
+  return {
+    path: CATEGORY_HUBS[k]!,
+    seoTitle: c.seoTitle,
+    description: c.description,
+    crumbs: [{ label: "Products", href: "/products/" }, { label: CATEGORIES[k].label }],
+    hero: c.hero,
+    sections: [
+      {
+        type: "products",
+        id: "range",
+        eyebrow: "Our range",
+        title: CATEGORIES[k].plural,
+        intro: CATEGORIES[k].intro,
+        items: getProducts().filter((p) => p.category === k).map(productCard),
+      },
+      ...c.sections,
+    ],
   };
 }

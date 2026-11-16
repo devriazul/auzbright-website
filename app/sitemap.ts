@@ -4,11 +4,17 @@ import path from "node:path";
 import { SITE_URL } from "@/lib/site";
 import { getPosts } from "@/lib/blog";
 import { getProducts, productHref } from "@/lib/products";
+import { TEAM_IS_SAMPLE } from "@/content/team";
 
 export const dynamic = "force-static";
 
 /** Pages that exist but should stay out of search results. */
-const HIDDEN = new Set(["/thank-you/", "/landing/"]);
+const HIDDEN = new Set([
+  "/thank-you/",
+  "/landing/",
+  // Our Team shows sample names until the real team is added (content/team.ts).
+  ...(TEAM_IS_SAMPLE ? ["/about/our-team/"] : []),
+]);
 
 /** Every page.tsx under app/ except the blog post template, as site paths. */
 function pagePaths(dir = path.join(process.cwd(), "app"), base = "/"): string[] {
