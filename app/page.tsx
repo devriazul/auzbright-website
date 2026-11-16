@@ -938,7 +938,7 @@ export default function Page() {
             </div>
             <div className="g-3" role="group" aria-label="Products">
               <button type="button" id="heat-pump" className="svc on" aria-pressed="true" data-onclick="svc.hw.toggle">
-                <span className="pic contain-light">
+                <span className="pic">
                   <img
                     loading="lazy"
                     fetchPriority="low"
@@ -946,8 +946,8 @@ export default function Page() {
                     src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
                     data-lazy-src={`${BASE}/assets/images/svc-heat-pump.webp`}
                     alt=""
-                    width="406"
-                    height="440"
+                    width="900"
+                    height="450"
                   />
                 </span>{" "}
                 <span className="tick" aria-hidden="true">
@@ -978,7 +978,7 @@ export default function Page() {
                 aria-pressed="false"
                 data-onclick="svc.ac.toggle"
               >
-                <span className="pic contain-light">
+                <span className="pic">
                   <img
                     loading="lazy"
                     fetchPriority="low"
@@ -986,8 +986,8 @@ export default function Page() {
                     src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
                     data-lazy-src={`${BASE}/assets/images/svc-air-conditioner.webp`}
                     alt=""
-                    width="364"
-                    height="380"
+                    width="900"
+                    height="450"
                   />
                 </span>{" "}
                 <span className="tick" aria-hidden="true">
@@ -1024,8 +1024,8 @@ export default function Page() {
                     src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
                     data-lazy-src={`${BASE}/assets/images/svc-water-filter.webp`}
                     alt=""
-                    width="700"
-                    height="467"
+                    width="900"
+                    height="450"
                   />
                 </span>{" "}
                 <span className="tick" aria-hidden="true">
@@ -1054,7 +1054,7 @@ export default function Page() {
                 aria-pressed="false"
                 data-onclick="svc.bat.toggle"
               >
-                <span className="pic contain-light">
+                <span className="pic">
                   <img
                     loading="lazy"
                     fetchPriority="low"
@@ -1062,8 +1062,8 @@ export default function Page() {
                     src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
                     data-lazy-src={`${BASE}/assets/images/svc-solar-battery.webp`}
                     alt=""
-                    width="400"
-                    height="380"
+                    width="900"
+                    height="450"
                   />
                 </span>{" "}
                 <span className="tick" aria-hidden="true">
@@ -1135,8 +1135,8 @@ export default function Page() {
                     src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
                     data-lazy-src={`${BASE}/assets/images/svc-led-lighting.webp`}
                     alt=""
-                    width="475"
-                    height="590"
+                    width="900"
+                    height="450"
                   />
                 </span>{" "}
                 <span className="tick" aria-hidden="true">
