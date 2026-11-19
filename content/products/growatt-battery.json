@@ -9,10 +9,11 @@
     "The Growatt battery is quick and easy to install, with built-in protection and smart remote monitoring. It comes with a full system warranty."
   ],
   "image": {
-    "src": "/assets/images/pages/growatt-battery-info.webp",
-    "alt": "Growatt Battery units with inverters",
-    "width": 400,
-    "height": 380
+    "src": "/assets/images/products/growatt-battery.webp",
+    "alt": "Growatt range of hybrid inverters and stacked home batteries",
+    "width": 1000,
+    "height": 638,
+    "fit": "cover"
   },
   "highlights": [
     {

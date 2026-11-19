@@ -10,10 +10,11 @@
     "It is weatherproof and rated to operate from -20°C to 55°C."
   ],
   "image": {
-    "src": "/assets/images/pages/anker-solar-battery.webp",
-    "alt": "Anker SOLIX Solar Battery modular home battery",
-    "width": 400,
-    "height": 380
+    "src": "/assets/images/products/anker-solix-battery.webp",
+    "alt": "Anker SOLIX home battery in a dark grey stacked cabinet",
+    "width": 1000,
+    "height": 639,
+    "fit": "cover"
   },
   "highlights": [
     {

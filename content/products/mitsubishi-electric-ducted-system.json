@@ -10,10 +10,11 @@
     "The range runs from 2.5 kW bulkhead units to 24.5 kW ceiling-concealed models, and an optional zone controller manages up to 8 zones."
   ],
   "image": {
-    "src": "/assets/images/pages/mitsubishi-electric-multi-split-system.webp",
-    "alt": "Mitsubishi Electric indoor unit and outdoor unit",
-    "width": 364,
-    "height": 380
+    "src": "/assets/images/products/mitsubishi-electric-ducted-system.webp",
+    "alt": "Mitsubishi Electric indoor unit above a Mitsubishi Electric outdoor unit",
+    "width": 1000,
+    "height": 658,
+    "fit": "cover"
   },
   "highlights": [
     {

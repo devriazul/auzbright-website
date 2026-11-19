@@ -10,10 +10,11 @@
     "Capacity can be expanded later, and the system switches to critical loads in under 10 milliseconds. It is rated IP65."
   ],
   "image": {
-    "src": "/assets/images/pages/sofar-powerall.webp",
-    "alt": "Sofar PowerAll all-in-one battery system",
-    "width": 400,
-    "height": 380
+    "src": "/assets/images/products/sofar-powerall.webp",
+    "alt": "Sofar PowerAll stacked home battery with three modules",
+    "width": 1000,
+    "height": 639,
+    "fit": "cover"
   },
   "highlights": [
     {

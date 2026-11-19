@@ -10,10 +10,11 @@
     "It is rated IP66, can be floor standing or wall-mounted, and shows battery status in the mySigen App."
   ],
   "image": {
-    "src": "/assets/images/pages/sigenergy-solar-battery.webp",
-    "alt": "Sigenergy Solar Battery stackable home battery",
-    "width": 400,
-    "height": 380
+    "src": "/assets/images/products/sigenergy-battery.webp",
+    "alt": "Sigenergy stacked home battery with five modules",
+    "width": 1000,
+    "height": 639,
+    "fit": "cover"
   },
   "highlights": [
     {

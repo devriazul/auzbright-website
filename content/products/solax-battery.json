@@ -10,10 +10,11 @@
     "It is rated IP65 for indoor or outdoor floor mounting, and battery heating keeps it working at low temperatures."
   ],
   "image": {
-    "src": "/assets/images/pages/solax-battery.webp",
-    "alt": "Solax Battery stackable home battery",
-    "width": 400,
-    "height": 380
+    "src": "/assets/images/products/solax-battery.webp",
+    "alt": "SolaX stacked home battery with five modules and a control unit",
+    "width": 1000,
+    "height": 638,
+    "fit": "cover"
   },
   "highlights": [
     {

@@ -156,11 +156,11 @@ const data: PageData = {
           ],
           badge: "10 years warranty",
           image: {
-            src: "/assets/images/pages/solax-battery.webp",
-            alt: "Solax home battery",
-            width: 400,
-            height: 380,
-            fit: "contain",
+            src: "/assets/images/products/solax-battery.webp",
+            alt: "SolaX stacked home battery with five modules and a control unit",
+            width: 1000,
+            height: 638,
+            fit: "cover",
           },
           links: [
             {
@@ -181,11 +181,11 @@ const data: PageData = {
           ],
           badge: "10 years warranty",
           image: {
-            src: "/assets/images/pages/goodwe-battery.webp",
-            alt: "GoodWe home battery",
-            width: 400,
-            height: 380,
-            fit: "contain",
+            src: "/assets/images/products/goodwe-battery.webp",
+            alt: "GoodWe stacked home battery with seven modules on a stand",
+            width: 1000,
+            height: 638,
+            fit: "cover",
           },
           links: [
             {
@@ -206,11 +206,11 @@ const data: PageData = {
           ],
           badge: "10 years warranty",
           image: {
-            src: "/assets/images/pages/fox-ess-solar-battery.webp",
-            alt: "Fox ESS solar battery",
-            width: 400,
-            height: 380,
-            fit: "contain",
+            src: "/assets/images/products/fox-ess-battery.webp",
+            alt: "Fox ESS stacked home battery with four white modules",
+            width: 1000,
+            height: 638,
+            fit: "cover",
           },
           links: [
             {
@@ -231,11 +231,11 @@ const data: PageData = {
           ],
           badge: "10 years warranty",
           image: {
-            src: "/assets/images/pages/anker-solar-battery.webp",
-            alt: "Anker SOLIX solar battery",
-            width: 400,
-            height: 380,
-            fit: "contain",
+            src: "/assets/images/products/anker-solix-battery.webp",
+            alt: "Anker SOLIX home battery in a dark grey stacked cabinet",
+            width: 1000,
+            height: 639,
+            fit: "cover",
           },
           links: [
             {
@@ -256,11 +256,11 @@ const data: PageData = {
           ],
           badge: "10 years warranty",
           image: {
-            src: "/assets/images/pages/sigenergy-solar-battery.webp",
-            alt: "Sigenergy solar battery",
-            width: 400,
-            height: 380,
-            fit: "contain",
+            src: "/assets/images/products/sigenergy-battery.webp",
+            alt: "Sigenergy stacked home battery with five modules",
+            width: 1000,
+            height: 639,
+            fit: "cover",
           },
           links: [
             {
@@ -281,11 +281,11 @@ const data: PageData = {
           ],
           badge: "10 years warranty",
           image: {
-            src: "/assets/images/pages/sofar-powerall.webp",
-            alt: "Sofar PowerAll battery system",
-            width: 400,
-            height: 380,
-            fit: "contain",
+            src: "/assets/images/products/sofar-powerall.webp",
+            alt: "Sofar PowerAll stacked home battery with three modules",
+            width: 1000,
+            height: 639,
+            fit: "cover",
           },
           links: [
             {
@@ -306,11 +306,11 @@ const data: PageData = {
           ],
           badge: "10 years warranty",
           image: {
-            src: "/assets/images/pages/hiconics-battery.webp",
-            alt: "Hiconics home battery",
-            width: 400,
-            height: 380,
-            fit: "contain",
+            src: "/assets/images/products/hiconics-battery.webp",
+            alt: "Hiconics home battery with a digital display",
+            width: 1000,
+            height: 638,
+            fit: "cover",
           },
           links: [
             {
@@ -331,11 +331,11 @@ const data: PageData = {
           ],
           badge: "10 years warranty",
           image: {
-            src: "/assets/images/pages/growatt-battery-info.webp",
-            alt: "Growatt inverters and battery units",
-            width: 400,
-            height: 380,
-            fit: "contain",
+            src: "/assets/images/products/growatt-battery.webp",
+            alt: "Growatt range of hybrid inverters and stacked home batteries",
+            width: 1000,
+            height: 638,
+            fit: "cover",
           },
           links: [
             {
@@ -357,10 +357,11 @@ const data: PageData = {
           ],
           badge: "10 years warranty",
           image: {
-            src: "/assets/images/pages/tesla-battery-info.webp",
-            alt: "Tesla Powerwall batteries mounted on an outside wall",
-            width: 400,
-            height: 380,
+            src: "/assets/images/products/tesla-battery.webp",
+            alt: "Two Tesla Powerwall home batteries side by side",
+            width: 1000,
+            height: 639,
+            fit: "cover",
           },
           links: [
             {

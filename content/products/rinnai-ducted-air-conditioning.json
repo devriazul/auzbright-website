@@ -10,10 +10,11 @@
     "It comes in six sizes from 7 kW to 18 kW, uses R32 refrigerant, and can be zoned so you only condition the rooms in use."
   ],
   "image": {
-    "src": "/assets/images/pages/rinnai-ducted-air-conditioning.webp",
-    "alt": "Rinnai ducted air conditioning outdoor unit beside a wall",
-    "width": 570,
-    "height": 380
+    "src": "/assets/images/products/rinnai-ducted-air-conditioning.webp",
+    "alt": "Rinnai twin-fan outdoor unit for ducted air conditioning",
+    "width": 1000,
+    "height": 656,
+    "fit": "cover"
   },
   "highlights": [
     {

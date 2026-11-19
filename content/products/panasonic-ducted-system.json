@@ -10,10 +10,11 @@
     "High static pressure models run from 6.0 kW to 22.4 kW, with nanoe X air purification standard on the 6.0 kW to 16.0 kW models."
   ],
   "image": {
-    "src": "/assets/images/pages/panasonic-ducted-system.webp",
-    "alt": "Panasonic ducted system indoor unit, outdoor unit and wall controller",
-    "width": 570,
-    "height": 380
+    "src": "/assets/images/products/panasonic-ducted-system.webp",
+    "alt": "Panasonic ducted indoor unit, outdoor unit and wall controller",
+    "width": 1000,
+    "height": 658,
+    "fit": "cover"
   },
   "highlights": [
     {

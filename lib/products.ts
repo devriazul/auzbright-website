@@ -61,9 +61,12 @@ const DIR = path.join(process.cwd(), "content", "products");
 
 let cache: Product[] | undefined;
 
-/** All products, grouped by category order then `order`. Read once at build time. */
+/**
+ * All products, grouped by category order then `order`. Read once per build; in `next dev` the files
+ * are re-read on every call, so edits to content/products/ show up without restarting the server.
+ */
 export function getProducts(): Product[] {
-  if (cache) return cache;
+  if (cache && process.env.NODE_ENV === "production") return cache;
   const keys = Object.keys(CATEGORIES);
   cache = readdirSync(DIR)
     .filter((f) => f.endsWith(".json"))
@@ -115,7 +118,8 @@ export function productPage(p: Product): PageData {
       eyebrow: `${p.brand} · ${cat.label}`,
       title: full,
       lead: p.tagline,
-      image: { ...p.image, fit: "contain" },
+      // cut-outs (no fit set) sit on a light panel; full-frame product shots ("cover") fill the photo
+      image: { ...p.image, fit: p.image.fit ?? "contain" },
       chips: [p.warranty, ...p.specs.slice(0, 2).map((s) => `${s.label}: ${s.value}`)].filter((c): c is string => !!c && c.length <= 44),
       primary: { label: "Get a quote", href: `quote:${p.slug}` },
       secondary: p.brochure ?? { label: "Call 03 8609 5195", href: "tel:0386095195" },

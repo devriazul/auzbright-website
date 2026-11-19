@@ -17,7 +17,10 @@ export interface Img {
   alt: string;
   width: number;
   height: number;
-  /** "contain" for product cut-outs on a light panel; default crops to fill */
+  /**
+   * "contain" for product cut-outs on a light panel; default crops to fill.
+   * In product data (content/products/), the default is "contain", so full-frame shots set "cover".
+   */
   fit?: "cover" | "contain";
 }
 

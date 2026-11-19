@@ -10,10 +10,11 @@
     "Five outdoor unit sizes pair with wall mounted, slim ducted, compact cassette and floor console indoor units."
   ],
   "image": {
-    "src": "/assets/images/pages/rinnai-multi-head-system.webp",
-    "alt": "Rinnai multi head system outdoor unit with four wall-mounted indoor units",
-    "width": 198,
-    "height": 373
+    "src": "/assets/images/products/rinnai-multi-head-system.webp",
+    "alt": "Rinnai outdoor unit connected to four wall-mounted indoor units",
+    "width": 1000,
+    "height": 656,
+    "fit": "cover"
   },
   "highlights": [
     {

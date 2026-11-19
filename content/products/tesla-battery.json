@@ -9,10 +9,11 @@
     "The Tesla battery is a compact, high-capacity home battery that supports energy independence. It integrates seamlessly and can be scaled up."
   ],
   "image": {
-    "src": "/assets/images/pages/tesla-battery-info.webp",
-    "alt": "Tesla Battery units on an outside wall",
-    "width": 400,
-    "height": 380
+    "src": "/assets/images/products/tesla-battery.webp",
+    "alt": "Two Tesla Powerwall home batteries side by side",
+    "width": 1000,
+    "height": 639,
+    "fit": "cover"
   },
   "highlights": [
     {

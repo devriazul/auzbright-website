@@ -10,10 +10,11 @@
     "Five outdoor unit sizes pair with wall mounted, ducted, compact cassette and floor console indoor units."
   ],
   "image": {
-    "src": "/assets/images/pages/midea-multi-head-system.webp",
-    "alt": "Midea multi head system outdoor unit with four wall-mounted indoor units",
-    "width": 198,
-    "height": 373
+    "src": "/assets/images/products/midea-multi-head-system.webp",
+    "alt": "Midea outdoor unit connected to four wall-mounted indoor units",
+    "width": 1000,
+    "height": 657,
+    "fit": "cover"
   },
   "highlights": [
     {

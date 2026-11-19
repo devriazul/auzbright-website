@@ -10,10 +10,11 @@
     "It provides 20.0 kW of cooling and 23.5 kW of heating, with flare connections throughout for simpler installation."
   ],
   "image": {
-    "src": "/assets/images/pages/midea-vrf-splits.webp",
-    "alt": "Midea VRF splits outdoor unit with connected indoor units",
-    "width": 307,
-    "height": 364
+    "src": "/assets/images/products/midea-vrf-splits.webp",
+    "alt": "Midea outdoor unit connected to ducted, cassette, wall-mounted and floor-standing indoor units",
+    "width": 1000,
+    "height": 658,
+    "fit": "cover"
   },
   "highlights": [
     {

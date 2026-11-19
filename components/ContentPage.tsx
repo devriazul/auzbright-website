@@ -286,7 +286,7 @@ function SectionBody({ s, id }: { s: Section; id: string }) {
             {s.items.map((it, i) => (
               <li key={i} className="pg-prod">
                 {it.image && (
-                  <div className="pg-prod-img">
+                  <div className={`pg-prod-img ${it.image.fit === "cover" ? "is-cover" : ""}`}>
                     <img
                       src={link(it.image.src)}
                       width={it.image.width}

@@ -9,7 +9,18 @@
     "The Ecogenica R 290 is a workhorse. At 290 litres, there is enough hot water to satisfy the most discerning users.",
     "It delivers piping hot water at an economical price, pushing back against rising energy bills and putting you back in control."
   ],
-  "image": { "src": "/assets/images/pages/product-image2.webp", "alt": "Ecogenica R 290 heat pump hot water system", "width": 270, "height": 405 },
+  "image": {
+    "src": "/assets/images/products/ecogenica-r290.webp",
+    "alt": "Ecogenica hot water tank with a separate outdoor heat pump unit",
+    "width": 1000,
+    "height": 656,
+    "fit": "cover"
+  },
   "highlights": [],
-  "specs": [{ "label": "Tank capacity", "value": "290 L" }]
+  "specs": [
+    {
+      "label": "Tank capacity",
+      "value": "290 L"
+    }
+  ]
 }

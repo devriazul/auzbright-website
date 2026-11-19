@@ -10,10 +10,11 @@
     "The models in the spec sheet hold 10.2 kWh to 30.6 kWh in total. The system is rated IP65 and has a 94% battery round-trip efficiency."
   ],
   "image": {
-    "src": "/assets/images/pages/hiconics-battery.webp",
-    "alt": "Hiconics Battery stackable home battery",
-    "width": 400,
-    "height": 380
+    "src": "/assets/images/products/hiconics-battery.webp",
+    "alt": "Hiconics home battery with a digital display",
+    "width": 1000,
+    "height": 638,
+    "fit": "cover"
   },
   "highlights": [
     {

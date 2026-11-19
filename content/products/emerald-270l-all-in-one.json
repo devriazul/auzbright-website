@@ -10,10 +10,11 @@
     "A simple controller lets you set the water temperature, pick a running mode and schedule heating times."
   ],
   "image": {
-    "src": "/assets/images/pages/780b832f-48c4-4d1f-9dec-682dc8dba416-1-1-1-2.webp",
-    "alt": "Emerald Energy 270L white all-in-one heat pump",
-    "width": 270,
-    "height": 405
+    "src": "/assets/images/products/emerald-270l-all-in-one.webp",
+    "alt": "White Emerald Energy 270L all-in-one heat pump hot water system",
+    "width": 1000,
+    "height": 658,
+    "fit": "cover"
   },
   "highlights": [
     {

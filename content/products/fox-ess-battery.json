@@ -10,10 +10,11 @@
     "It stores surplus solar during the day for use at night, and can provide standby power. Units can be used singly or in parallel."
   ],
   "image": {
-    "src": "/assets/images/pages/fox-ess-solar-battery.webp",
-    "alt": "Fox ESS Solar Battery home battery unit",
-    "width": 400,
-    "height": 380
+    "src": "/assets/images/products/fox-ess-battery.webp",
+    "alt": "Fox ESS stacked home battery with four white modules",
+    "width": 1000,
+    "height": 638,
+    "fit": "cover"
   },
   "highlights": [
     {

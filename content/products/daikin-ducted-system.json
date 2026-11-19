@@ -10,10 +10,11 @@
     "The 2024 range covers Premium Inverter, Inverter, Slimline and Bulkhead models from 2.5 kW to 24.0 kW, most using R32 refrigerant."
   ],
   "image": {
-    "src": "/assets/images/pages/daikin-multi-split-system.webp",
-    "alt": "Daikin indoor unit and outdoor unit",
-    "width": 262,
-    "height": 339
+    "src": "/assets/images/products/daikin-ducted-system.webp",
+    "alt": "Daikin wall-mounted indoor unit above a Daikin outdoor unit",
+    "width": 1000,
+    "height": 658,
+    "fit": "cover"
   },
   "highlights": [
     {
