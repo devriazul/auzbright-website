@@ -10,10 +10,11 @@
     "It is rated IP65 and has a quick-plug design for easier transport and installation."
   ],
   "image": {
-    "src": "/assets/images/pages/potis-edge-battery.webp",
-    "alt": "Potis Edge Battery stackable home battery",
-    "width": 400,
-    "height": 380
+    "src": "/assets/images/products/potis-edge-battery.webp",
+    "alt": "Potis Edge stacked home battery with a control unit on top",
+    "width": 1200,
+    "height": 766,
+    "fit": "cover"
   },
   "highlights": [
     {

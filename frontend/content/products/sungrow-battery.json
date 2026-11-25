@@ -10,10 +10,11 @@
     "Modules plug together without cables, and the battery can be extended later."
   ],
   "image": {
-    "src": "/assets/images/pages/sungrow-battery.webp",
-    "alt": "Sungrow Battery modular home battery",
-    "width": 400,
-    "height": 380
+    "src": "/assets/images/products/sungrow-battery.webp",
+    "alt": "Sungrow modular stacked home battery",
+    "width": 1200,
+    "height": 766,
+    "fit": "cover"
   },
   "highlights": [
     {

@@ -7,7 +7,7 @@
   "name": "Alpha ESS Battery",
   "tagline": "All-in-one inverter and battery systems for new or existing solar.",
   "warranty": "10 years warranty",
-  "image": "/assets/images/pages/alpha-ess-battery.webp",
+  "image": "/assets/images/products/alpha-ess-battery.webp",
   "brochure": true,
   "specs": 5
  },
@@ -223,7 +223,7 @@
   "name": "Potis Edge Battery",
   "tagline": "Stackable 48 V home battery, from 4.8 kWh to 19.2 kWh per stack.",
   "warranty": "10 years warranty",
-  "image": "/assets/images/pages/potis-edge-battery.webp",
+  "image": "/assets/images/products/potis-edge-battery.webp",
   "brochure": true,
   "specs": 7
  },
@@ -331,7 +331,7 @@
   "name": "Sungrow Battery",
   "tagline": "High-voltage LFP battery, expandable from 9.6 kWh to 25.6 kWh per unit.",
   "warranty": "10 years warranty",
-  "image": "/assets/images/pages/sungrow-battery.webp",
+  "image": "/assets/images/products/sungrow-battery.webp",
   "brochure": true,
   "specs": 8
  },

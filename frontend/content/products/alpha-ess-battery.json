@@ -10,10 +10,11 @@
     "Models suit new solar installations or adding storage to an existing system, with monitoring through AlphaCloud."
   ],
   "image": {
-    "src": "/assets/images/pages/alpha-ess-battery.webp",
-    "alt": "Alpha ESS Battery all-in-one home battery",
-    "width": 400,
-    "height": 380
+    "src": "/assets/images/products/alpha-ess-battery.webp",
+    "alt": "Alpha ESS all-in-one inverter and battery tower",
+    "width": 1200,
+    "height": 766,
+    "fit": "cover"
   },
   "highlights": [
     {

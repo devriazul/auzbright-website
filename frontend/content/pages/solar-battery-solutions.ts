@@ -81,11 +81,11 @@ const data: PageData = {
           ],
           badge: "10 years warranty",
           image: {
-            src: "/assets/images/pages/potis-edge-battery.webp",
-            alt: "Potis Edge stackable home battery",
-            width: 400,
-            height: 380,
-            fit: "contain",
+            src: "/assets/images/products/potis-edge-battery.webp",
+            alt: "Potis Edge stacked home battery with a control unit on top",
+            width: 1200,
+            height: 766,
+            fit: "cover",
           },
           links: [
             {
@@ -106,11 +106,11 @@ const data: PageData = {
           ],
           badge: "10 years warranty",
           image: {
-            src: "/assets/images/pages/sungrow-battery.webp",
-            alt: "Sungrow home battery",
-            width: 400,
-            height: 380,
-            fit: "contain",
+            src: "/assets/images/products/sungrow-battery.webp",
+            alt: "Sungrow modular stacked home battery",
+            width: 1200,
+            height: 766,
+            fit: "cover",
           },
           links: [
             {
@@ -131,11 +131,11 @@ const data: PageData = {
           ],
           badge: "10 years warranty",
           image: {
-            src: "/assets/images/pages/alpha-ess-battery.webp",
-            alt: "Alpha ESS home battery",
-            width: 400,
-            height: 380,
-            fit: "contain",
+            src: "/assets/images/products/alpha-ess-battery.webp",
+            alt: "Alpha ESS all-in-one inverter and battery tower",
+            width: 1200,
+            height: 766,
+            fit: "cover",
           },
           links: [
             {
@@ -157,9 +157,9 @@ const data: PageData = {
           badge: "10 years warranty",
           image: {
             src: "/assets/images/products/solax-battery.webp",
-            alt: "SolaX stacked home battery with five modules and a control unit",
-            width: 1000,
-            height: 638,
+            alt: "SolaX stacked home battery with a control unit",
+            width: 1200,
+            height: 766,
             fit: "cover",
           },
           links: [
@@ -183,8 +183,8 @@ const data: PageData = {
           image: {
             src: "/assets/images/products/goodwe-battery.webp",
             alt: "GoodWe stacked home battery with seven modules on a stand",
-            width: 1000,
-            height: 638,
+            width: 1200,
+            height: 766,
             fit: "cover",
           },
           links: [
@@ -207,9 +207,9 @@ const data: PageData = {
           badge: "10 years warranty",
           image: {
             src: "/assets/images/products/fox-ess-battery.webp",
-            alt: "Fox ESS stacked home battery with four white modules",
-            width: 1000,
-            height: 638,
+            alt: "Fox ESS stacked home battery with white modules",
+            width: 1200,
+            height: 766,
             fit: "cover",
           },
           links: [
@@ -233,8 +233,8 @@ const data: PageData = {
           image: {
             src: "/assets/images/products/anker-solix-battery.webp",
             alt: "Anker SOLIX home battery in a dark grey stacked cabinet",
-            width: 1000,
-            height: 639,
+            width: 1200,
+            height: 766,
             fit: "cover",
           },
           links: [
@@ -257,9 +257,9 @@ const data: PageData = {
           badge: "10 years warranty",
           image: {
             src: "/assets/images/products/sigenergy-battery.webp",
-            alt: "Sigenergy stacked home battery with five modules",
-            width: 1000,
-            height: 639,
+            alt: "Sigenergy stacked home battery",
+            width: 1200,
+            height: 766,
             fit: "cover",
           },
           links: [
@@ -282,9 +282,9 @@ const data: PageData = {
           badge: "10 years warranty",
           image: {
             src: "/assets/images/products/sofar-powerall.webp",
-            alt: "Sofar PowerAll stacked home battery with three modules",
-            width: 1000,
-            height: 639,
+            alt: "Sofar PowerAll stacked home battery",
+            width: 1200,
+            height: 766,
             fit: "cover",
           },
           links: [
@@ -308,8 +308,8 @@ const data: PageData = {
           image: {
             src: "/assets/images/products/hiconics-battery.webp",
             alt: "Hiconics home battery with a digital display",
-            width: 1000,
-            height: 638,
+            width: 1200,
+            height: 766,
             fit: "cover",
           },
           links: [
@@ -333,8 +333,8 @@ const data: PageData = {
           image: {
             src: "/assets/images/products/growatt-battery.webp",
             alt: "Growatt range of hybrid inverters and stacked home batteries",
-            width: 1000,
-            height: 638,
+            width: 1200,
+            height: 766,
             fit: "cover",
           },
           links: [
@@ -359,8 +359,8 @@ const data: PageData = {
           image: {
             src: "/assets/images/products/tesla-battery.webp",
             alt: "Two Tesla Powerwall home batteries side by side",
-            width: 1000,
-            height: 639,
+            width: 1200,
+            height: 766,
             fit: "cover",
           },
           links: [
