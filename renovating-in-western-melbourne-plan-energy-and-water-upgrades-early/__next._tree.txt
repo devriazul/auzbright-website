@@ -4,4 +4,4 @@
 :HL["/auzbright-website/assets/images/blog/renovating-in-western-melbourne-plan-energy-and-water-upgrades-early.webp","image"]
 2:[["children",{"s":"__PAGE__","h":160}]]
 1:[["children",{"s":{"n":"slug","t":"d","k":"renovating-in-western-melbourne-plan-energy-and-water-upgrades-early","s":["about","blogs","claim-warranty","contact","emerald-energy","enquire-now","ev-charger","faqs","installation","landing","led-lighting","nsw","privacy-policy","products","solar-battery-solutions","thank-you","victoria","water-filter"]},"h":65600,"c":"$Q2"}]]
-0:{"b":"T6_hmZ4g3wbw4_N8rM1EE","t":{"t":{"s":"","h":131088,"c":"$Q1"}}}
+0:{"b":"DIWy1oeK_Midh56hA0_Gd","t":{"t":{"s":"","h":131088,"c":"$Q1"}}}
