@@ -29,15 +29,15 @@ const ARROW = (
 );
 
 /** Photo when one is set in content/team.ts, otherwise the person's initials on a brand tone. */
-function Avatar({ m, i, size }: { m: Member; i: number; size: "lg" | "md" }) {
+function Photo({ m, i }: { m: Member; i: number }) {
   return (
-    <span className={`tm-av tm-av-${size} tm-tone-${i % 4}`} aria-hidden="true">
+    <div className={`tm-photo tm-tone-${i % 4}`} aria-hidden="true">
       {m.photo ? (
-        <img src={`${BASE}/assets/images/team/${m.photo}`} alt="" loading="lazy" decoding="async" width="480" height="480" />
+        <img src={`${BASE}/assets/images/team/${m.photo}`} alt="" loading="lazy" decoding="async" width="480" height="600" />
       ) : (
-        initials(m.name)
+        <span>{initials(m.name)}</span>
       )}
-    </span>
+    </div>
   );
 }
 
@@ -176,13 +176,11 @@ export default function Page() {
             </div>
             <ul className="g-3 tm-leads">
               {LEADERSHIP.map((m, i) => (
-                <li key={m.name} className={`tm-card tm-lead${i === 0 ? " is-feature" : ""}`}>
-                  <Avatar m={m} i={i} size="lg" />
+                <li key={m.name} className="tm-card tm-lead">
+                  <Photo m={m} i={i} />
                   <div className="tm-body">
-                    <p className="why-k">{m.role}</p>
                     <h3>{m.name}</h3>
-                    <p className="tm-bio">{m.bio}</p>
-                    {m.since && <p className="tm-since">{m.since}</p>}
+                    <p className="tm-role">{m.role}</p>
                   </div>
                 </li>
               ))}
@@ -220,26 +218,10 @@ export default function Page() {
             <ul className="g-4 tm-grid" aria-describedby="tm-count">
               {MEMBERS.map((m, i) => (
                 <li key={m.name} className="tm-card" data-dept={m.department ? deptKey(m.department) : undefined}>
-                  <Avatar m={m} i={i + 1} size="md" />
+                  <Photo m={m} i={i + 1 + Math.floor(i / 4)} />
                   <div className="tm-body">
                     <h3>{m.name}</h3>
                     <p className="tm-role">{m.role}</p>
-                    <p className="tm-bio">{m.bio}</p>
-                    {m.department && <span className="tm-dept">{m.department}</span>}
-                    {m.languages && m.languages.length > 0 && (
-                      <p className="tm-lang">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                          <path
-                            d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Z M3.6 9h16.8 M3.6 15h16.8 M12 3a14 14 0 0 1 0 18 M12 3a14 14 0 0 0 0 18"
-                            stroke="currentColor"
-                            strokeWidth="1.8"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                        </svg>
-                        Also speaks {m.languages.join(" and ")}
-                      </p>
-                    )}
                   </div>
                 </li>
               ))}

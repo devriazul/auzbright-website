@@ -104,7 +104,7 @@ Inside `frontend/`:
 | Homepage | `app/page.tsx` | |
 | Page not found | `app/not-found.tsx` | Branded 404 page with links to the eligibility check, products, About and FAQs |
 | About | `app/about/page.tsx` | Hero with the Sydney Home Show photo, key numbers (5,258 projects counts up), who we are with vision/mission/values cards, four-step process, why choose us, Victoria and NSW cards, careers and the eligibility call to action. Content is adapted from auzbright.com.au/about/ |
-| Our Team | `app/about/our-team/page.tsx` | Hero with the installer photo, key numbers (15 languages and 5,258 projects count up), three leadership cards, a team grid filtered by department, four "how we work" cards, a careers band and the eligibility call to action. People are listed in `content/team.ts`; cards show initials until a `photo` is set. **The names, roles and bios are sample data:** while `TEAM_IS_SAMPLE` is `true`, the page is `noindex` and left out of `sitemap.xml`. The header's About menu and the footer's "Our Team" link point here |
+| Our Team | `app/about/our-team/page.tsx` | Hero with the installer photo, key numbers (15 languages and 5,258 projects count up), three leadership cards and a team grid filtered by department (each card shows only a photo, name and role), four "how we work" cards, a careers band and the eligibility call to action. People are listed in `content/team.ts`; each card's `photo` (portrait, 4:5, in `public/assets/images/team/`) is currently a stock placeholder (`placeholder-*.webp`, see [Our Team placeholder photos](#our-team-placeholder-photos)); without a photo a card shows initials. **The names, roles and bios are sample data:** while `TEAM_IS_SAMPLE` is `true`, the page is `noindex` and left out of `sitemap.xml`. The header's About menu and the footer's "Our Team" link point here |
 | Contact Us | `app/contact/page.tsx` | Hero, four contact cards (call, email, office, chat), enquiry form, office details and quick links |
 | Blog list | `app/blogs/page.tsx`, `app/blogs/page/[page]/page.tsx` | Posts newest first, in pages: `/blogs/`, then `/blogs/page/2/` and so on |
 | Blog posts | `app/[slug]/page.tsx` | 29 posts at the site root, for example `/heat-pump-hot-water/` |
@@ -377,6 +377,28 @@ The Events section uses four photos from Auzbright's LinkedIn post "Auzbright at
 | `event-sydney-solar-battery.webp` | Stand screen: solar and battery package |
 
 The LinkedIn images are only 800px wide, so they may look slightly soft on high-density screens. Replace them with the original camera files when available.
+
+### Our Team placeholder photos
+
+The Our Team cards use stock portraits from [Unsplash](https://unsplash.com/license) as placeholders, so the design can be reviewed with photos. **These people do not work at Auzbright.** Replace every `placeholder-*.webp` in `public/assets/images/team/` with the real staff photo (portrait, 4:5, at least 480×600) before launch, and update `photo` in `content/team.ts`. The Unsplash License allows free use without attribution; the credits are kept here anyway.
+
+| File | Photographer | Source |
+| --- | --- | --- |
+| `placeholder-alex-morgan.webp` | Md Ishak Rahman | [unsplash.com/photos/gsxSEDbyzsE](https://unsplash.com/photos/gsxSEDbyzsE) |
+| `placeholder-priya-sharma.webp` | Jonathan Borba | [unsplash.com/photos/4mUk_DFImbI](https://unsplash.com/photos/4mUk_DFImbI) |
+| `placeholder-daniel-nguyen.webp` | Raymond Owusu-Afriyie | [unsplash.com/photos/cdf2N6T4SPY](https://unsplash.com/photos/cdf2N6T4SPY) |
+| `placeholder-sarah-mitchell.webp` | Troy Spoelma | [unsplash.com/photos/EV8PPQG6zxY](https://unsplash.com/photos/EV8PPQG6zxY) |
+| `placeholder-omar-haddad.webp` | itay verchik | Unsplash (photo-1600878459138-e1123b37cb30) |
+| `placeholder-mei-lin-chen.webp` | Clay Elliot | [unsplash.com/photos/mpDV4xaFP8c](https://unsplash.com/photos/mpDV4xaFP8c) |
+| `placeholder-james-o-connor.webp` | Tony Luginsland | [unsplash.com/photos/bbOOTiq-EPA](https://unsplash.com/photos/bbOOTiq-EPA) |
+| `placeholder-ravi-patel.webp` | Kazi Mizan | [unsplash.com/photos/6ODbpeBcBHY](https://unsplash.com/photos/6ODbpeBcBHY) |
+| `placeholder-lucy-tran.webp` | Joecalih | [unsplash.com/photos/1l6UeCc9P9o](https://unsplash.com/photos/1l6UeCc9P9o) |
+| `placeholder-ben-walker.webp` | LinkedIn Sales Solutions | [unsplash.com/photos/pAtA8xe_iVM](https://unsplash.com/photos/pAtA8xe_iVM) |
+| `placeholder-marco-rossi.webp` | Sophie Paterson | [unsplash.com/photos/SZ5mK2PXNDM](https://unsplash.com/photos/SZ5mK2PXNDM) |
+| `placeholder-ahmed-rahman.webp` | Willian Souza | [unsplash.com/photos/p5BoBF0XJUA](https://unsplash.com/photos/p5BoBF0XJUA) |
+| `placeholder-emily-clarke.webp` | Md Ishak Rahman | [unsplash.com/photos/14sDcYjYl9Q](https://unsplash.com/photos/14sDcYjYl9Q) |
+| `placeholder-hassan-ali.webp` | Olawale Munna | [unsplash.com/photos/qpyR0WKV_Cs](https://unsplash.com/photos/qpyR0WKV_Cs) |
+| `placeholder-sophie-williams.webp` | arthur henrique | [unsplash.com/photos/SLd8M9knkGc](https://unsplash.com/photos/SLd8M9knkGc) |
 
 ### Partner logos
 
