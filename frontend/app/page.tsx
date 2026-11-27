@@ -1258,10 +1258,10 @@ export default function Page() {
                   loading="lazy"
                   fetchPriority="low"
                   decoding="async"
-                  src={`${BASE}/assets/images/heat-pump-plumbing-gauges.webp`}
-                  alt="Heat pump plumbing with pressure gauges and valves"
+                  src={`${BASE}/assets/images/rebates-incentives.webp`}
+                  alt="Victorian Energy Upgrades, NSW Energy Savings Scheme and Cheaper Home Batteries Program above a modern home, with stacked coins and an approved upgrade document"
                 />{" "}
-                <span className="lab">Approved products, installed to standard</span>
+                <span className="lab">VEU · ESS · Cheaper Home Batteries</span>
               </div>
             </div>
             <div className="g-4 steps">
