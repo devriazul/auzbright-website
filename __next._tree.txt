@@ -1,6 +1,6 @@
 :HL["https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap","style"]
 :HL["/auzbright-website/assets/css/styles.css","style"]
 :HL["/auzbright-website/assets/images/auzbright-logo-reversed.png","image"]
-:HL["/auzbright-website/assets/images/hero-family.webp","image",{"fetchPriority":"high","imageSrcSet":"/auzbright-website/assets/images/hero-family-480.webp 480w, /auzbright-website/assets/images/hero-family-800.webp 800w, /auzbright-website/assets/images/hero-family.webp 1024w","imageSizes":"(max-width: 620px) calc(100vw - 40px), (max-width: 1100px) calc(100vw - 80px), 620px"}]
+:HL["/auzbright-website/assets/images/hero-slide-home-1200.webp","image",{"fetchPriority":"high","imageSrcSet":"/auzbright-website/assets/images/hero-slide-home-480.webp 480w, /auzbright-website/assets/images/hero-slide-home-800.webp 800w, /auzbright-website/assets/images/hero-slide-home-1200.webp 1200w","imageSizes":"(max-width: 620px) calc(100vw - 40px), (max-width: 1100px) calc(100vw - 80px), 620px"}]
 1:[["children",{"s":"__PAGE__","h":128}]]
-0:{"b":"i-CWaFshOKywMlTepW3VI","t":{"t":{"s":"","h":16,"c":"$Q1"}}}
+0:{"b":"iWVtGMzp9QbSnGwNm0Hc9","t":{"t":{"s":"","h":16,"c":"$Q1"}}}

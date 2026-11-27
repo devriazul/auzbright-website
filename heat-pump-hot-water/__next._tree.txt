@@ -4,4 +4,4 @@
 :HL["/auzbright-website/assets/images/blog/heat-pump-hot-water.webp","image"]
 2:[["children",{"s":"__PAGE__","h":160}]]
 1:[["children",{"s":{"n":"slug","t":"d","k":"heat-pump-hot-water","s":["about","blogs","claim-warranty","contact","emerald-energy","enquire-now","ev-charger","faqs","installation","landing","led-lighting","nsw","privacy-policy","products","solar-battery-solutions","thank-you","victoria","water-filter"]},"h":65600,"c":"$Q2"}]]
-0:{"b":"i-CWaFshOKywMlTepW3VI","t":{"t":{"s":"","h":131088,"c":"$Q1"}}}
+0:{"b":"iWVtGMzp9QbSnGwNm0Hc9","t":{"t":{"s":"","h":131088,"c":"$Q1"}}}
