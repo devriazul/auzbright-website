@@ -283,7 +283,7 @@
   "name": "10kW solar system",
   "tagline": "Matched with a 20kWh battery: the sweet spot for families.",
   "warranty": null,
-  "image": "/assets/images/pages/alpha-ess-battery2-1.webp",
+  "image": "/assets/images/products/solar-system.webp",
   "brochure": false,
   "specs": 5
  },
@@ -295,7 +295,7 @@
   "name": "13.5kW solar system",
   "tagline": "Solar with battery storage for serious energy independence.",
   "warranty": null,
-  "image": "/assets/images/pages/alpha-ess-battery2-1.webp",
+  "image": "/assets/images/products/solar-system.webp",
   "brochure": false,
   "specs": 4
  },
@@ -307,7 +307,7 @@
   "name": "6.6kW solar system",
   "tagline": "Paired with a 15kWh battery: the perfect starter solution.",
   "warranty": null,
-  "image": "/assets/images/pages/alpha-ess-battery2-1.webp",
+  "image": "/assets/images/products/solar-system.webp",
   "brochure": false,
   "specs": 5
  },

@@ -84,7 +84,7 @@ const data: PageData = {
             src: "/assets/images/products/potis-edge-battery.webp",
             alt: "Potis Edge stacked home battery with a control unit on top",
             width: 1200,
-            height: 766,
+            height: 789,
             fit: "cover",
           },
           links: [
@@ -109,7 +109,7 @@ const data: PageData = {
             src: "/assets/images/products/sungrow-battery.webp",
             alt: "Sungrow modular stacked home battery",
             width: 1200,
-            height: 766,
+            height: 789,
             fit: "cover",
           },
           links: [
@@ -134,7 +134,7 @@ const data: PageData = {
             src: "/assets/images/products/alpha-ess-battery.webp",
             alt: "Alpha ESS all-in-one inverter and battery tower",
             width: 1200,
-            height: 766,
+            height: 791,
             fit: "cover",
           },
           links: [
@@ -159,7 +159,7 @@ const data: PageData = {
             src: "/assets/images/products/solax-battery.webp",
             alt: "SolaX stacked home battery with a control unit",
             width: 1200,
-            height: 766,
+            height: 789,
             fit: "cover",
           },
           links: [
@@ -184,7 +184,7 @@ const data: PageData = {
             src: "/assets/images/products/goodwe-battery.webp",
             alt: "GoodWe stacked home battery with seven modules on a stand",
             width: 1200,
-            height: 766,
+            height: 789,
             fit: "cover",
           },
           links: [
@@ -209,7 +209,7 @@ const data: PageData = {
             src: "/assets/images/products/fox-ess-battery.webp",
             alt: "Fox ESS stacked home battery with white modules",
             width: 1200,
-            height: 766,
+            height: 789,
             fit: "cover",
           },
           links: [
@@ -234,7 +234,7 @@ const data: PageData = {
             src: "/assets/images/products/anker-solix-battery.webp",
             alt: "Anker SOLIX home battery in a dark grey stacked cabinet",
             width: 1200,
-            height: 766,
+            height: 791,
             fit: "cover",
           },
           links: [
@@ -259,7 +259,7 @@ const data: PageData = {
             src: "/assets/images/products/sigenergy-battery.webp",
             alt: "Sigenergy stacked home battery",
             width: 1200,
-            height: 766,
+            height: 789,
             fit: "cover",
           },
           links: [
@@ -284,7 +284,7 @@ const data: PageData = {
             src: "/assets/images/products/sofar-powerall.webp",
             alt: "Sofar PowerAll stacked home battery",
             width: 1200,
-            height: 766,
+            height: 789,
             fit: "cover",
           },
           links: [
@@ -309,7 +309,7 @@ const data: PageData = {
             src: "/assets/images/products/hiconics-battery.webp",
             alt: "Hiconics home battery with a digital display",
             width: 1200,
-            height: 766,
+            height: 789,
             fit: "cover",
           },
           links: [
@@ -334,7 +334,7 @@ const data: PageData = {
             src: "/assets/images/products/growatt-battery.webp",
             alt: "Growatt range of hybrid inverters and stacked home batteries",
             width: 1200,
-            height: 766,
+            height: 789,
             fit: "cover",
           },
           links: [
@@ -360,7 +360,7 @@ const data: PageData = {
             src: "/assets/images/products/tesla-battery.webp",
             alt: "Two Tesla Powerwall home batteries side by side",
             width: 1200,
-            height: 766,
+            height: 789,
             fit: "cover",
           },
           links: [
@@ -388,11 +388,11 @@ const data: PageData = {
             "Tier 1 battery manufacturer with 10-year warranty",
           ],
           image: {
-            src: "/assets/images/pages/alpha-ess-battery2-1.webp",
-            alt: "Solar panels with a hybrid inverter",
-            width: 570,
-            height: 380,
-            fit: "contain",
+            src: "/assets/images/products/solar-system.webp",
+            alt: "6.6kW solar system: hybrid inverter in front of solar panels",
+            width: 1200,
+            height: 789,
+            fit: "cover",
           },
           links: [
             {
@@ -412,11 +412,11 @@ const data: PageData = {
             "Tier 1 battery manufacturer with 10-year warranty",
           ],
           image: {
-            src: "/assets/images/pages/alpha-ess-battery2-1.webp",
-            alt: "Solar panels with a hybrid inverter",
-            width: 570,
-            height: 380,
-            fit: "contain",
+            src: "/assets/images/products/solar-system.webp",
+            alt: "10kW solar system: hybrid inverter in front of solar panels",
+            width: 1200,
+            height: 789,
+            fit: "cover",
           },
           links: [
             {
@@ -436,11 +436,11 @@ const data: PageData = {
             "Supported by local Australian service and payment plans",
           ],
           image: {
-            src: "/assets/images/pages/alpha-ess-battery2-1.webp",
-            alt: "Solar panels with a hybrid inverter",
-            width: 570,
-            height: 380,
-            fit: "contain",
+            src: "/assets/images/products/solar-system.webp",
+            alt: "13.5kW solar system: hybrid inverter in front of solar panels",
+            width: 1200,
+            height: 789,
+            fit: "cover",
           },
           links: [
             {

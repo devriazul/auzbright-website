@@ -59,8 +59,8 @@ const data: PageData = {
           image: {
             src: "/assets/images/products/ecogenica-r215.webp",
             alt: "Ecogenica hot water tank with a separate outdoor heat pump unit",
-            width: 1000,
-            height: 656,
+            width: 1200,
+            height: 789,
             fit: "cover",
           },
         },
@@ -72,8 +72,8 @@ const data: PageData = {
           image: {
             src: "/assets/images/products/ecogenica-r290.webp",
             alt: "Ecogenica hot water tank with a separate outdoor heat pump unit",
-            width: 1000,
-            height: 656,
+            width: 1200,
+            height: 789,
             fit: "cover",
           },
         },

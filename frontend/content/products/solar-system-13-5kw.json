@@ -9,10 +9,11 @@
     "A 13.5kW solar system using Jinko or Canadian Solar panels, supplied with battery storage. It is our largest package, for serious energy independence."
   ],
   "image": {
-    "src": "/assets/images/pages/alpha-ess-battery2-1.webp",
-    "alt": "13.5kW solar system with Jinko or Canadian Solar panels",
-    "width": 570,
-    "height": 380
+    "src": "/assets/images/products/solar-system.webp",
+    "alt": "13.5kW solar system: hybrid inverter in front of solar panels",
+    "width": 1200,
+    "height": 789,
+    "fit": "cover"
   },
   "highlights": [
     {

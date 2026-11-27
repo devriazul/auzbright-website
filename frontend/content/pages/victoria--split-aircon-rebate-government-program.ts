@@ -78,7 +78,7 @@ const data: PageData = {
             src: "/assets/images/products/rinnai-multi-head-system.webp",
             alt: "Rinnai outdoor unit connected to four wall-mounted indoor units",
             width: 1200,
-            height: 789,
+            height: 791,
             fit: "cover",
           },
           links: [{ label: "Product brochure", href: "/assets/docs/rinnai-multi-head-system.pdf" }],

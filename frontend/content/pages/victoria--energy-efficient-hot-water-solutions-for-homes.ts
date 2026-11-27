@@ -61,8 +61,8 @@ const data: PageData = {
           image: {
             src: "/assets/images/products/emerald-270l-all-in-one.webp",
             alt: "White Emerald Energy 270L all-in-one heat pump hot water system",
-            width: 1000,
-            height: 658,
+            width: 1200,
+            height: 789,
             fit: "cover",
           },
           links: [
@@ -82,8 +82,8 @@ const data: PageData = {
           image: {
             src: "/assets/images/products/emerald-energy-r290.webp",
             alt: "Grey Emerald Energy R290 all-in-one heat pump hot water system",
-            width: 1000,
-            height: 658,
+            width: 1200,
+            height: 789,
             fit: "cover",
           },
           links: [
@@ -100,8 +100,8 @@ const data: PageData = {
           image: {
             src: "/assets/images/products/econova-heat-pump.webp",
             alt: "Dark grey ECONOVA all-in-one heat pump hot water system",
-            width: 1000,
-            height: 638,
+            width: 1200,
+            height: 789,
             fit: "cover",
           },
           links: [{ label: "Product brochure", href: "/assets/docs/econova-latest-version.pdf" }],
@@ -121,8 +121,8 @@ const data: PageData = {
           image: {
             src: "/assets/images/products/neopower-315l-all-in-one.webp",
             alt: "Two black Neopower 315L all-in-one heat pump hot water systems",
-            width: 1000,
-            height: 637,
+            width: 1200,
+            height: 789,
             fit: "cover",
           },
           links: [
@@ -144,8 +144,8 @@ const data: PageData = {
           image: {
             src: "/assets/images/products/midea-280l-all-in-one.webp",
             alt: "Two white Midea 280L all-in-one heat pump hot water systems",
-            width: 1000,
-            height: 638,
+            width: 1200,
+            height: 789,
             fit: "cover",
           },
           links: [{ label: "Product brochure", href: "/assets/docs/midea-residential-heat-pump-brochures.pdf" }],

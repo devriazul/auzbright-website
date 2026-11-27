@@ -9,10 +9,11 @@
     "A 6.6kW solar system using Jinko or Canadian Solar panels, paired with a 15kWh battery. It is our starter package."
   ],
   "image": {
-    "src": "/assets/images/pages/alpha-ess-battery2-1.webp",
-    "alt": "6.6kW solar system with Jinko or Canadian Solar panels",
-    "width": 570,
-    "height": 380
+    "src": "/assets/images/products/solar-system.webp",
+    "alt": "6.6kW solar system: hybrid inverter in front of solar panels",
+    "width": 1200,
+    "height": 789,
+    "fit": "cover"
   },
   "highlights": [
     {
